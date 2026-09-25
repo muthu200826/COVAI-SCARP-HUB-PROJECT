@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Business Enquiry | Covai Scrap Hub</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    color:#fff;
+
+    background:
+        linear-gradient(
+            rgba(2,8,4,.90),
+            rgba(2,8,4,.97)
+        ),
+        url("lap.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+:root{
+    --green:#22c55e;
+    --dark-green:#087536;
+    --light-green:#86efac;
+    --muted:#9ca7a0;
+    --border:rgba(255,255,255,.13);
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    width:100%;
+    min-height:68px;
+
+    padding:10px 5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(34,197,94,.25);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:44px;
+    height:44px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+    border:2px solid #fff;
+}
+
+.logo-text h2{
+    font-size:21px;
+    font-weight:700;
+}
+
+.logo-text h2 span{
+    color:var(--green);
+}
+
+.logo-text p{
+    font-size:9px;
+    color:#aeb6b1;
+}
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    color:#fff;
+    text-decoration:none;
+
+    font-size:11px;
+    font-weight:600;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    background:rgba(255,255,255,.06);
+
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#fff;
+    color:#111;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page{
+    width:100%;
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:42px 20px 100px;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.page-header{
+    max-width:760px;
+
+    margin:0 auto 32px;
+
+    text-align:center;
+}
+
+.page-badge{
+    display:inline-flex;
+    align-items:center;
+
+    padding:7px 14px;
+
+    margin-bottom:14px;
+
+    border-radius:30px;
+
+    color:var(--light-green);
+
+    background:rgba(34,197,94,.1);
+
+    border:1px solid rgba(34,197,94,.3);
+
+    font-size:10px;
+    font-weight:600;
+}
+
+.page-header h1{
+    font-size:42px;
+    line-height:1.15;
+
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+.page-header h1 span{
+    color:var(--green);
+}
+
+.page-header p{
+    color:#b9c1bc;
+
+    font-size:13px;
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   CONTENT GRID
+===================================================== */
+
+.content-grid{
+    display:grid;
+
+    grid-template-columns:.85fr 1.4fr;
+
+    gap:24px;
+
+    align-items:start;
+}
+
+
+/* =====================================================
+   INFO CARD
+===================================================== */
+
+.info-card{
+    padding:27px;
+
+    border-radius:21px;
+
+    background:rgba(0,0,0,.48);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.info-card h2{
+    font-size:21px;
+    margin-bottom:9px;
+}
+
+.info-card > p{
+    color:var(--muted);
+
+    font-size:12px;
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+.benefit{
+    display:flex;
+    align-items:flex-start;
+
+    gap:11px;
+
+    margin-bottom:16px;
+}
+
+.benefit-icon{
+    width:35px;
+    height:35px;
+
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    color:var(--green);
+
+    background:rgba(34,197,94,.1);
+
+    border:1px solid rgba(34,197,94,.2);
+
+    font-size:15px;
+}
+
+.benefit h4{
+    font-size:12px;
+    margin-bottom:3px;
+}
+
+.benefit p{
+    color:#89938d;
+
+    font-size:10px;
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-mini{
+    margin-top:22px;
+
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+.contact-mini-title{
+    color:#89928c;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:11px;
+}
+
+.contact-row{
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:9px;
+}
+
+.contact-row-icon{
+    color:var(--green);
+}
+
+.contact-row a{
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:11px;
+}
+
+.contact-row a:hover{
+    color:var(--green);
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card{
+    padding:27px;
+
+    border-radius:21px;
+
+    background:rgba(255,255,255,.065);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.form-title{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:20px;
+}
+
+.form-title h2{
+    font-size:20px;
+}
+
+.required-note{
+    color:#78837c;
+
+    font-size:9px;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.form-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+}
+
+.form-group{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    color:#d9dfdc;
+
+    font-size:10px;
+
+    font-weight:500;
+}
+
+.form-group label span{
+    color:#f87171;
+}
+
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+
+    width:100%;
+
+    padding:11px 12px;
+
+    border-radius:9px;
+
+    outline:none;
+
+    border:1px solid rgba(255,255,255,.13);
+
+    background:rgba(0,0,0,.3);
+
+    color:#fff;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:11px;
+
+    transition:.25s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#626c66;
+}
+
+.form-group select option{
+    background:#111;
+    color:#fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 0 3px rgba(34,197,94,.08);
+}
+
+.form-group textarea{
+    min-height:100px;
+
+    resize:vertical;
+}
+
+
+/* =====================================================
+   QUANTITY
+===================================================== */
+
+.quantity-row{
+    display:grid;
+
+    grid-template-columns:1fr 100px;
+
+    gap:7px;
+}
+
+
+/* =====================================================
+   SUBMIT BUTTON
+===================================================== */
+
+.submit-btn{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:13px;
+
+    border:0;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #149447
+        );
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 8px 22px rgba(34,197,94,.2);
+
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(34,197,94,.35);
+}
+
+.submit-btn:disabled{
+    opacity:.65;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+.form-note{
+    text-align:center;
+
+    color:#6e7972;
+
+    font-size:8px;
+
+    margin-top:9px;
+
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   SUCCESS POPUP
+===================================================== */
+
+.success-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+}
+
+.success-overlay.show{
+    display:flex;
+}
+
+.success-popup{
+
+    width:100%;
+
+    max-width:390px;
+
+    padding:30px 25px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #101914,
+            #07110b
+        );
+
+    border:1px solid rgba(34,197,94,.4);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.65);
+}
+
+.success-icon{
+
+    width:65px;
+    height:65px;
+
+    margin:0 auto 15px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #22c55e,
+            #087536
+        );
+
+    font-size:30px;
+}
+
+.success-popup h2{
+    font-size:21px;
+
+    margin-bottom:8px;
+}
+
+.success-popup h2 span{
+    color:var(--green);
+}
+
+.success-popup p{
+    color:#aeb8b1;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    margin-bottom:20px;
+}
+
+.close-popup{
+
+    border:0;
+
+    cursor:pointer;
+
+    padding:10px 24px;
+
+    border-radius:30px;
+
+    background:var(--green);
+
+    color:#fff;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.close-popup:hover{
+    background:#16a34a;
+
+    transform:translateY(-1px);
+}
+
+
+/* =====================================================
+   ERROR MESSAGE
+===================================================== */
+
+.firebase-error{
+
+    display:none;
+
+    margin-top:12px;
+
+    padding:10px 12px;
+
+    border-radius:9px;
+
+    color:#fecaca;
+
+    background:rgba(239,68,68,.10);
+
+    border:1px solid rgba(239,68,68,.25);
+
+    font-size:9px;
+
+    line-height:1.5;
+
+}
+
+.firebase-error.show{
+    display:block;
+}
+
+
+/* =====================================================
+   SUPPORT BAR
+===================================================== */
+
+.bottom-support{
+
+    position:fixed;
+
+    left:0;
+    bottom:0;
+
+    z-index:999;
+
+    width:100%;
+
+    min-height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:70px;
+
+    padding:6px 15px;
+
+    background:rgba(0,0,0,.96);
+
+    border-top:1px solid rgba(34,197,94,.55);
+
+    box-shadow:
+        0 -4px 18px rgba(0,0,0,.4);
+}
+
+.support-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.support-icon{
+
+    width:25px;
+    height:25px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:var(--green);
+
+    background:rgba(34,197,94,.1);
+
+    font-size:12px;
+}
+
+.support-text{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+.support-text h4{
+
+    color:#aeb6b1;
+
+    font-size:10px;
+
+    font-weight:500;
+}
+
+.support-text a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:11px;
+
+    font-weight:600;
+}
+
+.support-text a:hover{
+    color:var(--green);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+    body{
+
+        background:
+            linear-gradient(
+                rgba(2,8,4,.92),
+                rgba(2,8,4,.98)
+            ),
+            url("mobile.jpeg");
+
+        background-size:cover;
+
+        background-position:center;
+
+        background-attachment:fixed;
+    }
+
+    .navbar{
+
+        min-height:59px;
+
+        padding:8px 4%;
+    }
+
+    .logo img{
+
+        width:38px;
+        height:38px;
+    }
+
+    .logo-text h2{
+
+        font-size:17px;
+    }
+
+    .logo-text p{
+        display:none;
+    }
+
+    .back-btn{
+
+        padding:7px 11px;
+
+        font-size:9px;
+    }
+
+    .page{
+
+        padding:27px 12px 80px;
+    }
+
+    .page-header{
+
+        margin-bottom:20px;
+    }
+
+    .page-badge{
+
+        padding:6px 10px;
+
+        font-size:8px;
+    }
+
+    .page-header h1{
+
+        font-size:29px;
+    }
+
+    .page-header p{
+
+        font-size:10px;
+
+        line-height:1.6;
+    }
+
+    .content-grid{
+
+        grid-template-columns:1fr;
+
+        gap:14px;
+    }
+
+    .info-card{
+
+        padding:19px;
+
+        border-radius:17px;
+    }
+
+    .info-card h2{
+
+        font-size:17px;
+    }
+
+    .info-card > p{
+
+        font-size:10px;
+
+        margin-bottom:16px;
+    }
+
+    .benefit{
+
+        margin-bottom:12px;
+    }
+
+    .benefit-icon{
+
+        width:30px;
+        height:30px;
+
+        font-size:12px;
+    }
+
+    .benefit h4{
+
+        font-size:10px;
+    }
+
+    .benefit p{
+
+        font-size:8px;
+    }
+
+    .form-card{
+
+        padding:18px;
+
+        border-radius:17px;
+    }
+
+    .form-title{
+
+        margin-bottom:15px;
+    }
+
+    .form-title h2{
+
+        font-size:16px;
+    }
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+        gap:11px;
+    }
+
+    .form-group.full{
+
+        grid-column:auto;
+    }
+
+    .form-group label{
+
+        font-size:9px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+
+        padding:10px;
+
+        font-size:10px;
+    }
+
+    .quantity-row{
+
+        grid-template-columns:1fr 85px;
+    }
+
+    .submit-btn{
+
+        padding:12px;
+
+        font-size:11px;
+    }
+
+    .bottom-support{
+
+        min-height:48px;
+
+        gap:8px;
+
+        padding:4px 5px;
+    }
+
+    .support-box{
+
+        flex:1;
+
+        justify-content:center;
+
+        gap:4px;
+
+        min-width:0;
+    }
+
+    .support-icon{
+
+        width:21px;
+        height:21px;
+
+        font-size:9px;
+    }
+
+    .support-text{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:1px;
+    }
+
+    .support-text h4{
+
+        font-size:7px;
+
+        line-height:1.1;
+    }
+
+    .support-text a{
+
+        font-size:8px;
+
+        line-height:1.1;
+
+        white-space:nowrap;
+    }
+
+    .success-popup{
+
+        max-width:340px;
+
+        padding:27px 20px;
+    }
+
+    .success-icon{
+
+        width:58px;
+        height:58px;
+
+        font-size:26px;
+    }
+
+    .success-popup h2{
+
+        font-size:18px;
+    }
+
+    .success-popup p{
+
+        font-size:10px;
+    }
+
+}
+
+
+/* SMALL MOBILE */
+
+@media(max-width:380px){
+
+    .logo-text h2{
+        font-size:15px;
+    }
+
+    .back-btn{
+        padding:6px 9px;
+        font-size:8px;
+    }
+
+    .page-header h1{
+        font-size:26px;
+    }
+
+    .support-text a{
+        font-size:7px;
+    }
+
+}
+
+/* =====================================================
+   DOWNLOAD APP POPUP
+===================================================== */
+
+.download-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.download-popup-overlay.show {
+    display: flex;
+}
+
+.download-popup {
+    position: relative;
+    width: 90%;
+    max-width: 340px;
+    background: linear-gradient(145deg, #0a1f12, #0f2e1a);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(16, 185, 129, 0.3);
+    text-align: center;
+    animation: popupSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.download-popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-popup-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    transform: rotate(90deg);
+}
+
+.download-popup-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    animation: bounce 2s infinite;
+}
+
+.download-popup h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.download-popup p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.download-popup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+.download-popup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.5);
+}
+
+.download-popup-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popupSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .download-popup {
+        max-width: 280px;
+        width: 85%;
+        padding: 24px 18px;
+    }
+
+    .download-popup-icon {
+        font-size: 42px;
+        margin-bottom: 12px;
+    }
+
+    .download-popup h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .download-popup p {
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+
+    .download-popup-btn {
+        padding: 11px 20px;
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .download-popup-close {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <img
+            src="logo.jpeg"
+            alt="Covai Scrap Hub"
+        >
+
+        <div class="logo-text">
+
+            <h2>
+                Covai <span>Scrap Hub</span>
+            </h2>
+
+            <p>
+                Smart Scrap Selling Platform
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Back to Home
+    </a>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="page">
+
+
+    <!-- HEADER -->
+
+    <section class="page-header">
+
+        <div class="page-badge">
+            🏢 BUSINESS PARTNERSHIP
+        </div>
+
+        <h1>
+            Business <span>Enquiry</span>
+        </h1>
+
+        <p>
+            Have bulk scrap from your business?
+            Partner with Covai Scrap Hub for reliable pickup,
+            accurate weighing and transparent pricing.
+        </p>
+
+    </section>
+
+
+
+    <!-- CONTENT -->
+
+    <div class="content-grid">
+
+
+        <!-- =================================================
+             INFORMATION
+        ================================================= -->
+
+        <div class="info-card">
+
+            <h2>
+                Partner With Covai Scrap Hub
+            </h2>
+
+            <p>
+                We help businesses responsibly sell and recycle
+                scrap while making collection simple,
+                professional and transparent.
+            </p>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ⚖
+                </div>
+
+                <div>
+
+                    <h4>
+                        Accurate Weighing
+                    </h4>
+
+                    <p>
+                        Transparent and reliable weight measurement.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h4>
+                        Fair Market Pricing
+                    </h4>
+
+                    <p>
+                        Competitive prices for your scrap materials.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    🚚
+                </div>
+
+                <div>
+
+                    <h4>
+                        Convenient Pickup
+                    </h4>
+
+                    <p>
+                        Pickup from your office, shop,
+                        factory or warehouse.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    ♻
+                </div>
+
+                <div>
+
+                    <h4>
+                        Responsible Recycling
+                    </h4>
+
+                    <p>
+                        Help reduce waste through responsible recycling.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div class="contact-mini">
+
+                <div class="contact-mini-title">
+                    Direct Business Support
+                </div>
+
+
+                <div class="contact-row">
+
+                    <div class="contact-row-icon">
+                        📞
+                    </div>
+
+                    <a href="tel:+919514252104">
+                        +91 95142 52104
+                    </a>
+
+                </div>
+
+
+                <div class="contact-row">
+
+                    <div class="contact-row-icon">
+                        ✉
+                    </div>
+
+                    <a href="mailto:covaiscrabehub@gmail.com">
+                        covaiscrabehub@gmail.com
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FORM
+        ================================================= -->
+
+        <div class="form-card">
+
+            <div class="form-title">
+
+                <h2>
+                    Send Your Enquiry
+                </h2>
+
+                <span class="required-note">
+                    * Required
+                </span>
+
+            </div>
+
+
+            <form id="businessForm">
+
+                <div class="form-grid">
+
+
+                    <!-- BUSINESS NAME -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Business Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="businessName"
+                            placeholder="Enter business name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CONTACT PERSON -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Contact Person <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="contactPerson"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Mobile Number <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="+91 XXXXX XXXXX"
+                            inputmode="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="business@example.com"
+                        >
+
+                    </div>
+
+
+                    <!-- BUSINESS TYPE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Business Type <span>*</span>
+                        </label>
+
+                        <select
+                            id="businessType"
+                            required
+                        >
+
+                            <option value="">
+                                Select business type
+                            </option>
+
+                            <option>Office</option>
+                            <option>Factory</option>
+                            <option>Shop</option>
+                            <option>School / College</option>
+                            <option>Apartment</option>
+                            <option>Hotel / Restaurant</option>
+                            <option>Hospital</option>
+                            <option>Construction</option>
+                            <option>Warehouse</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- SCRAP TYPE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Scrap Type <span>*</span>
+                        </label>
+
+                        <select
+                            id="scrapType"
+                            required
+                        >
+
+                            <option value="">
+                                Select scrap type
+                            </option>
+
+                            <option>Paper</option>
+                            <option>Cardboard</option>
+                            <option>Plastic</option>
+                            <option>Metal</option>
+                            <option>E-Waste</option>
+                            <option>Mixed Scrap</option>
+                            <option>Other</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- QUANTITY -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Approximate Quantity
+                        </label>
+
+                        <div class="quantity-row">
+
+                            <input
+                                type="number"
+                                id="quantity"
+                                min="0"
+                                step="0.01"
+                                placeholder="Example: 500"
+                            >
+
+                            <select id="unit">
+
+                                <option>Kg</option>
+                                <option>Ton</option>
+                                <option>Pieces</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PICKUP DATE -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Preferred Pickup Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="pickupDate"
+                        >
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div class="form-group full">
+
+                        <label>
+                            Pickup Location <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="Enter complete pickup location"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- MESSAGE -->
+
+                    <div class="form-group full">
+
+                        <label>
+                            Additional Requirements
+                        </label>
+
+                        <textarea
+                            id="message"
+                            placeholder="Tell us about your scrap or special requirements..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ERROR -->
+
+                <div
+                    class="firebase-error"
+                    id="firebaseError"
+                ></div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitButton"
+                >
+                    ♻ Submit Business Enquiry
+                </button>
+
+
+                <div class="form-note">
+
+                    Your enquiry will be securely saved to
+                    Covai Scrap Hub.
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     BOTTOM SUPPORT
+===================================================== -->
+
+<div class="bottom-support">
+
+    <div class="support-box">
+
+        <div class="support-icon">
+            📞
+        </div>
+
+        <div class="support-text">
+
+            <h4>
+                Business Support
+            </h4>
+
+            <a href="tel:+919514252104">
+                +91 95142 52104
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="support-box">
+
+        <div class="support-icon">
+            ✉
+        </div>
+
+        <div class="support-text">
+
+            <h4>
+                Email Support
+            </h4>
+
+            <a href="mailto:covaiscrabehub@gmail.com">
+                covaiscrabehub@gmail.com
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUCCESS POPUP
+===================================================== -->
+
+<div
+    class="success-overlay"
+    id="successOverlay"
+>
+
+    <div class="success-popup">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            Enquiry <span>Submitted!</span>
+        </h2>
+
+        <p>
+            Your business enquiry has been successfully
+            submitted and saved.
+            Our team will contact you soon.
+        </p>
+
+        <button
+            type="button"
+            class="close-popup"
+            id="closePopup"
+        >
+            Done
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     EMAILJS
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+
+
+<!-- =====================================================
+     FIREBASE + FORM SCRIPT
+===================================================== -->
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
+
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getDatabase,
+    ref,
+    push,
+    set
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyApJhYmo0pHNqVD0XIyOlQDqDzACztPdHA",
+
+    authDomain:
+        "covai-scrap-hub.firebaseapp.com",
+
+    databaseURL:
+        "https://covai-scrap-hub-default-rtdb.firebaseio.com",
+
+    projectId:
+        "covai-scrap-hub",
+
+    storageBucket:
+        "covai-scrap-hub.firebasestorage.app",
+
+    messagingSenderId:
+        "979133721874",
+
+    appId:
+        "1:979133721874:web:c5829bb8dbf5270c0917cb",
+
+    measurementId:
+        "G-P3PTSBHWMF"
+
+};
+
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const database =
+    getDatabase(app);
+
+
+
+/* =====================================================
+   EMAILJS INITIALIZE
+===================================================== */
+
+emailjs.init({
+
+    publicKey:
+        "JxRBRYTdR7SiPsNjp"
+
+});
+
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const form =
+    document.getElementById(
+        "businessForm"
+    );
+
+
+const submitButton =
+    document.getElementById(
+        "submitButton"
+    );
+
+
+const successOverlay =
+    document.getElementById(
+        "successOverlay"
+    );
+
+
+const closePopup =
+    document.getElementById(
+        "closePopup"
+    );
+
+
+const firebaseError =
+    document.getElementById(
+        "firebaseError"
+    );
+
+
+
+/* =====================================================
+   SHOW ERROR
+===================================================== */
+
+function showError(message){
+
+    firebaseError.textContent =
+        message;
+
+    firebaseError.classList.add(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
+   HIDE ERROR
+===================================================== */
+
+function hideError(){
+
+    firebaseError.textContent =
+        "";
+
+    firebaseError.classList.remove(
+        "show"
+    );
+
+}
+
+
+
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
+
+form.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        hideError();
+
+
+        /* =============================================
+           GET VALUES
+        ============================================= */
+
+        const businessName =
+            document
+                .getElementById("businessName")
+                .value
+                .trim();
+
+
+        const contactPerson =
+            document
+                .getElementById("contactPerson")
+                .value
+                .trim();
+
+
+        const phone =
+            document
+                .getElementById("phone")
+                .value
+                .trim();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const businessType =
+            document
+                .getElementById("businessType")
+                .value;
+
+
+        const scrapType =
+            document
+                .getElementById("scrapType")
+                .value;
+
+
+        const quantity =
+            document
+                .getElementById("quantity")
+                .value
+                .trim();
+
+
+        const unit =
+            document
+                .getElementById("unit")
+                .value;
+
+
+        const pickupDate =
+            document
+                .getElementById("pickupDate")
+                .value;
+
+
+        const location =
+            document
+                .getElementById("location")
+                .value
+                .trim();
+
+
+        const message =
+            document
+                .getElementById("message")
+                .value
+                .trim();
+
+
+
+        /* =============================================
+           BASIC VALIDATION
+        ============================================= */
+
+        if(
+            !businessName ||
+            !contactPerson ||
+            !phone ||
+            !businessType ||
+            !scrapType ||
+            !location
+        ){
+
+            showError(
+                "Please fill all required fields."
+            );
+
+            return;
+
+        }
+
+
+
+        /* =============================================
+           PHONE VALIDATION
+        ============================================= */
+
+        const cleanPhone =
+            phone.replace(
+                /\D/g,
+                ""
+            );
+
+
+        if(
+            cleanPhone.length < 10
+        ){
+
+            showError(
+                "Please enter a valid mobile number."
+            );
+
+            return;
+
+        }
+
+
+
+        /* =============================================
+           BUTTON LOADING
+        ============================================= */
+
+        submitButton.disabled =
+            true;
+
+        submitButton.innerHTML =
+            "⏳ Saving Enquiry...";
+
+
+
+        try{
+
+
+            /* =========================================
+               FIREBASE PATH
+            ========================================= */
+
+            const enquiriesRef =
+                ref(
+                    database,
+                    "businessEnquiries"
+                );
+
+
+            /* =========================================
+               CREATE NEW FIREBASE RECORD
+            ========================================= */
+
+            const newEnquiryRef =
+                push(
+                    enquiriesRef
+                );
+
+
+            const enquiryId =
+                newEnquiryRef.key;
+
+
+
+            /* =========================================
+               DATE / TIME
+            ========================================= */
+
+            const now =
+                new Date();
+
+
+
+            /* =========================================
+               DATA
+            ========================================= */
+
+            const enquiry = {
+
+                enquiryId:
+                    enquiryId,
+
+                businessName:
+                    businessName,
+
+                contactPerson:
+                    contactPerson,
+
+                phone:
+                    phone,
+
+                whatsapp:
+                    phone,
+
+                email:
+                    email,
+
+                businessType:
+                    businessType,
+
+                scrapType:
+                    scrapType,
+
+                quantity:
+                    quantity,
+
+                unit:
+                    unit,
+
+                pickupDate:
+                    pickupDate,
+
+                location:
+                    location,
+
+                message:
+                    message,
+
+                status:
+                    "New",
+
+                submittedAt:
+                    now.toISOString(),
+
+                submittedAtIndia:
+                    now.toLocaleString(
+                        "en-IN",
+                        {
+                            timeZone:
+                                "Asia/Kolkata"
+                        }
+                    )
+
+            };
+
+
+
+            /* =========================================
+               SAVE FIREBASE
+            ========================================= */
+
+            await set(
+                newEnquiryRef,
+                enquiry
+            );
+
+
+
+            console.log(
+                "Firebase enquiry saved:",
+                enquiry
+            );
+
+
+
+            /* =========================================
+               EMAILJS
+            ========================================= */
+
+            try{
+
+                await emailjs.send(
+
+                    "service_85tw7dz",
+
+                    "template_up85yw6",
+
+                    {
+
+                        businessName:
+                            businessName,
+
+                        contactPerson:
+                            contactPerson,
+
+                        phone:
+                            phone,
+
+                        email:
+                            email,
+
+                        businessType:
+                            businessType,
+
+                        scrapType:
+                            scrapType,
+
+                        quantity:
+                            quantity,
+
+                        unit:
+                            unit,
+
+                        pickupDate:
+                            pickupDate,
+
+                        location:
+                            location,
+
+                        message:
+                            message,
+
+                        enquiryId:
+                            enquiryId,
+
+                        status:
+                            "New"
+
+                    }
+
+                );
+
+
+                console.log(
+                    "EmailJS enquiry sent successfully."
+                );
+
+            }
+            catch(emailError){
+
+                console.error(
+                    "EmailJS Error:",
+                    emailError
+                );
+
+                /*
+                   IMPORTANT:
+
+                   Firebase is already saved.
+
+                   So even if EmailJS fails,
+                   the enquiry will NOT be lost.
+                */
+
+            }
+
+
+
+            /* =========================================
+               RESET FORM
+            ========================================= */
+
+            form.reset();
+
+
+
+            /* =========================================
+               SHOW SUCCESS
+            ========================================= */
+
+            successOverlay.classList.add(
+                "show"
+            );
+
+
+        }
+        catch(error){
+
+            console.error(
+                "Firebase Error:",
+                error
+            );
+
+
+            showError(
+                "Unable to save enquiry to Firebase. " +
+                "Please check your Firebase Realtime Database rules. " +
+                "Error: " +
+                error.message
+            );
+
+        }
+        finally{
+
+            submitButton.disabled =
+                false;
+
+            submitButton.innerHTML =
+                "♻ Submit Business Enquiry";
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   CLOSE SUCCESS POPUP
+===================================================== */
+
+closePopup.addEventListener(
+    "click",
+    function(){
+
+        successOverlay.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+
+/* =====================================================
+   OUTSIDE CLICK
+===================================================== */
+
+successOverlay.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target ===
+            successOverlay
+        ){
+
+            successOverlay.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            successOverlay.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+</script>
+
+<script src="lang-system.js"></script>
+
+<!-- Download App Popup -->
+<div class="download-popup-overlay" id="downloadPopup">
+    <div class="download-popup">
+        <button class="download-popup-close" onclick="closeDownloadPopup()" aria-label="Close">✕</button>
+        <div class="download-popup-icon">📱</div>
+        <h3>Download Our App</h3>
+        <p>Get better experience with our mobile app. Fast, easy, and convenient!</p>
+        <a href="https://drive.google.com/file/d/13I_zW9h-Vri8GcV9IoUQuMgKwG8ecFoq/view?usp=drivesdk"
+           target="_blank"
+           class="download-popup-btn"
+           onclick="closeDownloadPopup()">
+            <span>⬇️</span>
+            <span>Download Now</span>
+        </a>
+    </div>
+</div>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => { initLangTheme(); });
+
+// =====================================================
+// DOWNLOAD APP POPUP
+// =====================================================
+
+// Show popup immediately (script is at end of body, so DOM is ready)
+setTimeout(function() {
+    var popup = document.getElementById('downloadPopup');
+    if (popup) {
+        popup.classList.add('show');
+        console.log('Download popup shown');
+    } else {
+        console.error('Download popup element not found');
+    }
+}, 800);
+
+// Close popup function
+function closeDownloadPopup() {
+    var popup = document.getElementById('downloadPopup');
+    if (popup) {
+        popup.classList.remove('show');
+    }
+}
+
+// Close on overlay click
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('download-popup-overlay')) {
+        closeDownloadPopup();
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#149447">
+<title>COVAI SCRAP HUB | Customer Support</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#149447;
+    --green-dark:#087536;
+    --green-light:#eaf8ef;
+    --bg:#f5f8f6;
+    --card:#ffffff;
+    --text:#15231b;
+    --muted:#718078;
+    --border:#e0e9e3;
+    --input:#ffffff;
+    --shadow:0 8px 30px rgba(20,70,40,.07);
+}
+
+body.dark-mode{
+    --green:#34d399;
+    --green-dark:#10b981;
+    --green-light:#172b22;
+    --bg:#0b1110;
+    --card:#141c19;
+    --text:#f1f5f3;
+    --muted:#9aa8a1;
+    --border:#293732;
+    --input:#18211e;
+    --shadow:0 8px 30px rgba(0,0,0,.25);
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    transition:.25s ease;
+}
+
+/* ================= HEADER ================= */
+
+.topbar{
+    height:68px;
+    min-height:68px;
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+    z-index:10;
+    box-shadow:0 2px 12px rgba(20,50,30,.05);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    color:var(--text);
+    text-decoration:none;
+    min-width:0;
+}
+
+.brand-logo{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid var(--green);
+    background:#fff;
+    flex-shrink:0;
+}
+
+.brand-info{
+    min-width:0;
+}
+
+.brand-title{
+    font-family:"Manrope",sans-serif;
+    font-size:17px;
+    font-weight:800;
+    line-height:1.1;
+}
+
+.brand-title span{
+    color:var(--green);
+}
+
+.online{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:10px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+.online-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 0 3px rgba(34,197,94,.12);
+}
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.header-btn,
+.lang-toggle{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    cursor:pointer;
+    transition:.2s;
+}
+
+.header-btn{
+    width:39px;
+    height:39px;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+}
+
+.lang-toggle{
+    padding:9px 12px;
+    border-radius:11px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.header-btn:hover,
+.lang-toggle:hover{
+    background:var(--green-light);
+    border-color:var(--green);
+    color:var(--green);
+}
+
+/* ================= CHAT ================= */
+
+.chat-container{
+    flex:1;
+    overflow-y:auto;
+    overflow-x:hidden;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+}
+
+.chat-container::-webkit-scrollbar{
+    width:6px;
+}
+
+.chat-container::-webkit-scrollbar-thumb{
+    background:#b7c8bd;
+    border-radius:20px;
+}
+
+.chat-content{
+    width:100%;
+    max-width:850px;
+    margin:auto;
+    padding:24px 20px 30px;
+}
+
+/* ================= WELCOME CARD ================= */
+
+.welcome-card{
+    background:linear-gradient(135deg,var(--green-light),var(--card));
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:18px;
+    margin-bottom:20px;
+    box-shadow:var(--shadow);
+}
+
+.welcome-top{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.welcome-icon{
+    width:48px;
+    height:48px;
+    border-radius:15px;
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    flex-shrink:0;
+}
+
+.welcome-card h1{
+    font-family:"Manrope",sans-serif;
+    font-size:18px;
+    font-weight:800;
+}
+
+.welcome-card p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:3px;
+}
+
+/* ================= MESSAGE ================= */
+
+.message{
+    display:flex;
+    margin-bottom:17px;
+    animation:messageIn .28s ease;
+}
+
+@keyframes messageIn{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.message.user{
+    justify-content:flex-end;
+}
+
+.message-inner{
+    display:flex;
+    align-items:flex-end;
+    gap:9px;
+    max-width:88%;
+}
+
+.user .message-inner{
+    flex-direction:row-reverse;
+}
+
+.message-avatar{
+    width:32px;
+    height:32px;
+    min-width:32px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    flex-shrink:0;
+}
+
+.bot .message-avatar{
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:#fff;
+}
+
+.user .message-avatar{
+    background:#e7ece9;
+    color:#53615a;
+}
+
+body.dark-mode .user .message-avatar{
+    background:#24312c;
+    color:#d5ddd8;
+}
+
+.bubble{
+    max-width:100%;
+    padding:12px 15px;
+    border-radius:17px;
+    font-size:14px;
+    line-height:1.58;
+    overflow-wrap:anywhere;
+}
+
+.bot .bubble{
+    background:var(--card);
+    border:1px solid var(--border);
+    box-shadow:0 3px 12px rgba(20,50,30,.045);
+    border-bottom-left-radius:5px;
+}
+
+.user .bubble{
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:#fff;
+    border-bottom-right-radius:5px;
+}
+
+.bubble strong{
+    font-weight:700;
+}
+
+.bubble a{
+    color:var(--green);
+    text-decoration:none;
+    font-weight:700;
+}
+
+.user .bubble a{
+    color:#fff;
+}
+
+.bubble a:hover{
+    text-decoration:underline;
+}
+
+/* ================= TIME ================= */
+
+.message-time{
+    font-size:9px;
+    color:var(--muted);
+    margin-top:4px;
+    padding:0 3px;
+}
+
+/* ================= TYPING ================= */
+
+.typing{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    padding:13px 16px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:17px;
+    border-bottom-left-radius:5px;
+}
+
+.typing span{
+    width:6px;
+    height:6px;
+    background:#8b9992;
+    border-radius:50%;
+    animation:typing 1s infinite;
+}
+
+.typing span:nth-child(2){
+    animation-delay:.15s;
+}
+
+.typing span:nth-child(3){
+    animation-delay:.3s;
+}
+
+@keyframes typing{
+    0%,60%,100%{
+        transform:translateY(0);
+        opacity:.35;
+    }
+    30%{
+        transform:translateY(-5px);
+        opacity:1;
+    }
+}
+
+/* ================= QUICK ACTIONS ================= */
+
+.quick-section{
+    margin:8px 0 22px 41px;
+}
+
+.quick-title{
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    margin-bottom:9px;
+}
+
+.quick-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.quick-btn{
+    border:1px solid var(--border);
+    background:var(--card);
+    color:var(--text);
+    padding:9px 12px;
+    border-radius:22px;
+    font-family:inherit;
+    font-size:11px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+    box-shadow:0 2px 6px rgba(20,50,30,.03);
+}
+
+.quick-btn:hover{
+    background:var(--green);
+    border-color:var(--green);
+    color:#fff;
+    transform:translateY(-1px);
+}
+
+/* ================= ACTION CARDS ================= */
+
+.action-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-top:12px;
+}
+
+.action-card{
+    border:1px solid var(--border);
+    background:var(--card);
+    border-radius:13px;
+    padding:11px;
+    cursor:pointer;
+    transition:.2s;
+    color:var(--text);
+    text-align:left;
+}
+
+.action-card:hover{
+    border-color:var(--green);
+    transform:translateY(-1px);
+}
+
+.action-card-icon{
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.action-card-title{
+    font-size:11px;
+    font-weight:700;
+}
+
+.action-card-text{
+    font-size:9px;
+    color:var(--muted);
+    margin-top:2px;
+}
+
+/* ================= INPUT ================= */
+
+.input-area{
+    background:var(--card);
+    border-top:1px solid var(--border);
+    padding:13px 20px calc(13px + env(safe-area-inset-bottom));
+    flex-shrink:0;
+}
+
+.input-wrapper{
+    width:100%;
+    max-width:850px;
+    margin:auto;
+}
+
+.input-box{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    background:var(--input);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:7px;
+    transition:.2s;
+}
+
+.input-box:focus-within{
+    border-color:var(--green);
+    box-shadow:0 0 0 3px rgba(20,148,71,.08);
+}
+
+.question-input{
+    flex:1;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--text);
+    font-family:inherit;
+    font-size:14px;
+    line-height:1.5;
+    min-height:42px;
+    max-height:120px;
+    padding:10px 9px;
+    resize:none;
+}
+
+.question-input::placeholder{
+    color:#9aa59f;
+}
+
+.send-btn{
+    width:43px;
+    height:43px;
+    min-width:43px;
+    border:0;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.2s;
+}
+
+.send-btn:hover:not(:disabled){
+    transform:scale(1.04);
+}
+
+.send-btn:disabled{
+    background:#c9d1cc;
+    cursor:not-allowed;
+}
+
+.input-note{
+    text-align:center;
+    font-size:9px;
+    color:var(--muted);
+    margin-top:7px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .topbar{
+        height:60px;
+        min-height:60px;
+        padding:0 10px;
+    }
+
+    .brand-logo{
+        width:36px;
+        height:36px;
+    }
+
+    .brand-title{
+        font-size:14px;
+    }
+
+    .online{
+        font-size:8px;
+    }
+
+    .header-actions{
+        gap:5px;
+    }
+
+    .header-btn{
+        width:34px;
+        height:34px;
+        font-size:15px;
+        border-radius:9px;
+    }
+
+    .lang-toggle{
+        padding:8px 9px;
+        font-size:9px;
+        border-radius:9px;
+    }
+
+    .chat-content{
+        padding:16px 10px 24px;
+    }
+
+    .welcome-card{
+        padding:14px;
+        border-radius:17px;
+        margin-bottom:17px;
+    }
+
+    .welcome-icon{
+        width:42px;
+        height:42px;
+        border-radius:13px;
+        font-size:21px;
+    }
+
+    .welcome-card h1{
+        font-size:15px;
+    }
+
+    .welcome-card p{
+        font-size:11px;
+    }
+
+    .message{
+        margin-bottom:14px;
+    }
+
+    .message-inner{
+        max-width:94%;
+        gap:7px;
+    }
+
+    .message-avatar{
+        width:28px;
+        height:28px;
+        min-width:28px;
+        font-size:13px;
+    }
+
+    .bubble{
+        padding:10px 12px;
+        font-size:12.5px;
+        line-height:1.55;
+        border-radius:15px;
+    }
+
+    .quick-section{
+        margin-left:35px;
+    }
+
+    .quick-actions{
+        gap:6px;
+    }
+
+    .quick-btn{
+        padding:8px 10px;
+        font-size:10px;
+    }
+
+    .action-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .input-area{
+        padding:9px 9px calc(9px + env(safe-area-inset-bottom));
+    }
+
+    .input-box{
+        border-radius:14px;
+        padding:6px;
+    }
+
+    .question-input{
+        font-size:13px;
+        min-height:40px;
+        padding:9px 7px;
+    }
+
+    .send-btn{
+        width:39px;
+        height:39px;
+        min-width:39px;
+        border-radius:10px;
+        font-size:16px;
+    }
+
+    .input-note{
+        font-size:8px;
+    }
+}
+
+@media(max-width:360px){
+
+    .brand-title{
+        font-size:13px;
+    }
+
+    .brand-logo{
+        width:33px;
+        height:33px;
+    }
+
+    .lang-toggle{
+        padding:7px 8px;
+    }
+
+    .message-inner{
+        max-width:96%;
+    }
+
+    .quick-btn{
+        font-size:9px;
+        padding:7px 9px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="topbar">
+
+    <a href="index.html" class="brand">
+
+        <img
+            src="logo.jpeg"
+            class="brand-logo"
+            alt="COVAI SCRAP HUB"
+            onerror="this.style.display='none'"
+        >
+
+        <div class="brand-info">
+            <div class="brand-title">
+                COVAI <span>Support</span>
+            </div>
+
+            <div class="online">
+                <span class="online-dot"></span>
+                Online Support
+            </div>
+        </div>
+
+    </a>
+
+    <div class="header-actions">
+
+        <button
+            class="lang-toggle"
+            id="langBtn"
+            onclick="toggleLanguage()">
+            🇬🇧 EN
+        </button>
+
+        <button
+            class="header-btn"
+            onclick="toggleTheme()"
+            id="themeBtn"
+            title="Change theme">
+            🌙
+        </button>
+
+        <button
+            class="header-btn"
+            onclick="location.href='index.html'"
+            title="Home">
+            🏠
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ================= CHAT ================= -->
+
+<main class="chat-container" id="chatContainer">
+
+    <div class="chat-content" id="chatContent"></div>
+
+</main>
+
+
+<!-- ================= INPUT ================= -->
+
+<footer class="input-area">
+
+    <div class="input-wrapper">
+
+        <div class="input-box">
+
+            <textarea
+                id="questionInput"
+                class="question-input"
+                rows="1"
+                maxlength="500"
+                placeholder="Ask about scrap, pickup, rates..."
+                oninput="autoResize(this);updateSendButton()"
+                onkeydown="handleKey(event)"
+            ></textarea>
+
+            <button
+                id="sendBtn"
+                class="send-btn"
+                onclick="sendQuestion()"
+                disabled>
+                ➤
+            </button>
+
+        </div>
+
+        <div class="input-note">
+            ♻️ Smart Support • English • தமிழ் • Tanglish
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* ============================================================
+   COVAI SCRAP HUB - SMART CUSTOMER SUPPORT
+   300+ QUESTION VARIATIONS
+============================================================ */
+
+
+/* ============================================================
+   BUSINESS DATA
+============================================================ */
+
+const BUSINESS = {
+    phone: "+91 95142 52104",
+    email: "covaiscrabehub@gmail.com",
+    website: "https://covaiscraphup.vercel.app/"
+};
+
+
+/* ============================================================
+   RESPONSES
+============================================================ */
+
+const responses = {
+
+    greeting:{
+        en:`👋 <strong>Hi! Welcome to COVAI SCRAP HUB ♻️</strong><br><br>
+        I'm your customer support assistant.<br><br>
+        I can help you with:<br>
+        🚚 Pickup booking<br>
+        💰 Scrap rates<br>
+        ♻️ Scrap materials<br>
+        📍 Pickup tracking<br>
+        💳 Payments<br>
+        🏢 Bulk scrap<br><br>
+        What would you like to know?`,
+        ta:`👋 <strong>வணக்கம்! COVAI SCRAP HUB-க்கு வரவேற்கிறோம் ♻️</strong><br><br>
+        நான் உங்கள் customer support assistant.<br><br>
+        🚚 Pickup booking<br>
+        💰 Scrap rates<br>
+        ♻️ Scrap materials<br>
+        📍 Pickup tracking<br>
+        💳 Payment<br>
+        🏢 Bulk scrap<br><br>
+        உங்களுக்கு என்ன உதவி வேண்டும்?`
+    },
+
+    about:{
+        en:`♻️ <strong>COVAI SCRAP HUB</strong> is a scrap collection service that helps customers sell recyclable scrap conveniently.<br><br>
+        Our service focuses on doorstep pickup, transparent weighing and convenient online booking.`,
+        ta:`♻️ <strong>COVAI SCRAP HUB</strong> என்பது மறுசுழற்சி செய்யக்கூடிய ஸ்கிராப் பொருட்களை எளிதாக விற்க உதவும் சேவை.<br><br>
+        வீட்டு வாசல் pickup, வெளிப்படையான எடை மற்றும் online booking ஆகியவற்றில் கவனம் செலுத்துகிறோம்.`
+    },
+
+    services:{
+        en:`🚚 <strong>Our services include:</strong><br><br>
+        • Doorstep scrap pickup<br>
+        • Online scrap booking<br>
+        • Scrap rate information<br>
+        • Pickup tracking<br>
+        • Scrap collection<br>
+        • Bulk scrap enquiries<br><br>
+        Use the buttons below to continue.`,
+        ta:`🚚 <strong>எங்கள் சேவைகள்:</strong><br><br>
+        • வீட்டு வாசல் scrap pickup<br>
+        • Online scrap booking<br>
+        • Scrap rate தகவல்<br>
+        • Pickup tracking<br>
+        • Scrap collection<br>
+        • Bulk scrap enquiry`
+    },
+
+    materials:{
+        en:`♻️ <strong>Common materials we handle include:</strong><br><br>
+        📰 Paper & newspapers<br>
+        📦 Cardboard<br>
+        🔩 Iron & steel<br>
+        🔶 Copper<br>
+        🥫 Aluminium<br>
+        🟡 Brass<br>
+        📦 Plastic<br>
+        🔋 Batteries<br>
+        💻 E-waste<br>
+        🚗 Vehicle scrap<br><br>
+        Material acceptance can depend on type and condition.`,
+        ta:`♻️ <strong>பொதுவாக சேகரிக்கப்படும் பொருட்கள்:</strong><br><br>
+        📰 பேப்பர் & செய்தித்தாள்<br>
+        📦 கார்ட்போர்டு<br>
+        🔩 இரும்பு & ஸ்டீல்<br>
+        🔶 செம்பு<br>
+        🥫 அலுமினியம்<br>
+        🟡 பித்தளை<br>
+        📦 பிளாஸ்டிக்<br>
+        🔋 பேட்டரி<br>
+        💻 E-waste<br>
+        🚗 வாகன scrap`
+    },
+
+    paper:{
+        en:`📰 <strong>Paper scrap</strong> can include newspapers, office paper, books, magazines and similar recyclable paper materials.<br><br>
+        Please check the latest rate before booking.`,
+        ta:`📰 <strong>பேப்பர் scrap</strong> என்பதில் செய்தித்தாள், office paper, புத்தகங்கள், magazines போன்ற மறுசுழற்சி செய்யக்கூடிய காகிதங்கள் அடங்கலாம்.<br><br>
+        Booking செய்வதற்கு முன் latest rate பார்க்கவும்.`
+    },
+
+    cardboard:{
+        en:`📦 Yes, recyclable <strong>cardboard</strong> and boxes may be collected.<br><br>
+        Keeping cardboard dry and sorted can make collection easier.`,
+        ta:`📦 ஆம், மறுசுழற்சி செய்யக்கூடிய <strong>cardboard</strong> மற்றும் boxes சேகரிக்கப்படலாம்.<br><br>
+        Cardboard-ஐ உலர்ந்தும் தனியாகவும் வைத்தால் pickup எளிதாக இருக்கும்.`
+    },
+
+    iron:{
+        en:`🔩 <strong>Iron scrap</strong> can include old metal items, frames, sheets, rods and similar recyclable iron materials.<br><br>
+        Check the current rate before booking.`,
+        ta:`🔩 <strong>இரும்பு scrap</strong> என்பதில் பழைய metal items, frames, sheets, rods போன்றவை அடங்கலாம்.<br><br>
+        Booking செய்வதற்கு முன் current rate பார்க்கவும்.`
+    },
+
+    steel:{
+        en:`🔩 <strong>Steel scrap</strong> such as old utensils, sheets, frames and metal items may be collected.<br><br>
+        The applicable rate can depend on material type and condition.`,
+        ta:`🔩 பழைய பாத்திரங்கள், sheets, frames மற்றும் metal items போன்ற <strong>steel scrap</strong> சேகரிக்கப்படலாம்.<br><br>
+        விலை பொருளின் வகை மற்றும் condition-ஐ பொறுத்திருக்கலாம்.`
+    },
+
+    copper:{
+        en:`🔶 <strong>Copper scrap</strong> such as wires, cables, pipes and other copper materials may be collected.<br><br>
+        For the latest copper price, check the current rates shown on the website.`,
+        ta:`🔶 wires, cables, pipes போன்ற <strong>செம்பு scrap</strong> பொருட்கள் சேகரிக்கப்படலாம்.<br><br>
+        சமீபத்திய செம்பு விலைக்கு website-ல் current rates பார்க்கவும்.`
+    },
+
+    aluminium:{
+        en:`🥫 <strong>Aluminium scrap</strong> such as utensils, frames, sheets and similar materials may be collected.<br><br>
+        Please check the latest rate before booking.`,
+        ta:`🥫 பாத்திரங்கள், frames, sheets போன்ற <strong>அலுமினியம் scrap</strong> பொருட்கள் சேகரிக்கப்படலாம்.<br><br>
+        Booking செய்வதற்கு முன் latest rate பார்க்கவும்.`
+    },
+
+    brass:{
+        en:`🟡 <strong>Brass scrap</strong> may include brass fittings, parts, utensils and other recyclable brass materials.<br><br>
+        Check the current rate on the website.`,
+        ta:`🟡 fittings, parts, பாத்திரங்கள் போன்ற <strong>பித்தளை scrap</strong> பொருட்கள் சேகரிக்கப்படலாம்.<br><br>
+        Website-ல் current rate பார்க்கவும்.`
+    },
+
+    plastic:{
+        en:`📦 Recyclable <strong>plastic</strong> materials such as bottles, containers and similar scrap may be collected.<br><br>
+        Sorting plastic by type can help make collection easier.`,
+        ta:`📦 bottles, containers போன்ற மறுசுழற்சி செய்யக்கூடிய <strong>plastic</strong> பொருட்கள் சேகரிக்கப்படலாம்.<br><br>
+        Plastic-ஐ வகைப்படுத்தி வைத்தால் collection எளிதாக இருக்கும்.`
+    },
+
+    battery:{
+        en:`🔋 Used batteries can require proper handling and recycling.<br><br>
+        If you have battery scrap, mention the type and quantity while booking or contact our support team.`,
+        ta:`🔋 பயன்படுத்திய batteries-க்கு சரியான handling மற்றும் recycling தேவைப்படலாம்.<br><br>
+        Battery scrap இருந்தால் அதன் type மற்றும் quantity-ஐ booking-ல் குறிப்பிடவும் அல்லது support-ஐ தொடர்பு கொள்ளவும்.`
+    },
+
+    ewaste:{
+        en:`💻 <strong>E-waste</strong> may include old computers, laptops, monitors, printers, phones, cables and other electronic scrap.<br><br>
+        Remove personal data from devices before handing them over.`,
+        ta:`💻 <strong>E-waste</strong> என்பதில் பழைய computers, laptops, monitors, printers, phones, cables போன்ற electronic scrap அடங்கலாம்.<br><br>
+        Device கொடுப்பதற்கு முன் உங்கள் personal data-வை நீக்குங்கள்.`
+    },
+
+    laptop:{
+        en:`💻 Old laptops may be considered e-waste.<br><br>
+        Before selling a laptop, back up important files and remove personal accounts/data.`,
+        ta:`💻 பழைய laptops e-waste ஆக இருக்கலாம்.<br><br>
+        Laptop விற்கும் முன் முக்கியமான files-ஐ backup செய்து personal accounts/data-வை remove செய்யுங்கள்.`
+    },
+
+    computer:{
+        en:`🖥️ Old computers and computer components may be collected as e-waste depending on the item.<br><br>
+        Remove personal data before collection.`,
+        ta:`🖥️ பழைய computers மற்றும் computer components e-waste ஆக சேகரிக்கப்படலாம்.<br><br>
+        Collection-க்கு முன் personal data-வை நீக்குங்கள்.`
+    },
+
+    mobile:{
+        en:`📱 Old mobile phones may be handled as e-waste.<br><br>
+        Back up your information and factory-reset the device before handing it over.`,
+        ta:`📱 பழைய mobile phones e-waste ஆக இருக்கலாம்.<br><br>
+        உங்கள் தகவல்களை backup செய்து device-ஐ factory reset செய்யுங்கள்.`
+    },
+
+    tv:{
+        en:`📺 Old TVs and monitors may be treated as e-waste.<br><br>
+        For large electronic items, mention the item during booking.`,
+        ta:`📺 பழைய TV மற்றும் monitors e-waste ஆக இருக்கலாம்.<br><br>
+        பெரிய electronic items இருந்தால் booking செய்யும்போது குறிப்பிடவும்.`
+    },
+
+    refrigerator:{
+        en:`❄️ Old refrigerators are large electronic appliances. Mention the appliance clearly while requesting pickup so the team knows what is being collected.`,
+        ta:`❄️ பழைய refrigerator ஒரு பெரிய electronic appliance. Pickup request செய்யும்போது appliance-ஐ தெளிவாக குறிப்பிடவும்.`
+    },
+
+    washingmachine:{
+        en:`🧺 Old washing machines are large appliances. Mention the item and quantity during booking so the pickup team can prepare.`,
+        ta:`🧺 பழைய washing machine ஒரு பெரிய appliance. Booking செய்யும்போது item மற்றும் quantity-ஐ குறிப்பிடவும்.`
+    },
+
+    ac:{
+        en:`❄️ Old AC units may be considered scrap/electronic material depending on the item and collection arrangement.<br><br>
+        Mention the AC type during booking.`,
+        ta:`❄️ பழைய AC unit scrap/electronic material ஆக இருக்கலாம். Collection arrangement பொருளைப் பொறுத்தது.<br><br>
+        Booking-ல் AC type-ஐ குறிப்பிடவும்.`
+    },
+
+    vehicle:{
+        en:`🚗 Vehicle scrap enquiries can include old vehicle parts and metal components.<br><br>
+        For complete vehicle or large automobile scrap, contact our team before booking.`,
+        ta:`🚗 Vehicle scrap enquiry-ல் பழைய vehicle parts மற்றும் metal components அடங்கலாம்.<br><br>
+        Complete vehicle அல்லது பெரிய automobile scrap என்றால் booking-க்கு முன் எங்கள் team-ஐ தொடர்பு கொள்ளவும்.`
+    },
+
+    tyre:{
+        en:`🛞 Used tyres are a special recyclable material. Mention the tyre type and quantity when requesting collection.`,
+        ta:`🛞 Used tyres ஒரு தனிப்பட்ட recyclable material. Pickup request செய்யும்போது tyre type மற்றும் quantity-ஐ குறிப்பிடவும்.`
+    },
+
+    rates:{
+        en:`💰 <strong>Scrap rates can change.</strong><br><br>
+        Please check the current rates shown on the website before booking.<br><br>
+        We do not want to give you an outdated or incorrect price.`,
+        ta:`💰 <strong>Scrap rates மாறக்கூடியவை.</strong><br><br>
+        Booking செய்வதற்கு முன் website-ல் காட்டப்படும் current rates-ஐ பார்க்கவும்.<br><br>
+        பழைய அல்லது தவறான விலையை நாங்கள் சொல்ல விரும்பவில்லை.`
+    },
+
+    price:{
+        en:`💰 The final amount generally depends on the applicable rate and actual measured weight.<br><br>
+        <strong>Amount = Applicable Rate × Actual Weight</strong><br><br>
+        Material type and condition can also affect the applicable rate.`,
+        ta:`💰 இறுதி தொகை பொதுவாக applicable rate மற்றும் actual weight-ஐ பொறுத்தது.<br><br>
+        <strong>தொகை = விலை × உண்மையான எடை</strong><br><br>
+        Material type மற்றும் condition-மும் விலையை பாதிக்கலாம்.`
+    },
+
+    booking:{
+        en:`🚚 <strong>How to book a pickup:</strong><br><br>
+        1️⃣ Open the scrap selling/customer page<br>
+        2️⃣ Select your scrap materials<br>
+        3️⃣ Add the required details<br>
+        4️⃣ Enter pickup information<br>
+        5️⃣ Confirm your request<br><br>
+        Your project may show a Booking ID after successful booking.`,
+        ta:`🚚 <strong>Pickup booking செய்வது:</strong><br><br>
+        1️⃣ Scrap selling/customer page திறக்கவும்<br>
+        2️⃣ Scrap materials தேர்வு செய்யவும்<br>
+        3️⃣ தேவையான details சேர்க்கவும்<br>
+        4️⃣ Pickup information கொடுக்கவும்<br>
+        5️⃣ Request confirm செய்யவும்<br><br>
+        Booking முடிந்ததும் Booking ID கிடைக்கலாம்.`
+    },
+
+    doorstep:{
+        en:`🚚 <strong>Doorstep pickup</strong> is one of our main services.<br><br>
+        Enter an accurate address and useful landmark details while booking so the pickup team can find your location.`,
+        ta:`🚚 <strong>Doorstep pickup</strong> எங்கள் முக்கிய சேவைகளில் ஒன்று.<br><br>
+        Booking செய்யும்போது சரியான address மற்றும் landmark details கொடுக்கவும்.`
+    },
+
+    location:{
+        en:`📍 During booking, provide your complete pickup address and a nearby landmark if possible.<br><br>
+        If your website supports GPS, you can use it after granting location permission.`,
+        ta:`📍 Booking செய்யும்போது முழுமையான pickup address மற்றும் அருகிலுள்ள landmark கொடுக்கவும்.<br><br>
+        Website GPS support செய்தால் location permission கொடுத்து பயன்படுத்தலாம்.`
+    },
+
+    tracking:{
+        en:`📍 <strong>Pickup tracking:</strong><br><br>
+        Use the existing <strong>Track</strong> page in your website with your Booking ID or the tracking information provided by the system.<br><br>
+        Do not share sensitive information publicly.`,
+        ta:`📍 <strong>Pickup tracking:</strong><br><br>
+        Website-ல் உள்ள <strong>Track</strong> page-ஐ Booking ID அல்லது system வழங்கும் tracking information மூலம் பயன்படுத்தலாம்.<br><br>
+        Sensitive information-ஐ public-ஆக share செய்ய வேண்டாம்.`
+    },
+
+    gps:{
+        en:`🗺️ If live GPS tracking is enabled for your pickup, the Track page can show the partner's latest available location and related information.<br><br>
+        Live tracking depends on the tracking feature being active.`,
+        ta:`🗺️ Pickup-க்கு live GPS tracking enabled இருந்தால் Track page-ல் partner-ன் latest available location மற்றும் தொடர்புடைய தகவல்கள் காட்டப்படலாம்.<br><br>
+        Live tracking feature active ஆக இருப்பதை பொறுத்தது.`
+    },
+
+    status:{
+        en:`📊 Pickup status tells you the current stage of your request.<br><br>
+        Common stages may include:<br>
+        • Pending/Processing<br>
+        • Partner Assigned<br>
+        • On The Way<br>
+        • Completed<br><br>
+        Your actual status should be checked from the Track page.`,
+        ta:`📊 Pickup status உங்கள் request எந்த நிலையில் உள்ளது என்பதை காட்டுகிறது.<br><br>
+        பொதுவான நிலைகள்:<br>
+        • Pending/Processing<br>
+        • Partner Assigned<br>
+        • On The Way<br>
+        • Completed<br><br>
+        உங்கள் actual status-ஐ Track page-ல் பார்க்கவும்.`
+    },
+
+    payment:{
+        en:`💳 Payment is normally handled after the scrap is checked, weighed and the final amount is confirmed.<br><br>
+        Available payment methods can depend on the current collection arrangement.`,
+        ta:`💳 Scrap check செய்து, எடை போட்டு, final amount confirm செய்த பிறகு payment செய்யப்படும்.<br><br>
+        Payment method தற்போதைய collection arrangement-ஐ பொறுத்திருக்கலாம்.`
+    },
+
+    upi:{
+        en:`📱 If UPI payment is available for your pickup, the collection team can confirm the available payment option at the time of payment.`,
+        ta:`📱 உங்கள் pickup-க்கு UPI payment available இருந்தால் payment நேரத்தில் collection team உறுதி செய்யலாம்.`
+    },
+
+    cash:{
+        en:`💵 Cash payment availability can depend on the current collection arrangement. Please confirm with the pickup team.`,
+        ta:`💵 Cash payment availability தற்போதைய collection arrangement-ஐ பொறுத்திருக்கலாம். Pickup team-ிடம் confirm செய்யவும்.`
+    },
+
+    weighing:{
+        en:`⚖️ The final amount should be based on the actual measured weight and applicable material rate.<br><br>
+        You should verify the weight and amount before confirming the transaction.`,
+        ta:`⚖️ Final amount actual measured weight மற்றும் applicable material rate-ஐ அடிப்படையாகக் கொண்டிருக்க வேண்டும்.<br><br>
+        Transaction confirm செய்வதற்கு முன் weight மற்றும் amount-ஐ சரிபார்க்கவும்.`
+    },
+
+    minimum:{
+        en:`⚖️ Minimum pickup quantity can depend on material, location and collection conditions.<br><br>
+        If you have a very small quantity, contact us first:<br>
+        📞 +91 95142 52104`,
+        ta:`⚖️ Minimum pickup quantity material, location மற்றும் collection conditions-ஐ பொறுத்திருக்கலாம்.<br><br>
+        Quantity மிகவும் குறைவாக இருந்தால் முதலில் தொடர்பு கொள்ளவும்:<br>
+        📞 +91 95142 52104`
+    },
+
+    cancel:{
+        en:`❌ Need to cancel a pickup?<br><br>
+        Keep your Booking ID ready and contact support as soon as possible.<br><br>
+        📞 <a href="tel:+919514252104">+91 95142 52104</a>`,
+        ta:`❌ Pickup-ஐ cancel செய்ய வேண்டுமா?<br><br>
+        Booking ID தயாராக வைத்துக்கொண்டு support-ஐ விரைவில் தொடர்பு கொள்ளவும்.<br><br>
+        📞 <a href="tel:+919514252104">+91 95142 52104</a>`
+    },
+
+    reschedule:{
+        en:`📅 To reschedule your pickup, contact support with your Booking ID as early as possible.<br><br>
+        Changes depend on the current pickup status and schedule.`,
+        ta:`📅 Pickup reschedule செய்ய Booking ID உடன் support-ஐ விரைவில் தொடர்பு கொள்ளவும்.<br><br>
+        மாற்றம் pickup status மற்றும் schedule-ஐ பொறுத்தது.`
+    },
+
+    delay:{
+        en:`⏰ If your pickup is delayed:<br><br>
+        1️⃣ Check the Track page<br>
+        2️⃣ Check your scheduled time<br>
+        3️⃣ Keep your phone available<br>
+        4️⃣ Contact support if needed<br><br>
+        📞 +91 95142 52104`,
+        ta:`⏰ Pickup தாமதமானால்:<br><br>
+        1️⃣ Track page பார்க்கவும்<br>
+        2️⃣ Scheduled time சரிபார்க்கவும்<br>
+        3️⃣ Phone available-ஆக வைத்திருக்கவும்<br>
+        4️⃣ தேவைப்பட்டால் support-ஐ தொடர்பு கொள்ளவும்<br><br>
+        📞 +91 95142 52104`
+    },
+
+    partner:{
+        en:`🚚 Your pickup partner may contact you before arrival depending on the pickup process.<br><br>
+        Keep your registered phone available and check the Track page for updates.`,
+        ta:`🚚 Pickup partner வருவதற்கு முன் உங்களை தொடர்பு கொள்ளலாம்.<br><br>
+        Registered phone available-ஆக வைத்துக்கொண்டு Track page updates பார்க்கவும்.`
+    },
+
+    afterbooking:{
+        en:`✅ <strong>After booking:</strong><br><br>
+        • Booking request is recorded<br>
+        • You may receive a Booking ID<br>
+        • Pickup is processed according to the schedule<br>
+        • Track the request from the Track page<br>
+        • Pickup team handles weighing and collection`,
+        ta:`✅ <strong>Booking செய்த பிறகு:</strong><br><br>
+        • Booking request பதிவு செய்யப்படும்<br>
+        • Booking ID கிடைக்கலாம்<br>
+        • Schedule-க்கு ஏற்ப pickup process செய்யப்படும்<br>
+        • Track page மூலம் பார்க்கலாம்<br>
+        • Pickup team weighing மற்றும் collection செய்வார்கள்`
+    },
+
+    prepare:{
+        en:`📦 <strong>Before pickup:</strong><br><br>
+        • Separate materials if possible<br>
+        • Keep paper/cardboard dry<br>
+        • Keep scrap accessible<br>
+        • Remove personal documents<br>
+        • Remove personal data from electronics<br>
+        • Keep enough space for weighing`,
+        ta:`📦 <strong>Pickup-க்கு முன்:</strong><br><br>
+        • முடிந்தால் materials பிரித்து வைக்கவும்<br>
+        • Paper/cardboard-ஐ உலர்ந்த நிலையில் வைக்கவும்<br>
+        • Scrap எளிதாக எடுக்கக்கூடிய இடத்தில் வைக்கவும்<br>
+        • Personal documents அகற்றவும்<br>
+        • Electronics-ல் personal data நீக்கவும்<br>
+        • Weighing-க்கு போதுமான இடம் வைக்கவும்`
+    },
+
+    bulk:{
+        en:`🏢 <strong>Bulk scrap enquiry</strong><br><br>
+        For factory, office, shop, warehouse, apartment or large-volume scrap, contact our team with:<br><br>
+        • Material type<br>
+        • Approximate quantity<br>
+        • Pickup location<br><br>
+        📞 <a href="tel:+919514252104">+91 95142 52104</a>`,
+        ta:`🏢 <strong>Bulk scrap enquiry</strong><br><br>
+        Factory, office, shop, warehouse, apartment அல்லது பெரிய அளவு scrap இருந்தால்:<br><br>
+        • Material type<br>
+        • Approximate quantity<br>
+        • Pickup location<br><br>
+        📞 <a href="tel:+919514252104">+91 95142 52104</a>`
+    },
+
+    business:{
+        en:`💼 <strong>Business scrap collection</strong><br><br>
+        Businesses with regular or large quantities can contact us to discuss collection requirements.<br><br>
+        📞 +91 95142 52104<br>
+        📧 covaiscrabehub@gmail.com`,
+        ta:`💼 <strong>Business scrap collection</strong><br><br>
+        Regular அல்லது பெரிய அளவு scrap உள்ள businesses collection requirements பற்றி எங்களை தொடர்பு கொள்ளலாம்.<br><br>
+        📞 +91 95142 52104<br>
+        📧 covaiscrabehub@gmail.com`
+    },
+
+    contact:{
+        en:`📞 <strong>COVAI SCRAP HUB Support</strong><br><br>
+        Phone:<br>
+        <a href="tel:+919514252104">+91 95142 52104</a><br><br>
+        Email:<br>
+        <a href="mailto:covaiscrabehub@gmail.com">covaiscrabehub@gmail.com</a>`,
+        ta:`📞 <strong>COVAI SCRAP HUB Support</strong><br><br>
+        Phone:<br>
+        <a href="tel:+919514252104">+91 95142 52104</a><br><br>
+        Email:<br>
+        <a href="mailto:covaiscrabehub@gmail.com">covaiscrabehub@gmail.com</a>`
+    },
+
+    website:{
+        en:`🌐 <strong>COVAI SCRAP HUB website</strong><br><br>
+        You can use the website to explore scrap services, rates, booking and other available features.<br><br>
+        <a href="https://covaiscraphup.vercel.app/" target="_blank">Open Website →</a>`,
+        ta:`🌐 <strong>COVAI SCRAP HUB website</strong><br><br>
+        Website மூலம் scrap services, rates, booking மற்றும் available features பார்க்கலாம்.<br><br>
+        <a href="https://covaiscraphup.vercel.app/" target="_blank">Website திறக்க →</a>`
+    },
+
+    language:{
+        en:`🌐 You can communicate with me in:<br><br>
+        🇬🇧 English<br>
+        🇮🇳 தமிழ்<br>
+        🗣️ Tanglish<br><br>
+        You don't need to type a perfect sentence.`,
+        ta:`🌐 நீங்கள் என்னிடம்:<br><br>
+        🇬🇧 English<br>
+        🇮🇳 தமிழ்<br>
+        🗣️ Tanglish<br><br>
+        எந்த மொழியிலும் கேள்வி கேட்கலாம். Perfect sentence தேவையில்லை.`
+    },
+
+    firsttime:{
+        en:`🚀 <strong>First-time user?</strong><br><br>
+        1️⃣ Check scrap rates<br>
+        2️⃣ Select your scrap<br>
+        3️⃣ Add pickup details<br>
+        4️⃣ Confirm booking<br>
+        5️⃣ Save your Booking ID<br>
+        6️⃣ Track your pickup<br><br>
+        That's it! ♻️`,
+        ta:`🚀 <strong>முதல் முறை பயன்படுத்துகிறீர்களா?</strong><br><br>
+        1️⃣ Scrap rates பார்க்கவும்<br>
+        2️⃣ Scrap தேர்வு செய்யவும்<br>
+        3️⃣ Pickup details கொடுக்கவும்<br>
+        4️⃣ Booking confirm செய்யவும்<br>
+        5️⃣ Booking ID save செய்யவும்<br>
+        6️⃣ Pickup track செய்யவும்<br><br>
+        அவ்வளவுதான்! ♻️`
+    },
+
+    receipt:{
+        en:`🧾 After the transaction, ask the pickup team about the available receipt/bill details for your collection.`,
+        ta:`🧾 Transaction முடிந்த பிறகு உங்கள் collection-க்கான receipt/bill details பற்றி pickup team-ிடம் கேட்கவும்.`
+    },
+
+    privacy:{
+        en:`🔐 For your safety, never share passwords, OTPs, card numbers or other sensitive information with the chatbot or pickup team.<br><br>
+        For electronics, remove your personal data before selling.`,
+        ta:`🔐 பாதுகாப்புக்காக passwords, OTP, card numbers போன்ற sensitive information-ஐ chatbot அல்லது pickup team-ிடம் பகிர வேண்டாம்.<br><br>
+        Electronics விற்கும் முன் personal data-வை நீக்கவும்.`
+    },
+
+    complaint:{
+        en:`🛠️ <strong>Need to report a problem?</strong><br><br>
+        Keep your Booking ID and relevant details ready.<br><br>
+        📞 <a href="tel:+919514252104">+91 95142 52104</a><br>
+        📧 <a href="mailto:covaiscrabehub@gmail.com">covaiscrabehub@gmail.com</a>`,
+        ta:`🛠️ <strong>Problem report செய்ய வேண்டுமா?</strong><br><br>
+        Booking ID மற்றும் தொடர்புடைய details தயாராக வைத்திருக்கவும்.<br><br>
+        📞 <a href="tel:+919514252104">+91 95142 52104</a><br>
+        📧 <a href="mailto:covaiscrabehub@gmail.com">covaiscrabehub@gmail.com</a>`
+    },
+
+    default:{
+        en:`🤔 I didn't fully understand that question.<br><br>
+        I can help you with:<br>
+        ♻️ Scrap materials<br>
+        💰 Scrap rates<br>
+        🚚 Pickup booking<br>
+        📍 Pickup tracking<br>
+        💳 Payment<br>
+        🏢 Bulk scrap<br>
+        📞 Customer support<br><br>
+        Try asking in English, Tamil or Tanglish.`,
+        ta:`🤔 உங்கள் கேள்வியை முழுமையாக புரிந்துகொள்ள முடியவில்லை.<br><br>
+        நான் உதவக்கூடியவை:<br>
+        ♻️ Scrap materials<br>
+        💰 Scrap rates<br>
+        🚚 Pickup booking<br>
+        📍 Pickup tracking<br>
+        💳 Payment<br>
+        🏢 Bulk scrap<br>
+        📞 Customer support<br><br>
+        தமிழ், English அல்லது Tanglish-ல் கேட்கலாம்.`
+    }
+};
+
+
+/* ============================================================
+   300+ QUESTION VARIATIONS
+============================================================ */
+
+const intents = [
+
+{
+name:"greeting",
+patterns:[
+"hi","hello","hey","hi there","hello there","good morning","good afternoon",
+"good evening","vanakkam","வணக்கம்","ஹாய்","ஹலோ","hi bro","hello bro",
+"hey bro","hi sir","hello sir","hi support","hello support","help me",
+"எப்படி இருக்கீங்க","epdi irukinga","vanakkam bro","vanakkam sir"
+]
+},
+
+{
+name:"about",
+patterns:[
+"what is covai scrap hub","what is covai scrap","what does covai scrap hub do",
+"tell me about covai scrap hub","about covai scrap hub","what is this service",
+"what kind of company is this","what do you do","who are you",
+"covai scrap hub na enna","covai scrap hub ennanga","unga business enna",
+"neenga enna panringa","இது என்ன நிறுவனம்","கோவை ஸ்கிராப் ஹப் என்றால் என்ன",
+"கோவை ஸ்கிராப் ஹப் என்ன செய்கிறது","உங்கள் சேவை என்ன","நீங்கள் என்ன செய்கிறீர்கள்"
+]
+},
+
+{
+name:"services",
+patterns:[
+"what services do you provide","what services are available","what can you do",
+"what service do you offer","services list","tell me your services",
+"what all services","do you provide scrap collection","scrap collection service",
+"doorstep service available","enna services iruku","enna service panringa",
+"unga service enna","services enna","என்ன சேவைகள் உள்ளன","என்னென்ன சேவைகள்",
+"நீங்கள் என்ன சேவை செய்கிறீர்கள்","ஸ்கிராப் சேவை இருக்கா"
+]
+},
+
+{
+name:"materials",
+patterns:[
+"what materials do you collect","what scrap do you collect","which scrap do you buy",
+"what items can i sell","what materials can i sell","which materials accepted",
+"what scrap items accepted","list of scrap materials","scrap materials list",
+"do you collect all scrap","enna scrap edupinga","enna materials edupinga",
+"enna items vanguringa","என்ன scrap எடுப்பீர்கள்","என்னென்ன பொருட்கள் சேகரிக்கிறீர்கள்",
+"எந்த scrap வாங்குவீர்கள்","என்ன பொருட்கள் வாங்குவீர்கள்"
+]
+},
+
+{
+name:"paper",
+patterns:[
+"paper scrap","newspaper scrap","old newspaper","do you buy paper",
+"do you collect paper","can i sell paper","paper waste","old paper",
+"books scrap","magazine scrap","paper rate","paper items",
+"paper vanguringala","paper edupingala","paper scrap vanguringala",
+"old paper sell panalama","newspaper vanguringala","பேப்பர் வாங்குவீர்களா",
+"செய்தித்தாள் வாங்குவீர்களா","பழைய பேப்பர் எடுப்பீர்களா"
+]
+},
+
+{
+name:"cardboard",
+patterns:[
+"cardboard","cardboard scrap","old boxes","carton boxes","box scrap",
+"do you collect cardboard","can i sell cardboard","cardboard waste",
+"carton scrap","packing box scrap","cardboard rate","boxes sell",
+"cardboard edupingala","box edupingala","carton vanguringala",
+"cardboard sell panalama","கார்ட்போர்டு வாங்குவீர்களா","பெட்டிகள் எடுப்பீர்களா",
+"பழைய cardboard வாங்குவீர்களா"
+]
+},
+
+{
+name:"iron",
+patterns:[
+"iron scrap","old iron","iron waste","iron materials","iron items",
+"do you buy iron","do you collect iron","can i sell iron","iron rate",
+"iron price","iron rods","iron sheets","iron frames","iron metal",
+"iron vanguringala","iron edupingala","irumbu scrap","irumbu vanguringala",
+"இரும்பு வாங்குவீர்களா","இரும்பு scrap எடுப்பீர்களா","பழைய இரும்பு விற்கலாமா"
+]
+},
+
+{
+name:"steel",
+patterns:[
+"steel scrap","old steel","steel waste","steel items","steel utensils",
+"do you buy steel","do you collect steel","steel rate","steel price",
+"steel sheets","steel frames","steel metal","steel vessel scrap",
+"steel vanguringala","steel edupingala","ஸ்டீல் வாங்குவீர்களா",
+"ஸ்டீல் scrap எடுப்பீர்களா","பழைய ஸ்டீல் விற்கலாமா"
+]
+},
+
+{
+name:"copper",
+patterns:[
+"copper scrap","copper wire","copper wires","copper cable","copper pipes",
+"do you buy copper","do you collect copper","can i sell copper","copper rate",
+"copper price","copper waste","copper material","copper items","copper today",
+"copper vanguringala","copper edupingala","copper sell panalama",
+"செம்பு வாங்குவீர்களா","செம்பு scrap எடுப்பீர்களா","செம்பு விற்கலாமா"
+]
+},
+
+{
+name:"aluminium",
+patterns:[
+"aluminium scrap","aluminum scrap","aluminium utensils","aluminium frames",
+"aluminium sheets","do you buy aluminium","do you collect aluminium",
+"can i sell aluminium","aluminium rate","aluminum rate","aluminium price",
+"aluminium waste","aluminium items","aluminium vanguringala",
+"aluminium edupingala","aluminium sell panalama","அலுமினியம் வாங்குவீர்களா",
+"அலுமினியம் scrap எடுப்பீர்களா"
+]
+},
+
+{
+name:"brass",
+patterns:[
+"brass scrap","brass items","brass utensils","brass fittings","brass parts",
+"do you buy brass","do you collect brass","can i sell brass","brass rate",
+"brass price","brass waste","brass material","brass vanguringala",
+"brass edupingala","brass sell panalama","பித்தளை வாங்குவீர்களா",
+"பித்தளை scrap எடுப்பீர்களா","பித்தளை விற்கலாமா"
+]
+},
+
+{
+name:"plastic",
+patterns:[
+"plastic scrap","plastic waste","plastic bottles","plastic bottle scrap",
+"plastic containers","do you buy plastic","do you collect plastic",
+"can i sell plastic","plastic rate","plastic price","plastic items",
+"recyclable plastic","plastic material","plastic vanguringala",
+"plastic edupingala","plastic sell panalama","பிளாஸ்டிக் வாங்குவீர்களா",
+"பிளாஸ்டிக் scrap எடுப்பீர்களா","பிளாஸ்டிக் விற்கலாமா"
+]
+},
+
+{
+name:"battery",
+patterns:[
+"battery scrap","old battery","used battery","car battery","bike battery",
+"do you collect battery","do you buy batteries","can i sell battery",
+"battery waste","battery recycling","battery material","battery items",
+"battery vanguringala","battery edupingala","old battery sell panalama",
+"பேட்டரி வாங்குவீர்களா","பழைய பேட்டரி எடுப்பீர்களா","பேட்டரி scrap விற்கலாமா"
+]
+},
+
+{
+name:"ewaste",
+patterns:[
+"e waste","ewaste","electronic waste","electronic scrap","electronics scrap",
+"do you collect e waste","do you buy e waste","can i sell e waste",
+"old electronics","electronic items","e waste recycling","computer scrap",
+"laptop scrap","tv scrap","ewaste vanguringala","ewaste edupingala",
+"electronic scrap edupingala","மின்னணு கழிவு எடுப்பீர்களா",
+"e waste வாங்குவீர்களா","electronics scrap வாங்குவீர்களா"
+]
+},
+
+{
+name:"laptop",
+patterns:[
+"old laptop","laptop scrap","used laptop","laptop waste","do you buy laptop",
+"do you collect laptop","can i sell laptop","laptop sell","broken laptop",
+"damaged laptop","old computer laptop","laptop edupingala",
+"laptop vanguringala","laptop sell panalama","பழைய laptop எடுப்பீர்களா",
+"லேப்டாப் வாங்குவீர்களா","லேப்டாப் விற்கலாமா"
+]
+},
+
+{
+name:"computer",
+patterns:[
+"old computer","computer scrap","computer waste","desktop scrap",
+"do you collect computers","do you buy computers","can i sell computer",
+"computer parts","cpu scrap","monitor scrap","computer ewaste",
+"computer edupingala","computer vanguringala","computer sell panalama",
+"பழைய கம்ப்யூட்டர் எடுப்பீர்களா","கம்ப்யூட்டர் scrap வாங்குவீர்களா"
+]
+},
+
+{
+name:"mobile",
+patterns:[
+"old mobile","mobile scrap","phone scrap","old phone","used phone",
+"do you collect mobile phones","do you buy phones","can i sell mobile",
+"mobile waste","broken phone","old smartphone","mobile ewaste",
+"mobile edupingala","mobile vanguringala","phone scrap edupingala",
+"பழைய மொபைல் எடுப்பீர்களா","மொபைல் scrap வாங்குவீர்களா"
+]
+},
+
+{
+name:"tv",
+patterns:[
+"old tv","tv scrap","television scrap","tv waste","broken tv",
+"do you collect tv","do you buy tv","can i sell tv","old television",
+"monitor scrap","tv ewaste","tv edupingala","tv vanguringala",
+"tv sell panalama","பழைய டிவி எடுப்பீர்களா","டிவி scrap வாங்குவீர்களா"
+]
+},
+
+{
+name:"refrigerator",
+patterns:[
+"old fridge","old refrigerator","fridge scrap","refrigerator scrap",
+"broken fridge","do you collect fridge","do you buy refrigerator",
+"can i sell fridge","fridge waste","fridge edupingala","fridge vanguringala",
+"fridge sell panalama","பழைய fridge எடுப்பீர்களா","பழைய refrigerator வாங்குவீர்களா"
+]
+},
+
+{
+name:"washingmachine",
+patterns:[
+"old washing machine","washing machine scrap","washing machine waste",
+"broken washing machine","do you collect washing machine",
+"do you buy washing machine","can i sell washing machine",
+"washing machine edupingala","washing machine vanguringala",
+"washing machine sell panalama","பழைய washing machine எடுப்பீர்களா"
+]
+},
+
+{
+name:"ac",
+patterns:[
+"old ac","ac scrap","air conditioner scrap","ac waste","broken ac",
+"do you collect ac","do you buy ac","can i sell ac","old air conditioner",
+"ac unit scrap","ac edupingala","ac vanguringala","ac sell panalama",
+"பழைய ac எடுப்பீர்களா","AC scrap வாங்குவீர்களா"
+]
+},
+
+{
+name:"vehicle",
+patterns:[
+"vehicle scrap","car scrap","bike scrap","auto scrap","vehicle parts",
+"old car","old bike","scrap car","scrap bike","automobile scrap",
+"do you collect vehicle scrap","do you buy car scrap",
+"do you buy bike scrap","can i sell vehicle","vehicle edupingala",
+"car scrap edupingala","bike scrap edupingala","வாகன scrap எடுப்பீர்களா",
+"பழைய கார் scrap வாங்குவீர்களா","பழைய பைக் scrap வாங்குவீர்களா"
+]
+},
+
+{
+name:"tyre",
+patterns:[
+"tyre scrap","tire scrap","old tyre","used tyre","car tyre","bike tyre",
+"truck tyre","do you collect tyres","do you buy tyres","can i sell tyres",
+"tyre waste","tyre recycling","tyre edupingala","tyre vanguringala",
+"பழைய டயர் எடுப்பீர்களா","டயர் scrap வாங்குவீர்களா"
+]
+},
+
+{
+name:"rates",
+patterns:[
+"today scrap rate","today rate","current scrap rate","scrap rate today",
+"scrap price today","what is today's rate","latest scrap rate",
+"current rate","today price","scrap rates","rate list","price list",
+"rate enna","today rate enna","innaiku rate enna","scrap rate epdi",
+"இன்றைய scrap விலை என்ன","இன்றைய விலை என்ன","தற்போதைய scrap விலை",
+"scrap rate எங்கே பார்க்கலாம்"
+]
+},
+
+{
+name:"price",
+patterns:[
+"how is price calculated","how do you calculate price","how is scrap price calculated",
+"how much will i get","how much money will i get","price calculation",
+"amount calculation","rate multiplied by weight","price per kg",
+"weight price calculation","final amount","scrap amount",
+"price epdi calculate panringa","amount epdi calculate panringa",
+"விலை எப்படி கணக்கிடப்படுகிறது","தொகை எப்படி கணக்கிடுவீர்கள்",
+"ஒரு கிலோ விலை எப்படி","scrap விலை கணக்கு எப்படி"
+]
+},
+
+{
+name:"booking",
+patterns:[
+"how to book pickup","how can i book pickup","book a pickup","pickup booking",
+"how to sell scrap","how can i sell scrap","book scrap pickup",
+"request pickup","schedule pickup","create pickup request",
+"pickup epdi book panradhu","scrap epdi sell panradhu",
+"pickup book panna mudiyuma","pickup request epdi",
+"பிக்கப் எப்படி புக் செய்வது","ஸ்கிராப் எப்படி விற்பது",
+"pickup booking எப்படி","வீட்டில் இருந்து scrap எப்படி விற்கலாம்"
+]
+},
+
+{
+name:"doorstep",
+patterns:[
+"doorstep pickup","home pickup","pickup from home","do you come home",
+"will you collect from home","home scrap collection","door delivery pickup",
+"do you provide doorstep service","pickup at my house","house pickup",
+"veetuku vandhu scrap edupingala","home la scrap edupingala",
+"veetla pickup iruka","வீட்டிற்கு வந்து scrap எடுப்பீர்களா",
+"வீட்டு வாசல் pickup இருக்கா","வீட்டில் இருந்து எடுத்துச் செல்வீர்களா"
+]
+},
+
+{
+name:"location",
+patterns:[
+"where do you serve","service areas","where is service available",
+"which areas do you cover","do you serve my area","do you come to my area",
+"coimbatore service","location service","pickup location",
+"areas covered","entha area varinga","enga pickup panringa",
+"en area ku varuvingala","எந்த பகுதிகளில் சேவை","என் பகுதியில் pickup வருமா",
+"கோவையில் pickup இருக்கா","எங்கு scrap pickup செய்கிறீர்கள்"
+]
+},
+
+{
+name:"tracking",
+patterns:[
+"track my pickup","how to track pickup","pickup tracking","track booking",
+"where is my pickup","where is my order","pickup status","check pickup status",
+"track my scrap","tracking link","booking tracking","pickup enga iruku",
+"pickup epdi track panradhu","en pickup enga","booking track epdi",
+"என் pickup எங்கே","pickup எப்படி track செய்வது","புக்கிங் எப்படி track செய்வது",
+"என் பிக்கப் நிலை என்ன"
+]
+},
+
+{
+name:"gps",
+patterns:[
+"live gps","live tracking","partner location","where is partner",
+"can i see partner location","gps tracking","live location",
+"partner live location","map tracking","distance from partner",
+"eta tracking","gps iruka","partner enga irukanga","live location iruka",
+"பார்ட்னர் எங்கே இருக்கிறார்","நேரடி GPS இருக்கா","live tracking இருக்கா",
+"partner location பார்க்க முடியுமா"
+]
+},
+
+{
+name:"status",
+patterns:[
+"pickup status meaning","what does pending mean","what does processing mean",
+"what is partner assigned","what does on the way mean","what is completed",
+"pickup stages","status meaning","booking status meaning",
+"pending status","processing status","partner assigned status",
+"on the way status","completed status","status na enna",
+"pending na enna","on the way na enna","pickup status என்ன",
+"partner assigned என்றால் என்ன","completed என்றால் என்ன"
+]
+},
+
+{
+name:"payment",
+patterns:[
+"how will i get paid","payment method","how payment works","payment options",
+"when will i get payment","scrap payment","payment after pickup",
+"payment process","money transfer","how do you pay","payment epdi varum",
+"payment epdi panringa","cash or online","payment options enna",
+"பணம் எப்படி கிடைக்கும்","payment எப்படி","பணம் எப்போது கிடைக்கும்",
+"scrap விற்ற பிறகு பணம் எப்படி"
+]
+},
+
+{
+name:"upi",
+patterns:[
+"upi payment","can i get upi","do you pay by upi","upi available",
+"phonepe payment","gpay payment","google pay","upi transfer",
+"upi money","upi iruka","upi la payment pannuvangala",
+"gpay la kudupingala","phonepe la kudupingala",
+"UPI payment கிடைக்குமா","UPI மூலம் பணம் கிடைக்குமா"
+]
+},
+
+{
+name:"cash",
+patterns:[
+"cash payment","do you pay cash","can i get cash","cash available",
+"cash after pickup","cash money","cash payment option","cash kudupingala",
+"cash la payment iruka","cash payment panringa","கேஷ் payment கிடைக்குமா",
+"பணமாக தருவீர்களா","cash-ஆக பணம் கிடைக்குமா"
+]
+},
+
+{
+name:"weighing",
+patterns:[
+"how is weight checked","weighing process","is weighing accurate","weighing scale",
+"can i see weight","weight calculation","how do you weigh scrap",
+"transparent weighing","weight display","correct weight",
+"weight epdi poduvanga","weight epdi check panradhu","எடை எப்படி போடுவீர்கள்",
+"எடை சரியாக இருக்குமா","எடையை பார்க்க முடியுமா","weighing process என்ன"
+]
+},
+
+{
+name:"minimum",
+patterns:[
+"minimum quantity","minimum weight","is there minimum quantity",
+"small quantity pickup","do you collect small amount","minimum scrap",
+"minimum kg","how much scrap needed","small scrap pickup",
+"minimum quantity iruka","minimum kg iruka","konjam scrap edupingala",
+"குறைந்தபட்ச அளவு என்ன","குறைந்த அளவு scrap எடுப்பீர்களா",
+"minimum weight இருக்கா"
+]
+},
+
+{
+name:"cancel",
+patterns:[
+"cancel pickup","cancel booking","how to cancel","can i cancel",
+"cancel my request","cancel scrap pickup","cancel order",
+"booking cancel","pickup cancellation","cancel epdi panradhu",
+"pickup cancel panna mudiyuma","booking cancel panna mudiyuma",
+"பிக்கப் cancel செய்யலாமா","புக்கிங் cancel செய்யலாமா",
+"என் pickup-ஐ ரத்து செய்ய வேண்டும்"
+]
+},
+
+{
+name:"reschedule",
+patterns:[
+"reschedule pickup","change pickup time","change pickup date",
+"change booking","move pickup","postpone pickup","new pickup date",
+"change schedule","pickup reschedule","reschedule epdi",
+"pickup date change panna mudiyuma","time change panna mudiyuma",
+"பிக்கப் தேதியை மாற்றலாமா","பிக்கப் நேரத்தை மாற்றலாமா",
+"booking reschedule செய்யலாமா"
+]
+},
+
+{
+name:"delay",
+patterns:[
+"pickup delayed","pickup late","partner late","pickup not arrived",
+"why pickup late","what if pickup is delayed","partner not coming",
+"pickup delay","late pickup","pickup didn't come",
+"pickup late aaguthu","partner varala","pickup varala",
+"பிக்கப் தாமதம்","பார்ட்னர் வரவில்லை","pickup இன்னும் வரவில்லை",
+"என்னுடைய pickup late ஆகிறது"
+]
+},
+
+{
+name:"partner",
+patterns:[
+"who is pickup partner","pickup partner","partner call me","partner will call",
+"partner details","pickup person","collection person",
+"partner arrival","partner contact","partner assigned",
+"partner yaru","pickup partner yaru","partner eppo varuvanga",
+"பிக்கப் பார்ட்னர் யார்","பார்ட்னர் எப்போது வருவார்",
+"பார்ட்னர் என்னை அழைப்பாரா"
+]
+},
+
+{
+name:"afterbooking",
+patterns:[
+"what happens after booking","after booking what happens",
+"booking completed what next","what next after pickup booking",
+"booking confirmation","after i book","next step after booking",
+"booking process after confirm","booking panna apram enna",
+"book pannitu enna","booking mudinja apram","புக்கிங் பின் என்ன நடக்கும்",
+"புக்கிங் செய்த பிறகு என்ன","booking confirm ஆன பிறகு என்ன"
+]
+},
+
+{
+name:"prepare",
+patterns:[
+"how to prepare scrap","prepare scrap","what should i do before pickup",
+"before pickup","prepare materials","sort scrap","clean scrap",
+"keep scrap ready","pickup preparation","what to keep ready",
+"pickup ku munadi enna pannanum","scrap epdi ready panradhu",
+"பிக்கப் முன் என்ன செய்ய வேண்டும்","scrap எப்படி தயார் செய்ய வேண்டும்",
+"பொருட்களை பிரித்து வைக்க வேண்டுமா"
+]
+},
+
+{
+name:"bulk",
+patterns:[
+"bulk scrap","large quantity scrap","bulk pickup","factory scrap",
+"office scrap","warehouse scrap","shop scrap","apartment scrap",
+"commercial scrap","industrial scrap","large scrap collection",
+"bulk material","bulk edupingala","large quantity edupingala",
+"factory scrap edupingala","office scrap edupingala",
+"மொத்த scrap எடுப்பீர்களா","factory scrap வாங்குவீர்களா",
+"பெரிய அளவு scrap collection"
+]
+},
+
+{
+name:"business",
+patterns:[
+"business scrap","business collection","commercial pickup",
+"regular scrap collection","company scrap","factory collection",
+"office waste collection","shop waste collection","business enquiry",
+"commercial scrap","business partnership","bulk business scrap",
+"business scrap edupingala","company scrap collect panringala",
+"வணிக scrap சேகரிப்பீர்களா","factory collection இருக்கா",
+"office scrap collection இருக்கா"
+]
+},
+
+{
+name:"contact",
+patterns:[
+"contact number","phone number","support number","your number",
+"customer care number","call number","how to contact you",
+"contact details","support contact","phone contact",
+"number enna","support number enna","ungaloda number enna",
+"எங்கள் support number என்ன","தொடர்பு எண் என்ன",
+"உங்களை எப்படி தொடர்பு கொள்வது","phone number கொடுங்கள்"
+]
+},
+
+{
+name:"website",
+patterns:[
+"website","website link","your website","open website","official website",
+"where is website","website url","site link","web link",
+"covai scrap website","website epdi open panradhu","website link enna",
+"உங்கள் website என்ன","website link கொடுங்கள்","website எங்கே"
+]
+},
+
+{
+name:"language",
+patterns:[
+"do you support tamil","can i speak tamil","tamil language",
+"english language","tanglish","language support","which language",
+"can i ask in tamil","can i type tamil","தமிழில் கேட்கலாமா",
+"tamil la pesalama","tanglish la kekalama","english la kekalama",
+"தமிழ் support இருக்கா","தமிழில் கேள்வி கேட்க முடியுமா",
+"எந்த மொழியில் கேட்கலாம்"
+]
+},
+
+{
+name:"firsttime",
+patterns:[
+"first time","new customer","new user","how to start","i am new",
+"first time selling scrap","never used before","how do i begin",
+"where should i start","beginner guide","first time scrap sell",
+"first time enna pannanum","new user epdi start panradhu",
+"முதல் முறை என்ன செய்ய வேண்டும்","முதல் முறை scrap விற்கிறேன்",
+"எப்படி தொடங்குவது","புதிய customer guide"
+]
+},
+
+{
+name:"receipt",
+patterns:[
+"receipt","bill","invoice","payment receipt","get receipt",
+"can i get bill","can i get invoice","digital receipt","proof of payment",
+"bill after pickup","receipt after pickup","receipt கிடைக்குமா",
+"bill கிடைக்குமா","invoice கிடைக்குமா","பில் எப்போது கிடைக்கும்",
+"ரசீது கிடைக்குமா","payment receipt இருக்கா"
+]
+},
+
+{
+name:"privacy",
+patterns:[
+"privacy","is my data safe","data safety","password safety","otp safety",
+"personal data","device data","what data should i share",
+"safe to use","security","password kudukanuma","otp kudukanuma",
+"personal details safe ah","தகவல் பாதுகாப்பு","OTP கொடுக்க வேண்டுமா",
+"password share செய்யலாமா","personal data என்ன செய்வது"
+]
+},
+
+{
+name:"complaint",
+patterns:[
+"complaint","make complaint","report problem","problem with pickup",
+"pickup issue","payment problem","booking problem","customer complaint",
+"service complaint","technical issue","help with problem",
+"complaint epdi","problem iruku","issue iruku","புகார் கொடுக்க வேண்டும்",
+"பிக்கப் பிரச்சனை","payment பிரச்சனை","booking பிரச்சனை","support வேண்டும்"
+]
+}
+
+];
+
+
+/* ============================================================
+   VERIFY PATTERN COUNT
+============================================================ */
+
+const totalPatterns = intents.reduce(
+    (total,intent)=>total + intent.patterns.length,
+    0
+);
+
+console.log("COVAI Support question patterns:",totalPatterns);
+
+
+/* ============================================================
+   NORMALIZATION
+============================================================ */
+
+function normalize(text){
+
+    return String(text || "")
+        .toLowerCase()
+        .normalize("NFC")
+        .replace(/[?!.,;:()[\]{}'"`~@#$%^&*_+=<>/\\|-]/g," ")
+        .replace(/\s+/g," ")
+        .trim();
+}
+
+
+/* ============================================================
+   TOKENIZATION
+============================================================ */
+
+function tokens(text){
+
+    return normalize(text)
+        .split(" ")
+        .filter(word => word.length > 1);
+}
+
+
+/* ============================================================
+   SMART SEARCH
+============================================================ */
+
+function searchIntent(input){
+
+    const query = normalize(input);
+
+    if(!query) return null;
+
+    const queryTokens = tokens(query);
+
+    let best = null;
+    let bestScore = 0;
+
+    for(const intent of intents){
+
+        for(const pattern of intent.patterns){
+
+            const p = normalize(pattern);
+
+            if(!p) continue;
+
+            let score = 0;
+
+            /* Exact */
+            if(query === p){
+                score += 100;
+            }
+
+            /* Full phrase */
+            if(query.includes(p)){
+                score += Math.min(70,p.length);
+            }
+
+            if(p.includes(query) && query.length > 4){
+                score += 20;
+            }
+
+            const pTokens = tokens(p);
+
+            /* Token comparison */
+            for(const word of queryTokens){
+
+                if(pTokens.includes(word)){
+                    score += word.length >= 5 ? 9 : 5;
+                }
+
+                /* Partial spelling */
+                for(const pWord of pTokens){
+
+                    if(
+                        word.length >= 4 &&
+                        pWord.length >= 4 &&
+                        (
+                            pWord.includes(word) ||
+                            word.includes(pWord)
+                        )
+                    ){
+                        score += 3;
+                    }
+                }
+            }
+
+            /* Important phrase words */
+            const importantWords = [
+                "copper","iron","steel","aluminium","aluminum",
+                "brass","paper","cardboard","plastic","battery",
+                "laptop","computer","mobile","phone","tv","fridge",
+                "refrigerator","washing","machine","ac","vehicle",
+                "car","bike","tyre","tire","pickup","booking",
+                "track","tracking","rate","price","payment","upi",
+                "cash","bulk","factory","office","support","contact"
+            ];
+
+            for(const word of importantWords){
+
+                if(query.includes(word) && p.includes(word)){
+                    score += 12;
+                }
+            }
+
+            if(score > bestScore){
+
+                bestScore = score;
+
+                best = {
+                    name:intent.name,
+                    score:score
+                };
+            }
+        }
+    }
+
+    if(!best) return null;
+
+    /* Minimum confidence */
+    if(best.score < 8) return null;
+
+    return best.name;
+}
+
+
+/* ============================================================
+   LANGUAGE DETECTION
+============================================================ */
+
+function detectLanguage(text){
+
+    const tamilChars = /[\u0B80-\u0BFF]/;
+
+    if(tamilChars.test(text)){
+        return "tamil";
+    }
+
+    const tanglishWords = [
+        "epdi","enna","iruka","irukku","edupinga","vanguringa",
+        "panradhu","panna","inga","anga","ungaloda","namma",
+        "kudupingala","varinga","varuvanga","enga","bro","sir"
+    ];
+
+    const lower = text.toLowerCase();
+
+    const count = tanglishWords.filter(word =>
+        lower.includes(word)
+    ).length;
+
+    if(count >= 1){
+        return "tamil";
+    }
+
+    return "english";
+}
+
+
+/* ============================================================
+   STATE
+============================================================ */
+
+let currentLang =
+    localStorage.getItem("covaiSupportLanguage") || "english";
+
+let messageCount = 0;
+
+
+/* ============================================================
+   LANGUAGE BUTTON
+============================================================ */
+
+function updateLanguageButton(){
+
+    const btn = document.getElementById("langBtn");
+
+    btn.textContent =
+        currentLang === "tamil"
+        ? "🇮🇳 தமிழ்"
+        : "🇬🇧 EN";
+}
+
+
+/* ============================================================
+   TOGGLE LANGUAGE
+============================================================ */
+
+function toggleLanguage(){
+
+    currentLang =
+        currentLang === "english"
+        ? "tamil"
+        : "english";
+
+    localStorage.setItem(
+        "covaiSupportLanguage",
+        currentLang
+    );
+
+    updateLanguageButton();
+
+    const text =
+        currentLang === "tamil"
+        ? "🇮🇳 தமிழ் மொழி தேர்வு செய்யப்பட்டது"
+        : "🇬🇧 English selected";
+
+    addBotMessage(text);
+
+}
+
+
+/* ============================================================
+   THEME
+============================================================ */
+
+function applyTheme(){
+
+    const theme =
+        localStorage.getItem("covaiTheme") || "light";
+
+    if(theme === "dark"){
+        document.body.classList.add("dark-mode");
+        document.getElementById("themeBtn").textContent = "☀️";
+    }else{
+        document.body.classList.remove("dark-mode");
+        document.getElementById("themeBtn").textContent = "🌙";
+    }
+}
+
+
+function toggleTheme(){
+
+    const dark =
+        document.body.classList.toggle("dark-mode");
+
+    localStorage.setItem(
+        "covaiTheme",
+        dark ? "dark" : "light"
+    );
+
+    document.getElementById("themeBtn").textContent =
+        dark ? "☀️" : "🌙";
+}
+
+
+/* ============================================================
+   WELCOME
+============================================================ */
+
+function showWelcome(){
+
+    const content =
+        document.getElementById("chatContent");
+
+    const card =
+        document.createElement("div");
+
+    card.className = "welcome-card";
+
+    card.innerHTML = `
+        <div class="welcome-top">
+            <div class="welcome-icon">♻️</div>
+
+            <div>
+                <h1>COVAI SCRAP HUB Support</h1>
+                <p>Ask anything about scrap collection</p>
+            </div>
+        </div>
+    `;
+
+    content.appendChild(card);
+
+    addBotMessage(
+        responses.greeting[
+            currentLang === "tamil"
+            ? "ta"
+            : "en"
+        ],
+        false
+    );
+
+    showQuickActions();
+}
+
+
+/* ============================================================
+   ADD BOT MESSAGE
+============================================================ */
+
+function addBotMessage(text, showQuick = true){
+
+    const content =
+        document.getElementById("chatContent");
+
+    const message =
+        document.createElement("div");
+
+    message.className = "message bot";
+
+    const time =
+        new Date().toLocaleTimeString([],{
+            hour:"2-digit",
+            minute:"2-digit"
+        });
+
+    message.innerHTML = `
+        <div class="message-inner">
+
+            <div class="message-avatar">
+                🤖
+            </div>
+
+            <div>
+                <div class="bubble">
+                    ${text}
+                </div>
+
+                <div class="message-time">
+                    ${time}
+                </div>
+            </div>
+
+        </div>
+    `;
+
+    content.appendChild(message);
+
+    scrollToBottom();
+
+    if(showQuick){
+        showQuickActions();
+    }
+}
+
+
+/* ============================================================
+   ADD USER MESSAGE
+============================================================ */
+
+function addUserMessage(text){
+
+    const content =
+        document.getElementById("chatContent");
+
+    const message =
+        document.createElement("div");
+
+    message.className = "message user";
+
+    const time =
+        new Date().toLocaleTimeString([],{
+            hour:"2-digit",
+            minute:"2-digit"
+        });
+
+    message.innerHTML = `
+        <div class="message-inner">
+
+            <div class="message-avatar">
+                👤
+            </div>
+
+            <div>
+                <div class="bubble">
+                    ${escapeHTML(text)}
+                </div>
+
+                <div class="message-time">
+                    ${time}
+                </div>
+            </div>
+
+        </div>
+    `;
+
+    content.appendChild(message);
+
+    removeQuickActions();
+
+    scrollToBottom();
+}
+
+
+/* ============================================================
+   TYPING
+============================================================ */
+
+function showTyping(){
+
+    const content =
+        document.getElementById("chatContent");
+
+    const message =
+        document.createElement("div");
+
+    message.id = "typingMsg";
+    message.className = "message bot";
+
+    message.innerHTML = `
+        <div class="message-inner">
+
+            <div class="message-avatar">
+                🤖
+            </div>
+
+            <div class="typing">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+        </div>
+    `;
+
+    content.appendChild(message);
+
+    scrollToBottom();
+}
+
+
+function removeTyping(){
+
+    const typing =
+        document.getElementById("typingMsg");
+
+    if(typing){
+        typing.remove();
+    }
+}
+
+
+/* ============================================================
+   QUICK ACTIONS
+============================================================ */
+
+function showQuickActions(){
+
+    removeQuickActions();
+
+    const content =
+        document.getElementById("chatContent");
+
+    const section =
+        document.createElement("div");
+
+    section.className = "quick-section";
+    section.id = "quickActions";
+
+    const title =
+        currentLang === "tamil"
+        ? "⚡ விரைவான உதவி"
+        : "⚡ Quick help";
+
+    const buttons =
+        currentLang === "tamil"
+        ? [
+            ["🚚","Pickup Book"],
+            ["💰","இன்றைய விலை"],
+            ["♻️","Scrap Materials"],
+            ["📍","Pickup Track"],
+            ["🏢","Bulk Scrap"],
+            ["📞","Contact"]
+        ]
+        : [
+            ["🚚","Book Pickup"],
+            ["💰","Today's Rates"],
+            ["♻️","Scrap Materials"],
+            ["📍","Track Pickup"],
+            ["🏢","Bulk Scrap"],
+            ["📞","Contact"]
+        ];
+
+    section.innerHTML = `
+        <div class="quick-title">
+            ${title}
+        </div>
+
+        <div class="quick-actions"></div>
+    `;
+
+    content.appendChild(section);
+
+    const container =
+        section.querySelector(".quick-actions");
+
+    buttons.forEach(item => {
+
+        const btn =
+            document.createElement("button");
+
+        btn.className = "quick-btn";
+
+        btn.textContent =
+            `${item[0]} ${item[1]}`;
+
+        btn.onclick = () => {
+
+            const map = {
+                "Book Pickup":"How can I book a pickup?",
+                "Pickup Book":"பிக்கப் எப்படி புக் செய்வது?",
+                "Today's Rates":"What is today's scrap rate?",
+                "இன்றைய விலை":"இன்றைய scrap விலை என்ன?",
+                "Scrap Materials":"What materials do you collect?",
+                "Track Pickup":"How can I track my pickup?",
+                "Pickup Track":"என் pickup எப்படி track செய்வது?",
+                "Bulk Scrap":"Do you collect bulk scrap?",
+                "Contact":"What is your contact number?"
+            };
+
+            document.getElementById("questionInput").value =
+                map[item[1]] || item[1];
+
+            updateSendButton();
+            sendQuestion();
+        };
+
+        container.appendChild(btn);
+    });
+
+    scrollToBottom();
+}
+
+
+function removeQuickActions(){
+
+    const existing =
+        document.getElementById("quickActions");
+
+    if(existing){
+        existing.remove();
+    }
+}
+
+
+/* ============================================================
+   SEND QUESTION
+============================================================ */
+
+function sendQuestion(){
+
+    const input =
+        document.getElementById("questionInput");
+
+    const text =
+        input.value.trim();
+
+    if(!text) return;
+
+    addUserMessage(text);
+
+    input.value = "";
+
+    input.style.height = "auto";
+
+    updateSendButton();
+
+    messageCount++;
+
+    showTyping();
+
+    const detected =
+        detectLanguage(text);
+
+    if(
+        currentLang === "english" &&
+        detected === "tamil"
+    ){
+        currentLang = "tamil";
+        updateLanguageButton();
+    }
+
+    setTimeout(() => {
+
+        removeTyping();
+
+        const intent =
+            searchIntent(text);
+
+        console.log(
+            "Question:",
+            text,
+            "Intent:",
+            intent
+        );
+
+        const lang =
+            currentLang === "tamil"
+            ? "ta"
+            : "en";
+
+        if(intent && responses[intent]){
+
+            addBotMessage(
+                responses[intent][lang]
+            );
+
+        }else{
+
+            addBotMessage(
+                responses.default[lang]
+            );
+        }
+
+    },500 + Math.min(text.length * 5,500));
+}
+
+
+/* ============================================================
+   INPUT
+============================================================ */
+
+function handleKey(event){
+
+    if(
+        event.key === "Enter" &&
+        !event.shiftKey
+    ){
+
+        event.preventDefault();
+
+        sendQuestion();
+    }
+}
+
+
+function autoResize(textarea){
+
+    textarea.style.height = "auto";
+
+    textarea.style.height =
+        Math.min(
+            textarea.scrollHeight,
+            120
+        ) + "px";
+}
+
+
+function updateSendButton(){
+
+    const input =
+        document.getElementById("questionInput");
+
+    const button =
+        document.getElementById("sendBtn");
+
+    button.disabled =
+        !input.value.trim();
+}
+
+
+/* ============================================================
+   SECURITY
+============================================================ */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+/* ============================================================
+   SCROLL
+============================================================ */
+
+function scrollToBottom(){
+
+    const container =
+        document.getElementById("chatContainer");
+
+    requestAnimationFrame(() => {
+
+        container.scrollTop =
+            container.scrollHeight;
+
+    });
+}
+
+
+/* ============================================================
+   INIT
+============================================================ */
+
+document.addEventListener("DOMContentLoaded",() => {
+
+    applyTheme();
+
+    updateLanguageButton();
+
+    showWelcome();
+
+    const input =
+        document.getElementById("questionInput");
+
+    input.focus();
+
+    console.log(
+        `♻️ COVAI SCRAP HUB Support loaded with ${totalPatterns}+ question patterns`
+    );
+
+});
+
+</script>
+
+</body>
+</html>

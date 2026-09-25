@@ -1,0 +1,2835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Customer Details - Covai Scrap Hub</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#149447;
+    --dark-green:#087536;
+    --light-green:#eaf8ef;
+    --text:#15231b;
+    --muted:#748078;
+    --border:#e2e9e4;
+    --bg:#f5f8f6;
+    --white:#ffffff;
+    --red:#dc2626;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:
+        linear-gradient(
+            135deg,
+            #f5faf7,
+            #edf7f0
+        );
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* HEADER */
+
+.topbar{
+    height:72px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 20px rgba(20,60,35,.05);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--text);
+}
+
+.logo{
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    overflow:hidden;
+    border:3px solid var(--light-green);
+    box-shadow:0 4px 12px rgba(20,148,71,.18);
+    background:#fff;
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.brand-text h2{
+    font-family:'Manrope',sans-serif;
+    font-size:19px;
+    font-weight:800;
+}
+
+.brand-text h2 span{
+    color:var(--green);
+}
+
+.brand-text p{
+    color:var(--muted);
+    font-size:8px;
+    letter-spacing:1.3px;
+    margin-top:3px;
+}
+
+.cart-header-btn{
+    border:0;
+    background:var(--green);
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    font-size:11px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.cart-header-btn:hover{
+    background:var(--dark-green);
+}
+
+/* PAGE */
+
+.page{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px 70px;
+}
+
+.page-heading{
+    text-align:center;
+    margin-bottom:35px;
+    position:relative;
+}
+
+.page-heading::after{
+    content:"";
+    position:absolute;
+    bottom:-15px;
+    left:50%;
+    transform:translateX(-50%);
+    width:80px;
+    height:4px;
+    background:linear-gradient(90deg,transparent,var(--green),transparent);
+    border-radius:2px;
+}
+
+.page-heading .small{
+    color:var(--green);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    background:var(--light-green);
+    padding:6px 16px;
+    border-radius:20px;
+    display:inline-block;
+    box-shadow:0 2px 8px rgba(20,148,71,.12);
+}
+
+.page-heading h1{
+    font-family:'Manrope',sans-serif;
+    font-size:36px;
+    margin-top:12px;
+    color:var(--text);
+    font-weight:800;
+}
+
+.page-heading p{
+    color:var(--muted);
+    font-size:14px;
+    margin-top:10px;
+    line-height:1.6;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* GRID */
+
+.checkout-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);
+    gap:22px;
+    align-items:start;
+}
+
+/* CARD */
+
+.card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:28px;
+    box-shadow:0 12px 40px rgba(20,60,35,.08);
+    position:relative;
+    overflow:hidden;
+    transition:all .3s ease;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+    background:linear-gradient(90deg,var(--green),var(--dark-green));
+}
+
+.card:hover{
+    box-shadow:0 16px 50px rgba(20,60,35,.12);
+    transform:translateY(-2px);
+}
+
+.card-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:24px;
+}
+
+.card-icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--light-green),#d4f4dd);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    box-shadow:0 4px 12px rgba(20,148,71,.15);
+}
+
+.card-title h2{
+    font-family:'Manrope',sans-serif;
+    font-size:20px;
+    color:var(--text);
+}
+
+.card-title p{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:4px;
+    font-weight:500;
+}
+
+/* FORM */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.form-group{
+    width:100%;
+}
+
+.form-group.full{
+    grid-column:1 / -1;
+}
+
+label{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:8px;
+    color:var(--text);
+    letter-spacing:.3px;
+}
+
+.optional{
+    color:#94a3b8;
+    font-size:9px;
+    font-weight:600;
+    background:#f1f5f9;
+    padding:2px 6px;
+    border-radius:4px;
+    margin-left:4px;
+}
+
+input,
+textarea{
+    width:100%;
+    border:2px solid var(--border);
+    outline:none;
+    background:#fff;
+    border-radius:11px;
+    padding:13px 14px;
+    font-family:'DM Sans',sans-serif;
+    font-size:12px;
+    color:var(--text);
+    transition:all .3s ease;
+    box-shadow:0 2px 8px rgba(20,60,35,.02);
+}
+
+input:hover,
+textarea:hover{
+    border-color:#c1d4c7;
+}
+
+input:focus,
+textarea:focus{
+    border-color:var(--green);
+    box-shadow:0 0 0 4px rgba(20,148,71,.1),0 4px 12px rgba(20,148,71,.08);
+    background:#fafcfb;
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+    line-height:1.6;
+}
+
+/* LOCATION */
+
+.address-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.address-header label{
+    margin:0;
+}
+
+.location-btn{
+    border:2px solid var(--green);
+    background:linear-gradient(135deg,var(--light-green),#d4f4dd);
+    color:var(--dark-green);
+    padding:9px 14px;
+    border-radius:10px;
+    font-size:10px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 2px 8px rgba(20,148,71,.12);
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.location-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(20,148,71,.2);
+    background:linear-gradient(135deg,#c8f0d5,var(--light-green));
+}
+
+.location-btn:active{
+    transform:translateY(0);
+}
+
+.gps-info-box{
+    background:linear-gradient(135deg,#f0f9ff,#e0f2fe);
+    border:2px solid #7dd3fc;
+    border-radius:14px;
+    padding:14px 16px;
+    margin-bottom:12px;
+    font-size:11px;
+    color:#0c4a6e;
+    line-height:1.6;
+    position:relative;
+    overflow:hidden;
+}
+
+.gps-info-box::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:4px;
+    height:100%;
+    background:linear-gradient(180deg,#0ea5e9,#06b6d4);
+}
+
+.gps-info-box strong{
+    color:#075985;
+    font-weight:700;
+}
+
+.gps-icon{
+    display:inline-block;
+    font-size:16px;
+    margin-right:6px;
+    animation:pulse-gps 2s infinite;
+}
+
+@keyframes pulse-gps{
+    0%,100%{
+        opacity:1;
+        transform:scale(1);
+    }
+    50%{
+        opacity:.7;
+        transform:scale(1.1);
+    }
+}
+
+@keyframes pulse-button{
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 2px 8px rgba(245,158,11,.2);
+    }
+    50%{
+        transform:scale(1.03);
+        box-shadow:0 4px 16px rgba(245,158,11,.4);
+    }
+}
+
+.location-status{
+    margin-top:10px;
+    padding:10px 12px;
+    font-size:10px;
+    border-radius:10px;
+    display:none;
+    line-height:1.5;
+    transition:all .3s ease;
+}
+
+.location-status.show{
+    display:block;
+}
+
+.location-status.success{
+    background:linear-gradient(135deg,#d1fae5,#a7f3d0);
+    border:2px solid #34d399;
+    color:#065f46;
+}
+
+.location-status.error{
+    background:linear-gradient(135deg,#fee2e2,#fecaca);
+    border:2px solid #f87171;
+    color:#991b1b;
+}
+
+/* SUMMARY */
+
+.summary-card{
+    position:sticky;
+    top:92px;
+}
+
+.bill-head{
+    text-align:center;
+    padding-bottom:18px;
+    border-bottom:2px dashed #d1e3d8;
+    position:relative;
+}
+
+.bill-head::after{
+    content:"";
+    position:absolute;
+    bottom:-5px;
+    left:50%;
+    transform:translateX(-50%);
+    width:60px;
+    height:3px;
+    background:linear-gradient(90deg,transparent,var(--green),transparent);
+    border-radius:2px;
+}
+
+.bill-head h2{
+    font-family:'Manrope',sans-serif;
+    font-size:21px;
+    color:var(--text);
+}
+
+.bill-head p{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:6px;
+    font-weight:500;
+}
+
+.bill-items{
+    margin-top:18px;
+}
+
+.bill-item{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid #edf1ee;
+    transition:all .2s ease;
+}
+
+.bill-item:hover{
+    padding-left:8px;
+    background:linear-gradient(90deg,#fafcfb,transparent);
+}
+
+.bill-product{
+    min-width:0;
+}
+
+.bill-product strong{
+    display:block;
+    font-size:12px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color:var(--text);
+    font-weight:700;
+}
+
+.bill-product span{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    margin-top:4px;
+    font-weight:500;
+}
+
+.bill-price{
+    color:var(--green);
+    font-weight:800;
+    font-size:13px;
+    white-space:nowrap;
+    font-family:'Manrope',sans-serif;
+}
+
+.bill-total{
+    margin-top:20px;
+    background:linear-gradient(135deg,var(--light-green),#d4f4dd);
+    border-radius:14px;
+    padding:18px;
+    box-shadow:0 4px 12px rgba(20,148,71,.1);
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:8px 0;
+    font-size:11px;
+}
+
+.total-row span{
+    color:var(--muted);
+    font-weight:600;
+}
+
+.grand-total{
+    border-top:2px solid rgba(20,148,71,.2);
+    margin-top:12px;
+    padding-top:14px;
+}
+
+.grand-total span{
+    color:var(--text);
+    font-weight:700;
+    font-size:12px;
+}
+
+.grand-total strong{
+    color:var(--green);
+    font-family:'Manrope',sans-serif;
+    font-size:24px;
+    font-weight:900;
+}
+
+/* EMPTY */
+
+.empty-cart{
+    text-align:center;
+    padding:30px 10px;
+    color:var(--muted);
+}
+
+.empty-cart-icon{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.empty-cart h3{
+    color:var(--text);
+    margin-bottom:5px;
+}
+
+/* BUTTON */
+
+.confirm-btn{
+    width:100%;
+    margin-top:22px;
+    border:0;
+    background:linear-gradient(
+        135deg,
+        var(--green),
+        var(--dark-green)
+    );
+    color:#fff;
+    padding:15px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:800;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 4px 16px rgba(20,148,71,.25);
+    position:relative;
+    overflow:hidden;
+}
+
+.confirm-btn::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:0;
+    height:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+    transform:translate(-50%,-50%);
+    transition:width .5s,height .5s;
+}
+
+.confirm-btn:hover::before{
+    width:300px;
+    height:300px;
+}
+
+.confirm-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(20,148,71,.35);
+}
+
+.confirm-btn:active{
+    transform:translateY(0);
+}
+
+.continue-shopping{
+    width:100%;
+    margin-top:10px;
+    border:2px solid var(--border);
+    background:#fff;
+    color:var(--text);
+    padding:12px;
+    border-radius:11px;
+    font-size:11px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .3s ease;
+}
+
+.continue-shopping:hover{
+    border-color:var(--green);
+    background:var(--light-green);
+    color:var(--dark-green);
+    transform:translateY(-1px);
+}
+
+.secure-note{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    margin-top:18px;
+    padding:12px;
+    background:#f8faf9;
+    border-radius:10px;
+    border:1px solid var(--border);
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.6;
+}
+
+.secure-note span{
+    font-size:16px;
+    flex-shrink:0;
+}
+
+/* MODAL */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:5000;
+    animation:fadeIn .3s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+.modal-overlay.show{
+    display:flex;
+}
+
+.disclaimer-modal{
+    width:100%;
+    max-width:500px;
+    background:#fff;
+    border-radius:24px;
+    padding:32px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    animation:slideUp .4s ease;
+}
+
+@keyframes slideUp{
+    from{
+        transform:translateY(30px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+.warning-icon{
+    width:64px;
+    height:64px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#fff7df,#fef3c7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    box-shadow:0 4px 12px rgba(245,158,11,.2);
+}
+
+.disclaimer-modal h2{
+    font-family:'Manrope',sans-serif;
+    font-size:23px;
+    text-align:center;
+    margin-bottom:16px;
+    color:var(--text);
+    font-weight:800;
+}
+
+.disclaimer-text{
+    background:linear-gradient(135deg,#f7faf8,#f0f4f1);
+    border:2px solid var(--border);
+    border-radius:14px;
+    padding:18px;
+    color:#59655e;
+    font-size:12px;
+    line-height:1.8;
+}
+
+.disclaimer-text strong{
+    color:var(--green);
+    font-weight:700;
+}
+
+.modal-actions{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.modal-btn{
+    flex:1;
+    border:0;
+    padding:14px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:800;
+    transition:all .3s ease;
+}
+
+.cancel-btn{
+    background:#eef2ef;
+    color:#46534b;
+}
+
+.cancel-btn:hover{
+    background:#dde5df;
+    transform:translateY(-1px);
+}
+
+.ok-btn{
+    background:linear-gradient(135deg,var(--green),var(--dark-green));
+    color:#fff;
+    box-shadow:0 4px 12px rgba(20,148,71,.25);
+}
+
+.ok-btn:hover{
+    box-shadow:0 6px 16px rgba(20,148,71,.35);
+    transform:translateY(-2px);
+}
+
+.success-modal{
+    width:100%;
+    max-width:450px;
+    background:#fff;
+    border-radius:24px;
+    padding:36px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+    animation:slideUp .4s ease;
+}
+
+.success-icon{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--light-green),#c8f0d5);
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    margin:0 auto 20px;
+    box-shadow:0 8px 20px rgba(20,148,71,.2);
+}
+
+.success-modal h2{
+    font-family:'Manrope',sans-serif;
+    margin-bottom:10px;
+    font-size:24px;
+    color:var(--text);
+    font-weight:800;
+}
+
+.success-modal p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+}
+
+.success-close{
+    width:100%;
+    border:0;
+    background:var(--green);
+    color:#fff;
+    padding:14px;
+    border-radius:12px;
+    margin-top:20px;
+    cursor:pointer;
+    font-weight:800;
+    font-size:12px;
+    transition:all .3s ease;
+}
+
+.success-close:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(20,148,71,.3);
+}
+
+@media(max-width:750px){
+
+    .topbar{
+        height:64px;
+        padding:0 12px;
+    }
+
+    .logo{
+        width:36px;
+        height:36px;
+    }
+
+    .brand-text h2{
+        font-size:16px;
+    }
+
+    .brand-text p{
+        font-size:6px;
+    }
+
+    .cart-header-btn{
+        padding:8px 10px;
+        font-size:9px;
+    }
+
+    .page{
+        padding:20px 12px 40px;
+    }
+
+    .page-heading{
+        margin-bottom:25px;
+    }
+
+    .page-heading .small{
+        font-size:10px;
+        letter-spacing:1.5px;
+        padding:5px 12px;
+    }
+
+    .page-heading h1{
+        font-size:28px;
+    }
+
+    .page-heading p{
+        font-size:13px;
+        padding:0 10px;
+    }
+
+    .checkout-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .card{
+        padding:20px;
+        border-radius:18px;
+    }
+
+    .card::before{
+        height:2px;
+    }
+
+    .card-icon{
+        width:44px;
+        height:44px;
+        font-size:20px;
+    }
+
+    .card-title h2{
+        font-size:18px;
+    }
+
+    .card-title p{
+        font-size:10px;
+    }
+
+    .summary-card{
+        position:static;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .address-header{
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+    }
+
+    .location-btn{
+        width:100%;
+        justify-content:center;
+        padding:10px 14px;
+    }
+
+    .gps-info-box{
+        font-size:10px;
+        padding:12px 14px;
+    }
+
+    input,
+    textarea{
+        padding:12px;
+        font-size:11px;
+    }
+
+    .bill-head h2{
+        font-size:19px;
+    }
+
+    .grand-total strong{
+        font-size:22px;
+    }
+
+    .confirm-btn{
+        font-size:12px;
+    }
+
+    .disclaimer-modal{
+        padding:24px;
+        border-radius:20px;
+    }
+
+    .warning-icon,
+    .success-icon{
+        width:60px;
+        height:60px;
+        font-size:28px;
+    }
+
+    .disclaimer-modal h2{
+        font-size:20px;
+    }
+
+    .disclaimer-text{
+        font-size:11px;
+        padding:16px;
+    }
+
+    .modal-actions{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .success-modal{
+        padding:28px;
+    }
+}
+
+@media(max-width:380px){
+
+    .brand-text{
+        display:none;
+    }
+
+    .page-heading h1{
+        font-size:22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <a class="brand" href="customer.html">
+
+        <div class="logo">
+
+            <img
+                src="logo.jpeg"
+                alt="ScrapConnect Logo"
+                onerror="this.style.display='none';"
+            >
+
+        </div>
+
+        <div class="brand-text">
+
+            <h2>
+                Covai <span>Scrap Hub</span>
+            </h2>
+
+            <p>
+                SMART SCRAP SELLING
+            </p>
+
+        </div>
+
+    </a>
+
+    <button
+        class="cart-header-btn"
+        onclick="window.location.href='cart.html'">
+
+        🛒 Cart
+
+    </button>
+
+</header>
+
+
+<main class="page">
+
+    <section class="page-heading">
+
+        <span class="small" data-i18n="pickupDetails">
+            PICKUP DETAILS
+        </span>
+
+        <h1 data-i18n="customerDetails">
+            Customer Details
+        </h1>
+
+        <p data-i18n="enterDetails">
+            Enter your details so our team can arrange your scrap pickup.
+        </p>
+
+    </section>
+
+
+    <div class="checkout-grid">
+
+        <section class="card">
+
+            <div class="card-title">
+
+                <div class="card-icon">
+                    👤
+                </div>
+
+                <div>
+
+                    <h2 data-i18n="customerInfo">
+                        Customer Information
+                    </h2>
+
+                    <p data-i18n="provideContact">
+                        Please provide your contact details
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label data-i18n="fullName">
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        data-i18n-placeholder="enterFullName"
+                        placeholder="Enter your full name"
+                        autocomplete="name">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label data-i18n="phoneNumber">
+                        Phone Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        data-i18n-placeholder="enterMobile"
+                        placeholder="Enter mobile number"
+                        maxlength="10"
+                        autocomplete="tel">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        <span data-i18n="email">Email</span>
+                        <span class="optional" data-i18n="optional">
+                            (Optional)
+                        </span>
+                    </label>
+
+                    <input
+                        type="email"
+                        id="customerEmail"
+                        data-i18n-placeholder="emailPlaceholder"
+                        placeholder="example@email.com"
+                        autocomplete="email">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        <span data-i18n="whatsappNumber">WhatsApp Number</span>
+                        <span class="optional" data-i18n="optional">
+                            (Optional)
+                        </span>
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="whatsappNumber"
+                        data-i18n-placeholder="whatsappPlaceholder"
+                        placeholder="WhatsApp number"
+                        maxlength="10">
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <div class="address-header">
+
+                        <label data-i18n="pickupAddress">
+                            Pickup Address *
+                        </label>
+
+                        <button
+                            type="button"
+                            class="location-btn"
+                            onclick="useCurrentLocation()">
+
+                            <span class="gps-icon">📍</span>
+                            <span data-i18n="useMyLocation">Use My Location</span>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gps-info-box">
+                        <span class="gps-icon">🛰️</span>
+                        <strong data-i18n="smartLocation">Smart Location Detection:</strong>
+                        <span data-i18n="autoDetectDesc">We automatically detect your GPS coordinates for real-time partner tracking.
+                        Click the button above to enable manual detection if needed.</span>
+                    </div>
+
+                    <textarea
+                        id="customerAddress"
+                        data-i18n-placeholder="addressPlaceholder"
+                        placeholder="Enter your complete pickup address (or use auto-detection)"></textarea>
+
+                    <div
+                        id="locationStatus"
+                        class="location-status">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="secure-note">
+
+                <span>
+                    🔒
+                </span>
+
+                <p data-i18n="secureNote">
+                    Your information is used only to arrange your scrap pickup
+                    and communicate with you regarding your request.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <aside class="card summary-card">
+
+            <div class="bill-head">
+
+                <h2>
+                    🧾 <span data-i18n="pickupSummary">Pickup Summary</span>
+                </h2>
+
+                <p data-i18n="estimatedBill">
+                    ScrapConnect estimated bill
+                </p>
+
+            </div>
+
+
+            <div
+                id="billItems"
+                class="bill-items">
+            </div>
+
+
+            <div class="bill-total">
+
+                <div class="total-row">
+
+                    <span data-i18n="totalItems">
+                        Total Items
+                    </span>
+
+                    <strong id="totalItems">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="total-row">
+
+                    <span data-i18n="totalWeight">
+                        Total Weight
+                    </span>
+
+                    <strong id="totalWeight">
+                        0 KG
+                    </strong>
+
+                </div>
+
+
+                <div class="total-row grand-total">
+
+                    <span data-i18n="estimatedAmount">
+                        Estimated Amount
+                    </span>
+
+                    <strong id="grandTotal">
+                        ₹0.00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="confirm-btn"
+                onclick="showDisclaimer()">
+
+                ✓ <span data-i18n="confirmPickup">Confirm Pickup Request</span>
+
+            </button>
+
+
+            <button
+                class="continue-shopping"
+                onclick="window.location.href='customer.html'">
+
+                ← <span data-i18n="continueShopping">Continue Shopping</span>
+
+            </button>
+
+        </aside>
+
+    </div>
+
+</main>
+
+
+<!-- DISCLAIMER -->
+
+<div
+    class="modal-overlay"
+    id="disclaimerModal">
+
+    <div class="disclaimer-modal">
+
+        <div class="warning-icon">
+            ⚖️
+        </div>
+
+        <h2 data-i18n="importantInfo">
+            Important Information
+        </h2>
+
+        <div class="disclaimer-text" data-i18n="disclaimerText">
+
+            The amount shown above is an
+            <strong>approximate estimated value</strong>
+            based on the quantity and current listed scrap rates.
+
+            <br><br>
+
+            Our pickup team will bring a proper
+            <strong>digital weighing scale</strong>
+            and physically verify the scrap quantity
+            at the time of pickup.
+
+            <br><br>
+
+            The final amount will be calculated based on
+            the actual weight and applicable rate confirmed
+            by our team after verification.
+
+            <br><br>
+
+            Please review your details before confirming
+            the pickup request.
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="modal-btn cancel-btn"
+                onclick="closeDisclaimer()">
+
+                <span data-i18n="goBack">Go Back</span>
+
+            </button>
+
+            <button
+                class="modal-btn ok-btn"
+                id="confirmRequestBtn"
+                onclick="confirmBooking()">
+
+                <span data-i18n="okConfirm">OK, Confirm Request</span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SUCCESS -->
+
+<div
+    class="modal-overlay"
+    id="successModal">
+
+    <div class="success-modal">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2 data-i18n="pickupConfirmed">
+            Pickup Request Confirmed!
+        </h2>
+
+        <p id="pickupIdDisplay" style="
+            font-size:13px;
+            color:#10b981;
+            font-weight:600;
+            margin-top:12px;
+            margin-bottom:16px;
+            padding:10px;
+            background:#d1fae5;
+            border-radius:8px">
+        </p>
+
+        <p>
+            <span data-i18n="requestSubmitted">Your scrap pickup request has been
+            successfully submitted.</span>
+
+            <br><br>
+
+            <strong data-i18n="savePickupId">Save your Pickup ID above!</strong>
+
+            <br><br>
+
+            <span data-i18n="trackLiveDesc">Track your partner's live location
+            and get real-time updates!</span>
+
+            <br><br>
+
+            <span style="font-size:12px;color:#6b7280">
+            <span data-i18n="lostId">Lost your ID? Visit</span> <strong data-i18n="myRequests">My Requests</strong>
+            <span data-i18n="pageEnterPhone">page and enter your phone number.</span>
+            </span>
+        </p>
+
+        <button
+            class="success-close"
+            style="
+            background:#10b981;
+            margin-bottom:12px"
+            onclick="trackPickup()">
+
+            📍 <span data-i18n="trackLive">Track Live Location</span>
+
+        </button>
+
+        <button
+            class="success-close"
+            style="
+            background:#3b82f6;
+            margin-bottom:12px"
+            onclick="trackByPhone()">
+
+            📱 <span data-i18n="trackByPhone">Track by Phone</span>
+
+        </button>
+
+        <button
+            class="success-close"
+            style="
+            background:#fff;
+            color:#10b981;
+            border:2px solid #10b981"
+            onclick="window.location.href='request.html'">
+
+            <span data-i18n="viewMyRequests">View My Requests</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE + EMAILJS
+===================================================== -->
+
+<script type="module">
+
+/* =====================================================
+   FIREBASE IMPORTS
+===================================================== */
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getDatabase,
+    ref,
+    push,
+    set
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyApJhYmo0pHNqVD0XIyOlQDqDzACztPdHA",
+
+    authDomain:
+        "covai-scrap-hub.firebaseapp.com",
+
+    databaseURL:
+        "https://covai-scrap-hub-default-rtdb.firebaseio.com",
+
+    projectId:
+        "covai-scrap-hub",
+
+    storageBucket:
+        "covai-scrap-hub.firebasestorage.app",
+
+    messagingSenderId:
+        "979133721874",
+
+    appId:
+        "1:979133721874:web:c5829bb8dbf5270c0917cb",
+
+    measurementId:
+        "G-P3PTSBHWMF"
+};
+
+
+/* =====================================================
+   INITIALIZE FIREBASE
+===================================================== */
+
+const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+
+
+/* =====================================================
+   MAKE DATABASE AVAILABLE TO OTHER FUNCTIONS
+===================================================== */
+
+window.firebaseDatabase = database;
+window.firebaseRef = ref;
+window.firebasePush = push;
+window.firebaseSet = set;
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart = [];
+
+try{
+
+    cart =
+        JSON.parse(
+            localStorage.getItem("scrapCart")
+        ) || [];
+
+}
+catch(error){
+
+    cart = [];
+
+}
+
+
+/* =====================================================
+   CONVERT KG
+===================================================== */
+
+function convertToKg(weight, unit){
+
+    weight = Number(weight) || 0;
+
+    if(unit === "g"){
+
+        return weight / 1000;
+
+    }
+
+    return weight;
+
+}
+
+
+/* =====================================================
+   FORMAT WEIGHT
+===================================================== */
+
+function formatWeight(totalKg){
+
+    if(totalKg < 1){
+
+        return (
+            Math.round(totalKg * 1000)
+            + " G"
+        );
+
+    }
+
+    return (
+        totalKg.toFixed(2)
+        + " KG"
+    );
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   LOAD BILL
+===================================================== */
+
+function loadBill(){
+
+    const bill =
+        document.getElementById("billItems");
+
+
+    if(!cart.length){
+
+        bill.innerHTML = `
+
+            <div class="empty-cart">
+
+                <div class="empty-cart-icon">
+                    🛒
+                </div>
+
+                <h3>
+                    Cart is Empty
+                </h3>
+
+                <p>
+                    Please add scrap materials first.
+                </p>
+
+            </div>
+
+        `;
+
+        document.getElementById("totalItems")
+            .textContent = "0";
+
+        document.getElementById("totalWeight")
+            .textContent = "0 KG";
+
+        document.getElementById("grandTotal")
+            .textContent = "₹0.00";
+
+        return;
+
+    }
+
+
+    let totalWeight = 0;
+    let totalAmount = 0;
+
+    let html = "";
+
+
+    cart.forEach(function(item){
+
+        const weight =
+            Number(item.weight) || 0;
+
+        const unit =
+            item.unit || "kg";
+
+        const rate =
+            Number(item.rate) || 0;
+
+
+        const weightKg =
+            convertToKg(
+                weight,
+                unit
+            );
+
+
+        const amount =
+            weightKg * rate;
+
+
+        totalWeight += weightKg;
+        totalAmount += amount;
+
+
+        const productName =
+            item.material ||
+            item.name ||
+            item.product ||
+            "Scrap Product";
+
+
+        html += `
+
+            <div class="bill-item">
+
+                <div class="bill-product">
+
+                    <strong>
+                        ${escapeHTML(productName)}
+                    </strong>
+
+                    <span>
+                        ${weight}
+                        ${unit === "g" ? " G" : " KG"}
+                        × ₹${rate}/KG
+                    </span>
+
+                </div>
+
+                <div class="bill-price">
+                    ₹${amount.toFixed(2)}
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    bill.innerHTML = html;
+
+
+    document.getElementById("totalItems")
+        .textContent = cart.length;
+
+
+    document.getElementById("totalWeight")
+        .textContent = formatWeight(totalWeight);
+
+
+    document.getElementById("grandTotal")
+        .textContent =
+            "₹" + totalAmount.toFixed(2);
+
+}
+
+
+/* =====================================================
+   CURRENT LOCATION
+===================================================== */
+/* =====================================================
+   CURRENT LOCATION + GPS COORDINATES
+===================================================== */
+
+let customerLatitude = null;
+let customerLongitude = null;
+
+function useCurrentLocation(){
+
+    const status =
+        document.getElementById("locationStatus");
+
+    const btn =
+        document.querySelector(".location-btn");
+
+    if(!navigator.geolocation){
+
+        status.innerHTML =
+            "<strong>❌ Location not supported</strong><br><div style='font-size:10px;margin-top:4px'>Your browser doesn't support geolocation.</div>";
+
+        status.className =
+            "location-status show error";
+
+        return;
+    }
+
+    btn.innerHTML =
+        '<span class="gps-icon">📡</span> Detecting...';
+
+    status.innerHTML =
+        '<span style="font-size:14px">📡</span> <strong>Getting your location...</strong>';
+
+    status.className =
+        "location-status show";
+
+    status.style.background =
+        "linear-gradient(135deg,#dbeafe,#bfdbfe)";
+
+    status.style.border =
+        "2px solid #60a5fa";
+
+    status.style.color =
+        "#1e3a8a";
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position){
+
+            customerLatitude =
+                position.coords.latitude;
+
+            customerLongitude =
+                position.coords.longitude;
+
+            const lat =
+                customerLatitude;
+
+            const lon =
+                customerLongitude;
+
+            console.log(
+                "✅ GPS CAPTURED SUCCESSFULLY!"
+            );
+
+            console.log(
+                "Customer Latitude:",
+                lat
+            );
+
+            console.log(
+                "Customer Longitude:",
+                lon
+            );
+
+            console.log(
+                "Accuracy:",
+                position.coords.accuracy,
+                "meters"
+            );
+
+            btn.innerHTML =
+                '<span style="font-size:16px">✓</span> Location Detected';
+
+            btn.style.background =
+                "linear-gradient(135deg,#10b981,#059669)";
+
+            btn.style.color =
+                "#fff";
+
+            btn.style.borderColor =
+                "#059669";
+
+
+            /*
+             * Reverse geocoding
+             * Converts GPS coordinates into address
+             */
+
+            fetch(
+                "https://nominatim.openstreetmap.org/reverse?format=json&lat="
+                + encodeURIComponent(lat)
+                + "&lon="
+                + encodeURIComponent(lon)
+                + "&zoom=18&addressdetails=1",
+                {
+                    headers:{
+                        "Accept-Language":"en"
+                    }
+                }
+            )
+
+            .then(function(response){
+
+                return response.json();
+
+            })
+
+            .then(function(data){
+
+                if(
+                    data &&
+                    data.display_name
+                ){
+
+                    document.getElementById(
+                        "customerAddress"
+                    ).value =
+                        data.display_name;
+
+                    status.style.display =
+                        "none";
+
+                    status.className =
+                        "location-status";
+
+                }
+                else{
+
+                    document.getElementById(
+                        "customerAddress"
+                    ).value =
+                        "Latitude: "
+                        + lat
+                        + ", Longitude: "
+                        + lon;
+
+                    status.style.display =
+                        "none";
+
+                    status.className =
+                        "location-status";
+                }
+
+            })
+
+            .catch(function(){
+
+                document.getElementById(
+                    "customerAddress"
+                ).value =
+                    "Latitude: "
+                    + lat
+                    + ", Longitude: "
+                    + lon;
+
+                status.style.display =
+                    "none";
+
+                status.className =
+                    "location-status";
+
+            });
+
+        },
+
+        function(error){
+
+            let message =
+                "Unable to get your location.";
+
+            if(error.code === 1){
+
+                message =
+                    "Permission denied. Please allow location access in browser settings.";
+
+            }
+            else if(error.code === 2){
+
+                message =
+                    "Position unavailable. Check if GPS is enabled.";
+
+            }
+            else if(error.code === 3){
+
+                message =
+                    "Request timed out. Please try again.";
+
+            }
+
+            btn.innerHTML =
+                '<span style="font-size:16px">📍</span> Enable Location';
+
+            status.innerHTML =
+                `<strong style="font-size:12px">❌ Detection failed</strong><br>
+                <div style="font-size:10px;margin-top:4px">${message}</div>`;
+
+            status.className =
+                "location-status show error";
+
+        },
+
+        {
+            enableHighAccuracy:true,
+            timeout:15000,
+            maximumAge:0
+        }
+
+    );
+}
+
+window.useCurrentLocation =
+    useCurrentLocation;
+
+/* =====================================================
+   VALIDATE FORM
+===================================================== */
+
+function validateForm(){
+
+    const name =
+        document.getElementById(
+            "customerName"
+        ).value.trim();
+
+
+    const phone =
+        document.getElementById(
+            "customerPhone"
+        ).value.trim();
+
+
+    const email =
+        document.getElementById(
+            "customerEmail"
+        ).value.trim();
+
+
+    const whatsapp =
+        document.getElementById(
+            "whatsappNumber"
+        ).value.trim();
+
+
+    const address =
+        document.getElementById(
+            "customerAddress"
+        ).value.trim();
+
+
+    if(!name){
+
+        alert(
+            "Please enter your full name."
+        );
+
+        document.getElementById(
+            "customerName"
+        ).focus();
+
+        return false;
+
+    }
+
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        alert(
+            "Please enter a valid 10-digit phone number."
+        );
+
+        document.getElementById(
+            "customerPhone"
+        ).focus();
+
+        return false;
+
+    }
+
+
+    if(email){
+
+        if(
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        ){
+
+            alert(
+                "Please enter a valid email address."
+            );
+
+            document.getElementById(
+                "customerEmail"
+            ).focus();
+
+            return false;
+
+        }
+
+    }
+
+
+    if(whatsapp){
+
+        if(
+            !/^[0-9]{10}$/.test(whatsapp)
+        ){
+
+            alert(
+                "Please enter a valid 10-digit WhatsApp number."
+            );
+
+            document.getElementById(
+                "whatsappNumber"
+            ).focus();
+
+            return false;
+
+        }
+
+    }
+
+
+    if(!address){
+
+        alert(
+            "Please enter your pickup address or use your current location."
+        );
+
+        document.getElementById(
+            "customerAddress"
+        ).focus();
+
+        return false;
+
+    }
+
+
+    if(!cart.length){
+
+        alert(
+            "Your cart is empty. Please add scrap materials first."
+        );
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+/* =====================================================
+   SHOW DISCLAIMER
+===================================================== */
+
+function showDisclaimer(){
+
+    if(!validateForm()){
+
+        return;
+
+    }
+
+    document.getElementById(
+        "disclaimerModal"
+    ).classList.add("show");
+
+}
+
+
+window.showDisclaimer = showDisclaimer;
+
+
+/* =====================================================
+   CLOSE DISCLAIMER
+===================================================== */
+
+function closeDisclaimer(){
+
+    document.getElementById(
+        "disclaimerModal"
+    ).classList.remove("show");
+
+}
+
+
+window.closeDisclaimer = closeDisclaimer;
+
+
+/* =====================================================
+   CONFIRM BOOKING
+===================================================== */
+
+async function confirmBooking(){
+
+    if(!validateForm()){
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "confirmRequestBtn"
+        );
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "Saving Request...";
+
+
+    /* =================================================
+       FORCE GPS CAPTURE - REQUIRED FOR TRACKING
+    ================================================= */
+
+    if(
+        customerLatitude===null||
+        customerLongitude===null
+    ){
+
+        button.disabled=false;
+        button.textContent="OK, Confirm Request";
+
+        alert("⚠️ GPS Location Required!\n\nPlease click 'Use My Current Location' button to enable live partner tracking.\n\nWithout GPS, you won't be able to see the live map.");
+
+        return;
+
+    }
+
+
+    try{
+
+        const name =
+            document.getElementById(
+                "customerName"
+            ).value.trim();
+
+
+        const phone =
+            document.getElementById(
+                "customerPhone"
+            ).value.trim();
+
+
+        const email =
+            document.getElementById(
+                "customerEmail"
+            ).value.trim();
+
+
+        const whatsapp =
+            document.getElementById(
+                "whatsappNumber"
+            ).value.trim();
+
+
+        const address =
+            document.getElementById(
+                "customerAddress"
+            ).value.trim();
+
+
+        let totalWeightKg = 0;
+
+        let totalAmount = 0;
+
+
+        const items =
+            cart.map(function(item){
+
+                const weight =
+                    Number(item.weight) || 0;
+
+                const unit =
+                    item.unit || "kg";
+
+                const rate =
+                    Number(item.rate) || 0;
+
+
+                const weightKg =
+                    convertToKg(
+                        weight,
+                        unit
+                    );
+
+
+                const amount =
+                    weightKg * rate;
+
+
+                totalWeightKg +=
+                    weightKg;
+
+
+                totalAmount +=
+                    amount;
+
+
+                return {
+
+                    product:
+                        item.material ||
+                        item.name ||
+                        item.product ||
+                        "Scrap Product",
+
+                    weight:weight,
+
+                    unit:unit,
+
+                    weightKg:weightKg,
+
+                    rate:rate,
+
+                    amount:amount
+
+                };
+
+            });
+
+
+        /* =================================================
+           FIREBASE BOOKING DATA
+        ================================================= */
+
+        /* =================================================
+           LOG GPS FOR DEBUGGING
+        ================================================= */
+
+        console.log("Customer GPS being saved:");
+        console.log("Latitude:",customerLatitude);
+        console.log("Longitude:",customerLongitude);
+
+        if(!customerLatitude||!customerLongitude){
+            console.error("GPS IS NULL - THIS WILL CAUSE TRACKING ERROR!");
+        }
+
+        const booking = {
+
+            customerName:name,
+
+            name:name,
+
+            phone:phone,
+
+            email:email,
+
+            whatsapp:whatsapp,
+
+            address:address,
+
+            latitude:customerLatitude,
+
+            longitude:customerLongitude,
+
+            customerLatitude:customerLatitude,
+
+            customerLongitude:customerLongitude,
+
+            pickupLatitude:customerLatitude,
+
+            pickupLongitude:customerLongitude,
+
+            customerGPS:{
+                latitude:customerLatitude,
+                longitude:customerLongitude,
+                timestamp:new Date().toISOString()
+            },
+
+            items:items,
+
+            product:
+                items
+                    .map(item => item.product)
+                    .join(", "),
+
+            quantity:
+                items.length,
+
+            totalItems:
+                items.length,
+
+            totalWeightKg:
+                totalWeightKg,
+
+            totalAmount:
+                totalAmount,
+
+            estimatedValue:
+                totalAmount,
+
+            status:
+                "New",
+
+            submittedAt:
+                new Date().toISOString(),
+
+            submittedAtIndia:
+                new Date().toLocaleString(
+                    "en-IN"
+                ),
+
+            disclaimerAccepted:
+                true
+
+        };
+
+
+        /* =================================================
+           SAVE TO FIREBASE REALTIME DATABASE
+        ================================================= */
+
+        const pickupRequestsRef =
+            window.firebaseRef(
+                window.firebaseDatabase,
+                "pickupRequests"
+            );
+
+
+        const newRequestRef =
+            window.firebasePush(
+                pickupRequestsRef
+            );
+
+
+        await window.firebaseSet(
+            newRequestRef,
+            booking
+        );
+
+
+        console.log(
+            "Firebase booking saved:",
+            newRequestRef.key
+        );
+
+        // Store pickup ID globally for tracking
+        window.currentPickupId=newRequestRef.key;
+
+
+        /* =================================================
+           ALSO SAVE LOCAL COPY
+        ================================================= */
+
+        let requests = [];
+
+        try{
+
+            requests =
+                JSON.parse(
+                    localStorage.getItem(
+                        "scrapconnectPickupRequests"
+                    )
+                ) || [];
+
+        }
+        catch(error){
+
+            requests = [];
+
+        }
+
+
+        const localBooking = {
+
+            ...booking,
+
+            id:
+                newRequestRef.key
+
+        };
+
+
+        requests.push(localBooking);
+
+
+        localStorage.setItem(
+            "scrapconnectPickupRequests",
+            JSON.stringify(requests)
+        );
+
+
+        /* =================================================
+           EMAILJS
+        ================================================= */
+
+        if(
+            typeof emailjs !== "undefined"
+        ){
+
+            try{
+
+                await emailjs.send(
+
+                    "service_85tw7dz",
+
+                    "template_mtlcoma",
+
+                    {
+
+                        customer_name:name,
+
+                        phone:phone,
+
+                        email:
+                            email ||
+                            "Not Provided",
+
+                        whatsapp:
+                            whatsapp ||
+                            phone,
+
+                        address:address,
+
+                        total_weight:
+                            totalWeightKg.toFixed(2),
+
+                        total_amount:
+                            totalAmount.toFixed(2)
+
+                    }
+
+                );
+
+                console.log(
+                    "EmailJS email sent successfully."
+                );
+
+            }
+            catch(emailError){
+
+                console.error(
+                    "EmailJS failed:",
+                    emailError
+                );
+
+            }
+
+        }
+
+
+        /* =================================================
+           CLEAR CART
+        ================================================= */
+
+        localStorage.removeItem(
+            "scrapCart"
+        );
+
+
+        /* =================================================
+           SHOW SUCCESS
+        ================================================= */
+
+        closeDisclaimer();
+
+
+        document.getElementById(
+            "successModal"
+        ).classList.add("show");
+
+        // Show pickup ID in modal
+        document.getElementById(
+            "pickupIdDisplay"
+        ).textContent=
+            "Pickup ID: "+newRequestRef.key;
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Firebase booking error:",
+            error
+        );
+
+
+        alert(
+            "Unable to save your pickup request. Please check your internet connection and try again."
+        );
+
+
+        button.disabled = false;
+
+        button.textContent =
+            "OK, Confirm Request";
+
+    }
+
+}
+
+
+window.confirmBooking = confirmBooking;
+
+
+/* =====================================================
+   TRACK PICKUP
+===================================================== */
+
+function trackPickup(){
+
+    if(!window.currentPickupId){
+        alert("Pickup ID not found. Please try again.");
+        return;
+    }
+
+    window.location.href=
+        "track.html?id="+
+        encodeURIComponent(window.currentPickupId);
+
+}
+
+window.trackPickup = trackPickup;
+
+
+/* =====================================================
+   TRACK BY PHONE
+===================================================== */
+
+function trackByPhone(){
+
+    const phone=
+        document.getElementById("customerPhone").value.trim();
+
+    if(!phone){
+        alert("Phone number not found. Please use Pickup ID to track.");
+        return;
+    }
+
+    window.location.href=
+        "track.html?phone="+
+        encodeURIComponent(phone);
+
+}
+
+window.trackByPhone = trackByPhone;
+
+
+/* =====================================================
+   GO CUSTOMER PAGE
+===================================================== */
+
+function goCustomerPage(){
+
+    window.location.href =
+        "customer.html";
+
+}
+
+
+window.goCustomerPage = goCustomerPage;
+
+
+/* =====================================================
+   CLOSE DISCLAIMER OUTSIDE
+===================================================== */
+
+document
+    .getElementById("disclaimerModal")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeDisclaimer();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   AUTO-FILL PROFILE
+===================================================== */
+
+function autoFillProfile(){
+    const profile = localStorage.getItem('userProfile');
+
+    if(profile){
+        try{
+            const data = JSON.parse(profile);
+
+            if(data.name){
+                document.getElementById('customerName').value = data.name;
+            }
+
+            if(data.phone){
+                document.getElementById('customerPhone').value = data.phone;
+            }
+
+            if(data.email){
+                document.getElementById('customerEmail').value = data.email;
+            }
+
+            if(data.whatsapp){
+                document.getElementById('whatsappNumber').value = data.whatsapp;
+            }
+
+            if(data.address){
+                document.getElementById('customerAddress').value = data.address;
+            }
+
+        }catch(e){
+            console.error('Error loading profile:', e);
+        }
+    }
+}
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadBill();
+
+        autoFillProfile();
+
+        // Auto-capture GPS after 1 second
+        setTimeout(autoRequestGPS,1000);
+
+    }
+);
+
+
+/* =====================================================
+   AUTO GPS CAPTURE
+===================================================== */
+
+function autoRequestGPS(){
+
+    if(!navigator.geolocation){
+        console.warn("GPS not supported");
+        return;
+    }
+
+    console.log("🚀 Auto-requesting GPS on page load...");
+
+    const btn=document.querySelector(".location-btn");
+    const status=document.getElementById("locationStatus");
+
+    if(!btn||!status)return;
+
+    btn.innerHTML='<span class="gps-icon">📡</span> Detecting...';
+
+    status.innerHTML=`
+        <span style="font-size:14px">📡</span>
+        <strong>Detecting your location automatically...</strong>
+    `;
+    status.className="location-status show";
+    status.style.background="linear-gradient(135deg,#dbeafe,#bfdbfe)";
+    status.style.border="2px solid #60a5fa";
+    status.style.color="#1e3a8a";
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position){
+
+            customerLatitude=position.coords.latitude;
+            customerLongitude=position.coords.longitude;
+
+            console.log("✅ AUTO GPS CAPTURED!");
+            console.log("Latitude:",customerLatitude);
+            console.log("Longitude:",customerLongitude);
+            console.log("Accuracy:",position.coords.accuracy,"meters");
+
+            btn.innerHTML='<span style="font-size:16px">✓</span> Location Detected';
+            btn.style.background="linear-gradient(135deg,#10b981,#059669)";
+            btn.style.color="#fff";
+            btn.style.borderColor="#059669";
+
+            status.style.display="none";
+            status.className="location-status";
+
+        },
+
+        function(error){
+
+            console.warn("Auto GPS failed:",error);
+
+            btn.innerHTML='<span style="font-size:16px">📍</span> Enable Location';
+            btn.style.background="linear-gradient(135deg,#f59e0b,#d97706)";
+            btn.style.color="#fff";
+            btn.style.borderColor="#f59e0b";
+
+            let msg="Click button above to enable location";
+
+            if(error.code===1){
+                msg="Permission denied. Click button above to allow location access.";
+            }else if(error.code===2){
+                msg="Position unavailable. Check if GPS is enabled.";
+            }else if(error.code===3){
+                msg="Request timed out. Click button above to retry.";
+            }
+
+            status.innerHTML=`
+                <strong style="font-size:12px">⚠️ Auto-detection failed</strong><br>
+                <div style="font-size:10px;margin-top:6px">${msg}</div>
+            `;
+            status.style.background="linear-gradient(135deg,#fef3c7,#fde68a)";
+            status.style.color="#78350f";
+            status.style.border="2px solid #f59e0b";
+            status.className="location-status show";
+
+        },
+
+        {
+            enableHighAccuracy:true,
+            timeout:8000,
+            maximumAge:0
+        }
+
+    );
+
+}
+
+window.autoRequestGPS=autoRequestGPS;
+
+</script>
+
+
+<!-- EMAILJS LIBRARY MUST COME BEFORE emailjs.init() -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+
+emailjs.init(
+    "JxRBRYTdR7SiPsNjp"
+);
+
+</script>
+
+<script src="lang-system.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => { initLangTheme(); });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Features | Covai Scrap Hub</title>
+
+<meta name="theme-color" content="#149447">
+<meta name="description" content="Discover the smart, simple and sustainable features of Covai Scrap Hub.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --green:#149447;
+    --green-dark:#087536;
+    --green-light:#eaf8ef;
+    --green-soft:#f2fbf5;
+
+    --text:#14231a;
+    --muted:#718078;
+
+    --bg:#f5f8f6;
+    --card:#ffffff;
+    --header:#ffffff;
+
+    --border:#e2ebe5;
+
+    --shadow-sm:0 4px 18px rgba(16,60,34,.05);
+    --shadow:0 10px 35px rgba(16,60,34,.08);
+    --shadow-green:0 15px 40px rgba(20,148,71,.14);
+}
+
+body.dark-mode{
+    --green:#39d98a;
+    --green-dark:#20b970;
+    --green-light:#172c22;
+    --green-soft:#14251c;
+
+    --text:#f1f7f3;
+    --muted:#9aa9a0;
+
+    --bg:#0d1511;
+    --card:#151f1a;
+    --header:#111a15;
+
+    --border:#29372f;
+
+    --shadow-sm:0 4px 18px rgba(0,0,0,.18);
+    --shadow:0 10px 35px rgba(0,0,0,.22);
+    --shadow-green:0 15px 40px rgba(0,0,0,.25);
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+button{
+    font-family:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    height:66px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 24px;
+
+    background:rgba(255,255,255,.94);
+    background:var(--header);
+
+    border-bottom:1px solid var(--border);
+
+    box-shadow:var(--shadow-sm);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+}
+
+body.dark-mode .topbar{
+    background:rgba(17,26,21,.94);
+}
+
+
+/* BRAND */
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:var(--text);
+    text-decoration:none;
+
+    min-width:0;
+}
+
+.brand-logo{
+    width:40px;
+    height:40px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid var(--green);
+
+    box-shadow:
+        0 4px 12px rgba(20,148,71,.18);
+}
+
+.brand-text{
+    min-width:0;
+}
+
+.brand h2{
+    font-family:'Manrope',sans-serif;
+
+    font-size:16px;
+    line-height:1;
+
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.brand h2 span{
+    color:var(--green);
+}
+
+.brand p{
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:7px;
+    line-height:1;
+
+    letter-spacing:1.2px;
+    font-weight:700;
+}
+
+
+/* BACK BUTTON */
+
+.back-btn{
+    border:0;
+    outline:none;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+
+    min-height:38px;
+
+    padding:9px 14px;
+
+    border-radius:11px;
+
+    background:var(--green);
+    color:#fff;
+
+    font-size:11px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 15px rgba(20,148,71,.18);
+
+    transition:
+        transform .18s ease,
+        background .18s ease,
+        box-shadow .18s ease;
+}
+
+.back-btn:hover{
+    background:var(--green-dark);
+    transform:translateY(-1px);
+}
+
+.back-btn:active{
+    transform:scale(.97);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+main{
+    width:100%;
+    max-width:1120px;
+
+    margin:0 auto;
+
+    padding:
+        28px 20px
+        60px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    padding:
+        48px 25px
+        44px;
+
+    margin-bottom:30px;
+
+    border:1px solid var(--border);
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(20,148,71,.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(20,148,71,.10),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--green-soft),
+            var(--bg)
+        );
+
+    box-shadow:var(--shadow);
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    right:-90px;
+    top:-90px;
+
+    border-radius:50%;
+
+    background:rgba(20,148,71,.07);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    left:-60px;
+    bottom:-60px;
+
+    border-radius:50%;
+
+    background:rgba(20,148,71,.06);
+}
+
+
+/* HERO TAG */
+
+.hero-tag{
+    position:relative;
+    z-index:1;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:7px 13px;
+
+    background:var(--green);
+    color:#fff;
+
+    border-radius:999px;
+
+    font-size:9px;
+    line-height:1;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:16px;
+
+    box-shadow:
+        0 6px 16px rgba(20,148,71,.2);
+}
+
+
+/* HERO TITLE */
+
+.hero h1{
+    position:relative;
+    z-index:1;
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:clamp(30px,5vw,46px);
+
+    line-height:1.12;
+
+    letter-spacing:-1.5px;
+
+    margin-bottom:14px;
+
+    font-weight:800;
+}
+
+.hero h1 span:last-child{
+    color:var(--green);
+}
+
+
+/* HERO DESCRIPTION */
+
+.hero-subtitle{
+    position:relative;
+    z-index:1;
+
+    max-width:650px;
+
+    margin:
+        0 auto
+        22px;
+
+    color:var(--muted);
+
+    font-size:14px;
+    line-height:1.65;
+}
+
+
+/* HERO BUTTON */
+
+.hero-btn{
+    position:relative;
+    z-index:1;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    min-height:44px;
+
+    border:0;
+
+    padding:11px 22px;
+
+    border-radius:12px;
+
+    background:var(--green);
+    color:#fff;
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:12px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 20px rgba(20,148,71,.2);
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+.hero-btn:hover{
+    background:var(--green-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(20,148,71,.25);
+}
+
+.hero-btn:active{
+    transform:scale(.97);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.features-heading{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin:
+        0 3px
+        16px;
+}
+
+.features-heading h2{
+    font-family:'Manrope',sans-serif;
+
+    font-size:22px;
+    line-height:1.2;
+
+    font-weight:800;
+}
+
+.features-heading p{
+    color:var(--muted);
+
+    font-size:11px;
+
+    text-align:right;
+}
+
+
+/* =========================================================
+   FEATURES GRID
+========================================================= */
+
+.features-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:17px;
+
+    margin-bottom:30px;
+}
+
+
+/* FEATURE CARD */
+
+.feature-card{
+    position:relative;
+
+    display:flex;
+    flex-direction:column;
+
+    min-width:0;
+
+    padding:22px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow-sm);
+
+    overflow:hidden;
+
+    transition:
+        transform .22s ease,
+        border-color .22s ease,
+        box-shadow .22s ease;
+}
+
+.feature-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    right:-30px;
+    bottom:-30px;
+
+    border-radius:50%;
+
+    background:var(--green-soft);
+
+    opacity:.7;
+
+    pointer-events:none;
+}
+
+.feature-card:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(20,148,71,.35);
+
+    box-shadow:var(--shadow-green);
+}
+
+
+/* ICON */
+
+.feature-icon{
+    position:relative;
+    z-index:1;
+
+    width:52px;
+    height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:16px;
+
+    border-radius:15px;
+
+    background:var(--green-light);
+
+    border:1px solid
+        rgba(20,148,71,.10);
+
+    font-size:24px;
+
+    box-shadow:
+        0 5px 14px rgba(20,148,71,.06);
+}
+
+
+/* TITLE */
+
+.feature-title{
+    position:relative;
+    z-index:1;
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:17px;
+    line-height:1.3;
+
+    margin-bottom:8px;
+
+    font-weight:800;
+
+    letter-spacing:-.3px;
+}
+
+.feature-title span:nth-child(2){
+    color:var(--green);
+}
+
+
+/* DESCRIPTION */
+
+.feature-desc{
+    position:relative;
+    z-index:1;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.65;
+
+    margin-bottom:13px;
+}
+
+
+/* LIST */
+
+.feature-list{
+    position:relative;
+    z-index:1;
+
+    list-style:none;
+
+    margin-top:auto;
+}
+
+.feature-list li{
+    position:relative;
+
+    padding:
+        6px 0
+        6px 22px;
+
+    color:var(--text);
+
+    font-size:11px;
+
+    line-height:1.4;
+}
+
+.feature-list li::before{
+    content:"✓";
+
+    position:absolute;
+
+    left:0;
+    top:6px;
+
+    width:15px;
+    height:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--green-light);
+    color:var(--green);
+
+    font-size:9px;
+    font-weight:900;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta-section{
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    padding:
+        40px 25px;
+
+    border-radius:22px;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255,255,255,.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(255,255,255,.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #149447,
+            #087536
+        );
+
+    color:#fff;
+
+    box-shadow:
+        0 15px 40px rgba(8,117,54,.18);
+}
+
+.cta-section::before{
+    content:"♻";
+
+    position:absolute;
+
+    right:25px;
+    top:10px;
+
+    font-size:80px;
+
+    opacity:.06;
+
+    transform:rotate(15deg);
+}
+
+.cta-title{
+    position:relative;
+    z-index:1;
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:28px;
+    line-height:1.2;
+
+    margin-bottom:9px;
+
+    font-weight:800;
+}
+
+.cta-desc{
+    position:relative;
+    z-index:1;
+
+    max-width:570px;
+
+    margin:
+        0 auto
+        20px;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    opacity:.94;
+}
+
+.cta-btn{
+    position:relative;
+    z-index:1;
+
+    min-height:43px;
+
+    border:0;
+
+    padding:11px 23px;
+
+    border-radius:11px;
+
+    background:#fff;
+    color:#087536;
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:12px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.12);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.cta-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.2);
+}
+
+.cta-btn:active{
+    transform:scale(.97);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:900px){
+
+    main{
+        max-width:760px;
+    }
+
+    .features-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:640px){
+
+    .topbar{
+        height:60px;
+
+        padding:
+            0 12px;
+    }
+
+    .brand{
+        gap:8px;
+    }
+
+    .brand-logo{
+        width:36px;
+        height:36px;
+    }
+
+    .brand h2{
+        font-size:14px;
+    }
+
+    .brand p{
+        display:none;
+    }
+
+    .back-btn{
+        min-height:35px;
+
+        padding:
+            8px 11px;
+
+        border-radius:9px;
+
+        font-size:10px;
+    }
+
+
+    main{
+        padding:
+            15px 12px
+            45px;
+    }
+
+
+    .hero{
+        padding:
+            32px 17px;
+
+        margin-bottom:22px;
+
+        border-radius:19px;
+    }
+
+    .hero-tag{
+        font-size:8px;
+
+        padding:
+            6px 10px;
+
+        margin-bottom:12px;
+    }
+
+    .hero h1{
+        font-size:28px;
+
+        letter-spacing:-1px;
+
+        margin-bottom:11px;
+    }
+
+    .hero-subtitle{
+        font-size:12px;
+
+        line-height:1.6;
+
+        margin-bottom:18px;
+    }
+
+    .hero-btn{
+        width:100%;
+
+        min-height:42px;
+
+        font-size:11px;
+    }
+
+
+    .features-heading{
+        display:block;
+
+        margin:
+            0 2px
+            12px;
+    }
+
+    .features-heading h2{
+        font-size:19px;
+    }
+
+    .features-heading p{
+        display:none;
+    }
+
+
+    .features-grid{
+        grid-template-columns:1fr;
+
+        gap:12px;
+
+        margin-bottom:22px;
+    }
+
+
+    .feature-card{
+        padding:17px;
+
+        border-radius:15px;
+    }
+
+    .feature-icon{
+        width:45px;
+        height:45px;
+
+        margin-bottom:12px;
+
+        border-radius:13px;
+
+        font-size:21px;
+    }
+
+    .feature-title{
+        font-size:15px;
+
+        margin-bottom:6px;
+    }
+
+    .feature-desc{
+        font-size:11px;
+
+        line-height:1.6;
+
+        margin-bottom:8px;
+    }
+
+    .feature-list li{
+        padding:
+            5px 0
+            5px 20px;
+
+        font-size:10px;
+    }
+
+    .feature-list li::before{
+        top:5px;
+
+        width:14px;
+        height:14px;
+
+        font-size:8px;
+    }
+
+
+    .cta-section{
+        padding:
+            30px 18px;
+
+        border-radius:18px;
+    }
+
+    .cta-title{
+        font-size:22px;
+    }
+
+    .cta-desc{
+        font-size:11px;
+
+        margin-bottom:16px;
+    }
+
+    .cta-btn{
+        width:100%;
+
+        min-height:41px;
+
+        font-size:11px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .topbar{
+        padding:
+            0 9px;
+    }
+
+    .brand-logo{
+        width:34px;
+        height:34px;
+    }
+
+    .brand h2{
+        font-size:13px;
+    }
+
+    .back-btn{
+        padding:
+            7px 9px;
+
+        font-size:9px;
+    }
+
+    main{
+        padding:
+            12px 9px
+            35px;
+    }
+
+    .hero{
+        padding:
+            27px 14px;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .hero-subtitle{
+        font-size:11px;
+    }
+
+    .feature-card{
+        padding:15px;
+    }
+
+    .feature-title{
+        font-size:14px;
+    }
+
+    .cta-section{
+        padding:
+            26px 15px;
+    }
+
+    .cta-title{
+        font-size:20px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        transition:none !important;
+        animation:none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="topbar">
+
+    <a
+        class="brand"
+        href="customer.html"
+        aria-label="Covai Scrap Hub Home"
+    >
+
+        <img
+            src="logo.jpeg"
+            class="brand-logo"
+            alt="Covai Scrap Hub Logo"
+            onerror="this.onerror=null;this.src='logo.jpg';"
+        >
+
+        <div class="brand-text">
+
+            <h2>
+                Covai <span>Scrap Hub</span>
+            </h2>
+
+            <p>
+                SMART SCRAP SELLING
+            </p>
+
+        </div>
+
+    </a>
+
+
+    <button
+        type="button"
+        class="back-btn"
+        onclick="goHome()"
+        data-i18n="goBack"
+    >
+        ← Back
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <span
+            class="hero-tag"
+            data-i18n="whyChooseUs"
+        >
+            ⭐ WHY CHOOSE US
+        </span>
+
+
+        <h1>
+
+            <span data-i18n="smartSimple">
+                Smart. Simple.
+            </span>
+
+            <br>
+
+            <span data-i18n="sustainable">
+                Sustainable.
+            </span>
+
+        </h1>
+
+
+        <p
+            class="hero-subtitle"
+            data-i18n="featuresIntro"
+        >
+            Turn your recyclable waste into cash with our convenient,
+            transparent, and professional scrap collection service.
+            We make scrap selling easy for everyone.
+        </p>
+
+
+        <button
+            type="button"
+            class="hero-btn"
+            onclick="goHome()"
+            data-i18n="startSelling"
+        >
+            Start Selling Now
+        </button>
+
+    </section>
+
+
+    <!-- SECTION TITLE -->
+
+    <div class="features-heading">
+
+        <div>
+            <h2>Everything You Need</h2>
+        </div>
+
+        <p>
+            Simple • Transparent • Reliable
+        </p>
+
+    </div>
+
+
+    <!-- FEATURES -->
+
+    <section class="features-grid">
+
+
+        <!-- FEATURE 1 -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                ♻️
+            </div>
+
+            <h3 class="feature-title">
+
+                <span data-i18n="professional">
+                    Professional
+                </span>
+
+                <span data-i18n="scrapCollection">
+                    Scrap Collection
+                </span>
+
+            </h3>
+
+            <p
+                class="feature-desc"
+                data-i18n="feature1Desc"
+            >
+                Convenient and reliable scrap collection service making
+                it easy to sell recyclable materials from your home or business.
+            </p>
+
+            <ul class="feature-list">
+
+                <li data-i18n="feature1Point1">
+                    Schedule pickup at your convenience
+                </li>
+
+                <li data-i18n="feature1Point2">
+                    Professional team handles collection
+                </li>
+
+                <li data-i18n="feature1Point3">
+                    Safe material handling
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- FEATURE 2 -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3 class="feature-title">
+
+                <span data-i18n="transparent">
+                    Transparent
+                </span>
+
+                <span data-i18n="competitivePricing">
+                    & Competitive Pricing
+                </span>
+
+            </h3>
+
+            <p
+                class="feature-desc"
+                data-i18n="feature2Desc"
+            >
+                Get fair and transparent rates for your scrap materials
+                with clear pricing and no hidden charges.
+            </p>
+
+            <ul class="feature-list">
+
+                <li data-i18n="feature2Point1">
+                    Live rate updates daily
+                </li>
+
+                <li data-i18n="feature2Point2">
+                    No hidden fees
+                </li>
+
+                <li data-i18n="feature2Point3">
+                    Instant price calculation
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- FEATURE 3 -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                🚚
+            </div>
+
+            <h3 class="feature-title">
+
+                <span data-i18n="doorstep">
+                    Doorstep
+                </span>
+
+                <span data-i18n="pickupService">
+                    Pickup Service
+                </span>
+
+            </h3>
+
+            <p
+                class="feature-desc"
+                data-i18n="feature3Desc"
+            >
+                Schedule a pickup at your preferred time and let our
+                team handle collection safely and professionally.
+            </p>
+
+            <ul class="feature-list">
+
+                <li data-i18n="feature3Point1">
+                    Flexible time slots
+                </li>
+
+                <li data-i18n="feature3Point2">
+                    GPS-tracked pickups
+                </li>
+
+                <li data-i18n="feature3Point3">
+                    Same-day service available
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- FEATURE 4 -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                📍
+            </div>
+
+            <h3 class="feature-title">
+
+                <span data-i18n="live">
+                    Live
+                </span>
+
+                <span data-i18n="pickupTracking">
+                    Pickup Tracking
+                </span>
+
+            </h3>
+
+            <p
+                class="feature-desc"
+                data-i18n="feature4Desc"
+            >
+                Track your pickup status in real-time and stay informed
+                from confirmation to completion.
+            </p>
+
+            <ul class="feature-list">
+
+                <li data-i18n="feature4Point1">
+                    Real-time GPS location
+                </li>
+
+                <li data-i18n="feature4Point2">
+                    Partner distance tracking
+                </li>
+
+                <li data-i18n="feature4Point3">
+                    Instant status updates
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- FEATURE 5 -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                🌱
+            </div>
+
+            <h3 class="feature-title">
+
+                <span data-i18n="responsible">
+                    Responsible
+                </span>
+
+                <span data-i18n="recycling">
+                    Recycling
+                </span>
+
+            </h3>
+
+            <p
+                class="feature-desc"
+                data-i18n="feature5Desc"
+            >
+                We focus on responsible scrap collection to reduce waste,
+                recover valuable materials and protect the environment.
+            </p>
+
+            <ul class="feature-list">
+
+                <li data-i18n="feature5Point1">
+                    Eco-friendly processing
+                </li>
+
+                <li data-i18n="feature5Point2">
+                    Proper material segregation
+                </li>
+
+                <li data-i18n="feature5Point3">
+                    100% recyclable focus
+                </li>
+
+            </ul>
+
+        </article>
+
+
+        <!-- FEATURE 6 -->
+
+        <article class="feature-card">
+
+            <div class="feature-icon">
+                🤝
+            </div>
+
+            <h3 class="feature-title">
+
+                <span data-i18n="trusted">
+                    Trusted
+                </span>
+
+                <span data-i18n="service">
+                    Service
+                </span>
+
+            </h3>
+
+            <p
+                class="feature-desc"
+                data-i18n="feature6Desc"
+            >
+                Dependable service, professional support, and a smooth
+                experience for every customer.
+            </p>
+
+            <ul class="feature-list">
+
+                <li data-i18n="feature6Point1">
+                    Verified pickup partners
+                </li>
+
+                <li data-i18n="feature6Point2">
+                    24/7 customer support
+                </li>
+
+                <li data-i18n="feature6Point3">
+                    Secure payment process
+                </li>
+
+            </ul>
+
+        </article>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+        <h2
+            class="cta-title"
+            data-i18n="readyToStart"
+        >
+            Ready to Start Selling?
+        </h2>
+
+
+        <p
+            class="cta-desc"
+            data-i18n="ctaDesc"
+        >
+            Join thousands of satisfied customers and turn your
+            scrap into cash today
+        </p>
+
+
+        <button
+            type="button"
+            class="cta-btn"
+            onclick="goHome()"
+            data-i18n="startSelling"
+        >
+            Start Selling Now
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- =====================================================
+     PAGE SCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================================
+   HOME NAVIGATION
+========================================================= */
+
+function goHome(){
+
+    window.location.href = "customer.html";
+
+}
+
+
+/* =========================================================
+   THEME
+   Uses the same localStorage key as the rest of your site
+========================================================= */
+
+function applySavedTheme(){
+
+    const theme =
+        localStorage.getItem("covaiTheme") || "light";
+
+    document.body.classList.toggle(
+        "dark-mode",
+        theme === "dark"
+    );
+
+}
+
+
+/* Apply immediately */
+
+applySavedTheme();
+
+
+/* =========================================================
+   KEEP THEME SYNCED IF ANOTHER TAB CHANGES IT
+========================================================= */
+
+window.addEventListener("storage", function(event){
+
+    if(event.key === "covaiTheme"){
+
+        applySavedTheme();
+
+    }
+
+});
+
+
+/* =========================================================
+   LANGUAGE SYSTEM
+========================================================= */
+
+window.addEventListener("DOMContentLoaded", function(){
+
+    /*
+       Fixed original mistake:
+
+       localStorage.getItem()
+       was incorrectly used to save language.
+
+       Correct method is localStorage.setItem().
+    */
+
+    if(!localStorage.getItem("lang")){
+
+        localStorage.setItem("lang","en");
+
+    }
+
+    /*
+       Your existing language system.
+       Safe check prevents an error if the function
+       is not available for any reason.
+    */
+
+    if(typeof initLangTheme === "function"){
+
+        initLangTheme();
+
+    }
+
+});
+
+</script>
+
+
+<!-- EXISTING LANGUAGE SYSTEM -->
+
+<script src="lang-system.js"></script>
+
+</body>
+</html>

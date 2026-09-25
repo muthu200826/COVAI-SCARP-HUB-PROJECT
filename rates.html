@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0,viewport-fit=cover"
+>
+
+<meta
+    name="theme-color"
+    content="#087c4d"
+>
+
+<title>Current Rates | COVAI SCRAP HUB</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#10b981;
+    --green-dark:#047857;
+    --green-deep:#065f46;
+    --bg:#f3faf6;
+    --text:#10231b;
+    --muted:#718079;
+    --border:#dcebe3;
+    --white:#fff;
+}
+
+body.dark-mode{
+    --green:#34d399;
+    --green-dark:#10b981;
+    --green-deep:#065f46;
+    --bg:#111827;
+    --text:#f1f5f9;
+    --muted:#9ca3af;
+    --border:#374151;
+    --white:#1f2937;
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            #1a2e23 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 100% 15%,
+            #0f2419 0,
+            transparent 28%
+        ),
+        #0f1419;
+    color:#e0e6ed;
+}
+
+body.dark-mode .topbar{
+    background:rgba(15,23,42,.95);
+    border-bottom:1px solid #374151;
+}
+
+body.dark-mode .back-btn{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#34d399;
+}
+
+body.dark-mode .back-btn:hover{
+    background:#1e2433;
+}
+
+body.dark-mode .page-title{
+    color:#e0e6ed;
+}
+
+body.dark-mode .hero{
+    background:linear-gradient(
+        135deg,
+        #1a7f4e,
+        #0d5a35 70%,
+        #094428
+    );
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+body.dark-mode .status{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#9ca3af;
+}
+
+body.dark-mode .rate-card{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+
+body.dark-mode .product-icon{
+    background:linear-gradient(
+        145deg,
+        #1e2433,
+        #1a2e23
+    );
+}
+
+body.dark-mode .product-name{
+    color:#e0e6ed;
+}
+
+body.dark-mode .product-unit{
+    color:#9ca3af;
+}
+
+body.dark-mode .product-price{
+    color:#34d399;
+}
+
+body.dark-mode .loading{
+    color:#9ca3af;
+}
+
+body.dark-mode .spinner{
+    border:3px solid #374151;
+    border-top-color:#34d399;
+}
+
+body.dark-mode .error{
+    background:#2d1f1f;
+    border:1px solid #7f1d1d;
+    color:#fca5a5;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:var(--text);
+
+    transition:background .3s ease,color .3s ease;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 0%,
+            #d9fbe7 0,
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 100% 15%,
+            #e5fff0 0,
+            transparent 28%
+        ),
+
+        var(--bg);
+
+    -webkit-font-smoothing:antialiased;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    padding:
+        8px
+        10px;
+
+    background:
+        rgba(255,255,255,.93);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+.topbar-inner{
+
+    width:
+        min(
+            100%,
+            680px
+        );
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+}
+
+.back-btn{
+
+    width:35px;
+    height:35px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:10px;
+
+    background:#fff;
+
+    color:var(--green-dark);
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:19px;
+
+    cursor:pointer;
+}
+
+.page-title{
+
+    font-size:15px;
+
+    font-weight:900;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+
+    width:
+        min(
+            calc(100% - 14px),
+            680px
+        );
+
+    margin:auto;
+
+    padding:
+        8px
+        0
+        30px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:14px;
+
+    margin-bottom:9px;
+
+    color:#fff;
+
+    border-radius:16px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #10b981,
+            #047857 70%,
+            #065f46
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(5,150,105,.20);
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    right:-60px;
+    top:-70px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.10);
+}
+
+.hero-label{
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:8px;
+
+    font-weight:900;
+
+    letter-spacing:.12em;
+}
+
+.hero-title{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:3px;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+.hero-date{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:4px;
+
+    font-size:9px;
+
+    opacity:.82;
+}
+
+.hero-sub{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:3px;
+
+    font-size:8px;
+
+    opacity:.75;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:
+        8px
+        10px;
+
+    margin-bottom:9px;
+
+    background:#fff;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:10px;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.status-dot{
+
+    width:8px;
+    height:8px;
+
+    flex:0 0 8px;
+
+    border-radius:50%;
+
+    background:#f59e0b;
+}
+
+.status.ok .status-dot{
+    background:#10b981;
+}
+
+.status.error .status-dot{
+    background:#ef4444;
+}
+
+
+/* =========================
+   RATE CARD
+========================= */
+
+.rate-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px;
+
+    margin-bottom:7px;
+
+    background:#fff;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:13px;
+
+    box-shadow:
+        0 4px 14px
+        rgba(15,80,50,.045);
+
+    animation:
+        cardIn .25s ease both;
+}
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+        transform:translateY(5px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.product-icon{
+
+    width:40px;
+    height:40px;
+
+    flex:0 0 40px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #effdf5,
+            #d8f8e5
+        );
+
+    font-size:20px;
+}
+
+.product-info{
+
+    flex:1;
+
+    min-width:0;
+}
+
+.product-name{
+
+    font-size:11px;
+
+    font-weight:900;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+.product-unit{
+
+    margin-top:3px;
+
+    font-size:8px;
+
+    color:var(--muted);
+}
+
+.product-price{
+
+    white-space:nowrap;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    color:var(--green-dark);
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+
+    padding:35px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:10px;
+}
+
+.spinner{
+
+    width:25px;
+    height:25px;
+
+    margin:
+        0
+        auto
+        8px;
+
+    border:
+        3px solid
+        #d8eee2;
+
+    border-top-color:
+        var(--green);
+
+    border-radius:50%;
+
+    animation:
+        spin .8s linear infinite;
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error{
+
+    display:none;
+
+    padding:10px;
+
+    margin-bottom:9px;
+
+    border:
+        1px solid
+        #fecaca;
+
+    border-radius:11px;
+
+    background:#fff5f5;
+
+    color:#b42318;
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .container{
+
+        width:
+            calc(100% - 12px);
+
+        padding-top:7px;
+    }
+
+    .hero{
+
+        padding:12px;
+
+        border-radius:14px;
+    }
+
+    .hero-title{
+        font-size:14px;
+    }
+
+    .hero-label{
+        font-size:7px;
+    }
+
+    .hero-date{
+        font-size:8px;
+    }
+
+    .rate-card{
+
+        gap:8px;
+
+        padding:7px;
+
+        border-radius:11px;
+    }
+
+    .product-icon{
+
+        width:36px;
+        height:36px;
+
+        flex-basis:36px;
+
+        font-size:18px;
+    }
+
+    .product-name{
+        font-size:10px;
+    }
+
+    .product-unit{
+        font-size:7px;
+    }
+
+    .product-price{
+        font-size:13px;
+    }
+
+}
+
+@media(max-width:340px){
+
+    .rate-card{
+        gap:6px;
+    }
+
+    .product-icon{
+
+        width:33px;
+        height:33px;
+
+        flex-basis:33px;
+
+        font-size:16px;
+    }
+
+    .product-name{
+        font-size:9px;
+    }
+
+    .product-price{
+        font-size:12px;
+    }
+
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+body.dark-theme{
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            #1a2e23 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 100% 15%,
+            #0f2419 0,
+            transparent 28%
+        ),
+        #0f1419;
+    color:#e0e6ed;
+}
+
+body.dark-theme .topbar{
+    background:rgba(15,23,42,.95);
+    border-bottom:1px solid #374151;
+}
+
+body.dark-theme .back-btn{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#34d399;
+}
+
+body.dark-theme .back-btn:hover{
+    background:#1e2433;
+}
+
+body.dark-theme .page-title{
+    color:#e0e6ed;
+}
+
+body.dark-theme .hero{
+    background:linear-gradient(
+        135deg,
+        #1a7f4e,
+        #0d5a35 70%,
+        #094428
+    );
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+body.dark-theme .status{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#9ca3af;
+}
+
+body.dark-theme .rate-card{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+}
+
+body.dark-theme .product-icon{
+    background:linear-gradient(
+        145deg,
+        #1e2433,
+        #1a2e23
+    );
+}
+
+body.dark-theme .product-name{
+    color:#e0e6ed;
+}
+
+body.dark-theme .product-unit{
+    color:#9ca3af;
+}
+
+body.dark-theme .product-price{
+    color:#34d399;
+}
+
+body.dark-theme .loading{
+    color:#9ca3af;
+}
+
+body.dark-theme .spinner{
+    border:3px solid #374151;
+    border-top-color:#34d399;
+}
+
+body.dark-theme .error{
+    background:#2d1f1f;
+    border:1px solid #7f1d1d;
+    color:#fca5a5;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="topbar-inner">
+
+        <button
+    class="back-btn"
+    type="button"
+    onclick="window.history.back()"
+    aria-label="Go back to customer page"
+>
+    ←
+</button>
+
+        <div class="page-title" data-i18n="currentRates">
+            Current Scrap Rates
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<section class="hero">
+
+    <div class="hero-label" data-i18n="liveRatesLabel">
+        COVAI SCRAP HUB • LIVE RATES
+    </div>
+
+    <div class="hero-title" data-i18n="todayRates">
+        Today's Scrap Rates
+    </div>
+
+    <div
+        class="hero-date"
+        id="updateDate"
+    >
+        Loading...
+    </div>
+
+    <div class="hero-sub" data-i18n="pricesUpdate">
+        Prices automatically update from Firestore
+    </div>
+
+</section>
+
+
+<div
+    class="status"
+    id="status"
+>
+
+    <span class="status-dot"></span>
+
+    <span id="statusText">
+        Connecting to Firestore...
+    </span>
+
+</div>
+
+
+<div
+    class="loading"
+    id="loading"
+>
+
+    <div class="spinner"></div>
+
+    Loading 10 products...
+
+</div>
+
+
+<div
+    class="error"
+    id="error"
+></div>
+
+
+<section
+    id="ratesContainer"
+></section>
+
+
+</main>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    doc,
+    onSnapshot
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   YOUR FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyApJhYmo0pHNqVD0XIyOlQDqDzACztPdHA",
+
+    authDomain:
+        "covai-scrap-hub.firebaseapp.com",
+
+    databaseURL:
+        "https://covai-scrap-hub-default-rtdb.firebaseio.com",
+
+    projectId:
+        "covai-scrap-hub",
+
+    storageBucket:
+        "covai-scrap-hub.firebasestorage.app",
+
+    messagingSenderId:
+        "979133721874",
+
+    appId:
+        "1:979133721874:web:c5829bb8dbf5270c0917cb",
+
+    measurementId:
+        "G-P3PTSBHWMF"
+};
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+const app =
+    initializeApp(
+        firebaseConfig
+    );
+
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   EXISTING FIRESTORE DOCUMENT
+===================================================== */
+
+const ratesDocument =
+    doc(
+        db,
+        "covai hub",
+        "f9k5K0JaYiXmE8aZ5vdf"
+    );
+
+
+/* =====================================================
+   EXACT SAME 10 PRODUCTS
+===================================================== */
+
+const PRODUCTS = [
+
+    {
+        id:"steel",
+        name:"Steel Scrap",
+        nameKey:"steelScrap",
+        unit:"kg",
+        emoji:"🔩"
+    },
+
+    {
+        id:"paper",
+        name:"Paper Scrap",
+        nameKey:"paperScrap",
+        unit:"kg",
+        emoji:"📰"
+    },
+
+    {
+        id:"aluminium",
+        name:"Aluminium Scrap",
+        nameKey:"aluminiumScrap",
+        unit:"kg",
+        emoji:"🥫"
+    },
+
+    {
+        id:"copper",
+        name:"Copper Scrap",
+        nameKey:"copperScrap",
+        unit:"kg",
+        emoji:"🔶"
+    },
+
+    {
+        id:"plastic",
+        name:"Plastic Scrap",
+        nameKey:"plasticScrap",
+        unit:"kg",
+        emoji:"📦",
+        legacyId:"palstic"
+    },
+
+    {
+        id:"brass",
+        name:"Brass Scrap",
+        nameKey:"brassScrap",
+        unit:"kg",
+        emoji:"🔔"
+    },
+
+    {
+        id:"iron",
+        name:"Iron Scrap",
+        nameKey:"ironScrap",
+        unit:"kg",
+        emoji:"⚙️"
+    },
+
+    {
+        id:"battery",
+        name:"Old Battery",
+        nameKey:"batteryScrap",
+        unit:"kg",
+        emoji:"🔋"
+    },
+
+    {
+        id:"ewaste",
+        name:"E-Waste",
+        nameKey:"eWaste",
+        unit:"kg",
+        emoji:"💻"
+    },
+
+    {
+        id:"mixed",
+        name:"Mixed Scrap",
+        nameKey:"mixedScrap",
+        unit:"kg",
+        emoji:"♻️"
+    }
+
+];
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const container =
+    document.getElementById(
+        "ratesContainer"
+    );
+
+
+const loading =
+    document.getElementById(
+        "loading"
+    );
+
+
+const errorBox =
+    document.getElementById(
+        "error"
+    );
+
+
+const status =
+    document.getElementById(
+        "status"
+    );
+
+
+const statusText =
+    document.getElementById(
+        "statusText"
+    );
+
+
+const updateDate =
+    document.getElementById(
+        "updateDate"
+    );
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+function getPrice(
+    product,
+    data
+){
+
+    if(!data){
+        return 0;
+    }
+
+
+    if(
+        data[product.id] !== undefined
+    ){
+
+        const value =
+            Number(
+                data[product.id]
+            );
+
+
+        if(
+            Number.isFinite(value)
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    /*
+       Existing screenshot has:
+       palstic
+    */
+
+    if(
+        product.legacyId &&
+        data[product.legacyId] !== undefined
+    ){
+
+        const value =
+            Number(
+                data[product.legacyId]
+            );
+
+
+        if(
+            Number.isFinite(value)
+        ){
+
+            return value;
+
+        }
+
+    }
+
+
+    return 0;
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+function formatDate(value){
+
+    if(!value){
+        return "Rates not updated yet";
+    }
+
+
+    let date;
+
+
+    if(
+        value &&
+        typeof value.toDate === "function"
+    ){
+
+        date =
+            value.toDate();
+
+    }
+    else{
+
+        date =
+            new Date(value);
+
+    }
+
+
+    if(
+        Number.isNaN(
+            date.getTime()
+        )
+    ){
+
+        return "Rates not updated yet";
+
+    }
+
+
+    return (
+        "Updated • " +
+        date.toLocaleDateString(
+            "en-IN",
+            {
+                day:"2-digit",
+                month:"short",
+                year:"numeric"
+            }
+        ) +
+        " " +
+        date.toLocaleTimeString(
+            "en-IN",
+            {
+                hour:"2-digit",
+                minute:"2-digit"
+            }
+        )
+    );
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderRates(
+    data
+){
+
+    let html = "";
+
+
+    PRODUCTS.forEach(
+        (
+            product,
+            index
+        ) => {
+
+            const price =
+                getPrice(
+                    product,
+                    data
+                );
+
+
+            html += `
+
+                <div
+                    class="rate-card"
+                    style="
+                        animation-delay:
+                        ${index * 30}ms
+                    "
+                >
+
+                    <div class="product-icon">
+                        ${product.emoji}
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <div class="product-name">
+                            ${typeof getTranslation === 'function' && product.nameKey ? getTranslation(product.nameKey) : product.name}
+                        </div>
+
+                        <div class="product-unit">
+                            ${typeof getTranslation === 'function' ? getTranslation('perUnit') : 'Per'} ${product.unit}
+                        </div>
+
+                    </div>
+
+
+                    <div class="product-price">
+                        ₹${price.toFixed(2)}
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    container.innerHTML =
+        html;
+}
+
+
+/* =====================================================
+   REAL-TIME FIRESTORE
+===================================================== */
+
+onSnapshot(
+
+    ratesDocument,
+
+    snapshot => {
+
+        const data =
+            snapshot.exists()
+                ? (
+                    snapshot.data() || {}
+                )
+                : {};
+
+
+        renderRates(
+            data
+        );
+
+
+        updateDate.textContent =
+            formatDate(
+                data.lastUpdated
+            );
+
+
+        loading.style.display =
+            "none";
+
+
+        errorBox.style.display =
+            "none";
+
+
+        status.classList.remove(
+            "error"
+        );
+
+        status.classList.add(
+            "ok"
+        );
+
+
+        statusText.innerHTML =
+            typeof getTranslation === 'function'
+                ? getTranslation('liveStatus')
+                : "<strong>Live</strong> • Rates daily upadated from scrap markat";
+
+    },
+
+    error => {
+
+        console.error(
+            "Firestore error:",
+            error
+        );
+
+
+        /*
+           Even if Firestore rules are blocked,
+           the fixed 10 products remain visible.
+        */
+
+        renderRates({});
+
+
+        loading.style.display =
+            "none";
+
+
+        status.classList.remove(
+            "ok"
+        );
+
+        status.classList.add(
+            "error"
+        );
+
+
+        statusText.textContent =
+            "Firestore connection blocked";
+
+
+        errorBox.style.display =
+            "block";
+
+
+        if(
+            error.code ===
+            "permission-denied"
+        ){
+
+            errorBox.textContent =
+                "⚠️ Firestore permission denied. Please allow read access to this document in Firestore Security Rules.";
+
+        }
+        else{
+
+            errorBox.textContent =
+                "⚠️ Firestore error: " +
+                error.message;
+
+        }
+
+    }
+
+);
+
+</script>
+
+<script src="lang-system.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => { initLangTheme(); });
+</script>
+
+<script>
+(function applySavedTheme(){
+    const theme = localStorage.getItem("covaiTheme");
+    if(theme === "dark"){
+        document.body.classList.add("dark-mode");
+    }
+})();
+</script>
+
+</body>
+
+</html>

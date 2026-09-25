@@ -1,0 +1,5 @@
+::1 - - [23/Aug/2026 19:56:14] "GET /test-flow.html HTTP/1.1" 200 -
+::1 - - [23/Aug/2026 19:56:15] code 404, message File not found
+::1 - - [23/Aug/2026 19:56:15] "GET /favicon.ico HTTP/1.1" 404 -
+::1 - - [23/Aug/2026 19:56:35] "GET /fix-gps.html HTTP/1.1" 200 -
+::1 - - [23/Aug/2026 19:56:49] "GET /set-location-admin.html?id=-P-_zS_z-sIdLl87iQCC HTTP/1.1" 200 -

@@ -1,0 +1,1916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<title>My Profile | COVAI SCRAP HUB</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#00c896;
+    --green-dark:#008f6d;
+    --green-deep:#007a5d;
+    --bg:#f3faf7;
+    --card:#ffffff;
+    --text:#10231e;
+    --muted:#71807b;
+    --border:#e1ece8;
+    --red:#ef4444;
+}
+
+body.dark-mode{
+    --green:#34d399;
+    --green-dark:#10b981;
+    --green-deep:#065f46;
+    --bg:#111827;
+    --card:#1f2937;
+    --text:#f1f5f9;
+    --muted:#9ca3af;
+    --border:#374151;
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(26,127,78,.2),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 100% 10%,
+            rgba(13,90,53,.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0f1419,
+            #1a1f2e
+        );
+    color:#e0e6ed;
+}
+
+body.dark-mode .topbar{
+    background:rgba(15,23,42,.95);
+    border-bottom:1px solid #374151;
+}
+
+body.dark-mode .back-btn{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#34d399;
+}
+
+body.dark-mode .back-btn:hover{
+    background:#1e2433;
+}
+
+body.dark-mode .topbar-title,
+body.dark-mode .profile-name{
+    color:#e0e6ed;
+}
+
+body.dark-mode .profile-phone{
+    color:rgba(255,255,255,.82);
+}
+
+body.dark-mode .form-section{
+    background:rgba(26,31,46,.92);
+    border:1px solid #374151;
+}
+
+body.dark-mode .section-title{
+    color:#e0e6ed;
+}
+
+body.dark-mode .section-icon{
+    background:rgba(26,127,78,.2);
+    color:#34d399;
+}
+
+body.dark-mode label{
+    color:#d1d5db;
+}
+
+body.dark-mode input,
+body.dark-mode textarea{
+    background:#1e2433;
+    border:1.5px solid #374151;
+    color:#e0e6ed;
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus{
+    background:#1a2e23;
+    border-color:#34d399;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder{
+    color:#6b7280;
+}
+
+body.dark-mode .input-icon{
+    color:#9ca3af;
+}
+
+body.dark-mode .location-btn{
+    background:#1e2433;
+    border:1.5px solid #374151;
+    color:#9ca3af;
+}
+
+body.dark-mode .location-btn.active{
+    background:#1a7f4e;
+    border-color:#1a7f4e;
+    color:#fff;
+}
+
+body.dark-mode .save-btn{
+    background:linear-gradient(135deg,#1a7f4e,#16a34a);
+}
+
+body.dark-mode .delete-btn{
+    background:#991b1b;
+    border:1.5px solid #7f1d1d;
+    color:#fca5a5;
+}
+
+body.dark-mode .delete-btn:hover{
+    background:#7f1d1d;
+}
+
+body.dark-mode .status.success{
+    color:#34d399;
+    background:rgba(26,127,78,.2);
+    border:1px solid rgba(52,211,153,.3);
+}
+
+body.dark-mode .status.error{
+    color:#fca5a5;
+    background:#2d1f1f;
+    border:1px solid #7f1d1d;
+}
+
+html,
+body{
+    width:100%;
+    min-height:100%;
+    overflow-x:hidden;
+}
+
+body{
+    font-family:"Inter",Arial,sans-serif;
+    color:var(--text);
+    transition:background .3s ease,color .3s ease;
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(0,200,150,.15),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 100% 10%,
+            rgba(0,143,109,.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #f5fffc,
+            #edf8f4
+        );
+    -webkit-font-smoothing:antialiased;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(0,0,0,.06);
+}
+
+.topbar-inner{
+    width:min(100%,760px);
+    height:62px;
+    margin:auto;
+    padding:8px 16px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.back-btn{
+    width:40px;
+    height:40px;
+    flex:0 0 40px;
+    border:1px solid rgba(0,0,0,.07);
+    border-radius:12px;
+    background:#fff;
+    color:#17221f;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:19px;
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+    transition:.2s ease;
+}
+
+.back-btn:hover{
+    color:var(--green-dark);
+    border-color:rgba(0,200,150,.4);
+}
+
+.topbar-title{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:-.03em;
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container{
+    width:min(100%,760px);
+    margin:auto;
+    padding:17px 16px 28px;
+}
+
+/* =========================================
+   PROFILE HEADER
+========================================= */
+
+.profile-header{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px;
+    margin-bottom:12px;
+    border-radius:22px;
+    color:#fff;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255,255,255,.24),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #00c896,
+            #008f6d
+        );
+
+    box-shadow:
+        0 13px 32px rgba(0,143,109,.22);
+}
+
+.profile-header::before{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    right:-85px;
+    top:-100px;
+    border-radius:50%;
+    background:rgba(255,255,255,.10);
+}
+
+.profile-header::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    left:-55px;
+    bottom:-65px;
+    border-radius:50%;
+    background:rgba(255,255,255,.06);
+}
+
+.profile-avatar{
+    position:relative;
+    z-index:2;
+
+    width:68px;
+    height:68px;
+    flex:0 0 68px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.30);
+
+    color:#fff;
+    font-size:27px;
+    font-weight:800;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.30),
+        0 8px 20px rgba(0,0,0,.10);
+}
+
+.profile-info{
+    position:relative;
+    z-index:2;
+    min-width:0;
+}
+
+.profile-name{
+    max-width:100%;
+    font-size:20px;
+    font-weight:800;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.profile-phone{
+    margin-top:5px;
+    color:rgba(255,255,255,.82);
+    font-size:12px;
+    font-weight:500;
+}
+
+/* =========================================
+   FORM CARD
+========================================= */
+
+.form-section{
+    margin-bottom:12px;
+    padding:18px;
+
+    background:rgba(255,255,255,.92);
+
+    border:1px solid var(--border);
+    border-radius:18px;
+
+    box-shadow:
+        0 7px 25px rgba(0,70,50,.055);
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:9px;
+
+    margin-bottom:15px;
+
+    font-size:14px;
+    font-weight:800;
+}
+
+.section-icon{
+    width:29px;
+    height:29px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:#e6fff7;
+    color:#008f6d;
+
+    font-size:13px;
+}
+
+/* =========================================
+   FORM GRID
+========================================= */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.form-group{
+    min-width:0;
+    margin-bottom:12px;
+}
+
+.form-grid .form-group{
+    margin-bottom:0;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+
+    color:#43504c;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.optional{
+    color:#9ca8a4;
+    font-size:9px;
+    font-weight:500;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-wrap{
+    position:relative;
+}
+
+.input-icon{
+    position:absolute;
+    left:11px;
+    top:50%;
+    transform:translateY(-50%);
+
+    color:#84938e;
+    font-size:12px;
+
+    pointer-events:none;
+}
+
+input,
+textarea{
+    width:100%;
+
+    outline:none;
+
+    border:1.5px solid var(--border);
+
+    background:#f9fcfb;
+    color:#16231f;
+
+    transition:.2s ease;
+}
+
+input{
+    height:43px;
+
+    padding:0 11px 0 32px;
+
+    border-radius:11px;
+
+    font-size:12px;
+}
+
+textarea{
+    min-height:82px;
+
+    padding:11px;
+
+    border-radius:11px;
+
+    resize:vertical;
+
+    font-size:12px;
+    line-height:1.45;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#a0aaa6;
+}
+
+input:focus,
+textarea:focus{
+    background:#fff;
+
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 0 3px rgba(0,200,150,.09);
+}
+
+input:disabled,
+textarea:disabled{
+    opacity:.65;
+}
+
+/* =========================================
+   LOCATION
+========================================= */
+
+.location-group{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+
+    margin-bottom:12px;
+}
+
+.location-btn{
+    min-height:41px;
+
+    border:1.5px solid var(--border);
+    border-radius:10px;
+
+    background:#fff;
+    color:#586762;
+
+    font-size:11px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+
+    transition:.2s ease;
+}
+
+.location-btn:hover{
+    border-color:var(--green);
+}
+
+.location-btn.active{
+    color:#007c5e;
+    background:#e9fff7;
+    border-color:var(--green);
+
+    box-shadow:
+        0 4px 12px rgba(0,200,150,.09);
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.actions{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:9px;
+
+    margin-top:2px;
+}
+
+.save-btn,
+.delete-btn{
+    min-height:45px;
+
+    border-radius:11px;
+
+    font-size:12px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+.save-btn{
+    border:0;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c896,
+            #008f6d
+        );
+
+    box-shadow:
+        0 8px 18px rgba(0,159,120,.22);
+}
+
+.save-btn:hover{
+    transform:translateY(-1px);
+}
+
+.delete-btn{
+    color:#dc2626;
+
+    background:#fff;
+
+    border:1.5px solid #fecaca;
+}
+
+.delete-btn:hover{
+    background:#fff5f5;
+}
+
+.save-btn:active,
+.delete-btn:active{
+    transform:scale(.97);
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status{
+    display:none;
+
+    margin-top:9px;
+
+    padding:9px 10px;
+
+    border-radius:9px;
+
+    text-align:center;
+
+    font-size:10px;
+    font-weight:700;
+}
+
+.status.success{
+    display:block;
+
+    color:#047857;
+    background:#ecfdf5;
+    border:1px solid #a7f3d0;
+}
+
+.status.error{
+    display:block;
+
+    color:#b91c1c;
+    background:#fef2f2;
+    border:1px solid #fecaca;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    body{
+        background:
+            radial-gradient(
+                circle at 0% 0%,
+                rgba(0,200,150,.13),
+                transparent 34%
+            ),
+            #f3faf7;
+    }
+
+    .topbar-inner{
+        height:52px;
+        padding:6px 10px;
+    }
+
+    .back-btn{
+        width:35px;
+        height:35px;
+        flex-basis:35px;
+
+        border-radius:10px;
+        font-size:16px;
+    }
+
+    .topbar-title{
+        font-size:14px;
+    }
+
+    .container{
+        padding:9px 8px 15px;
+    }
+
+    .profile-header{
+        padding:11px;
+        margin-bottom:8px;
+        border-radius:15px;
+        gap:10px;
+    }
+
+    .profile-avatar{
+        width:46px;
+        height:46px;
+        flex-basis:46px;
+
+        border-radius:14px;
+        font-size:19px;
+    }
+
+    .profile-name{
+        font-size:14px;
+    }
+
+    .profile-phone{
+        margin-top:2px;
+        font-size:9px;
+    }
+
+    .form-section{
+        padding:10px;
+        margin-bottom:8px;
+        border-radius:13px;
+    }
+
+    .section-title{
+        margin-bottom:9px;
+        font-size:11px;
+        gap:6px;
+    }
+
+    .section-icon{
+        width:23px;
+        height:23px;
+        border-radius:7px;
+        font-size:10px;
+    }
+
+    .form-grid{
+        gap:7px;
+    }
+
+    .form-group{
+        margin-bottom:7px;
+    }
+
+    label{
+        margin-bottom:3px;
+        font-size:9px;
+    }
+
+    .optional{
+        font-size:8px;
+    }
+
+    input{
+        height:36px;
+        padding-left:28px;
+        border-radius:8px;
+        font-size:10px;
+    }
+
+    textarea{
+        min-height:58px;
+        padding:8px;
+        border-radius:8px;
+        font-size:10px;
+    }
+
+    .input-icon{
+        left:9px;
+        font-size:10px;
+    }
+
+    .location-group{
+        gap:5px;
+        margin-bottom:7px;
+    }
+
+    .location-btn{
+        min-height:33px;
+        border-radius:8px;
+        font-size:9px;
+    }
+
+    .actions{
+        gap:6px;
+    }
+
+    .save-btn,
+    .delete-btn{
+        min-height:37px;
+        border-radius:9px;
+        font-size:10px;
+    }
+
+    .status{
+        margin-top:6px;
+        padding:7px;
+        font-size:9px;
+    }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media(max-width:360px){
+
+    .topbar-inner{
+        height:49px;
+        padding:5px 8px;
+    }
+
+    .container{
+        padding:7px 6px 12px;
+    }
+
+    .profile-header{
+        padding:9px;
+        border-radius:13px;
+    }
+
+    .profile-avatar{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+        border-radius:12px;
+        font-size:17px;
+    }
+
+    .profile-name{
+        font-size:12px;
+    }
+
+    .profile-phone{
+        font-size:8px;
+    }
+
+    .form-section{
+        padding:8px;
+        border-radius:11px;
+    }
+
+    .section-title{
+        font-size:10px;
+        margin-bottom:6px;
+    }
+
+    input{
+        height:33px;
+        font-size:9px;
+    }
+
+    textarea{
+        min-height:50px;
+        font-size:9px;
+    }
+
+    .location-btn{
+        min-height:30px;
+        font-size:8px;
+    }
+
+    .save-btn,
+    .delete-btn{
+        min-height:34px;
+        font-size:9px;
+    }
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+body.dark-theme{
+    background:
+        radial-gradient(
+            circle at 0% 0%,
+            rgba(26,127,78,.2),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 100% 10%,
+            rgba(13,90,53,.15),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #0f1419,
+            #1a1f2e
+        );
+    color:#e0e6ed;
+}
+
+body.dark-theme .topbar{
+    background:rgba(15,23,42,.95);
+    border-bottom:1px solid #374151;
+}
+
+body.dark-theme .back-btn{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#34d399;
+}
+
+body.dark-theme .back-btn:hover{
+    background:#1e2433;
+}
+
+body.dark-theme .page-title{
+    color:#e0e6ed;
+}
+
+body.dark-theme .card{
+    background:#1a1f2e;
+    border:1px solid #374151;
+}
+
+body.dark-theme .card h3{
+    color:#e0e6ed;
+}
+
+body.dark-theme .input-group label{
+    color:#d1d5db;
+}
+
+body.dark-theme .input-group input,
+body.dark-theme .input-group textarea,
+body.dark-theme .input-group select{
+    background:#1e2433;
+    border:1px solid #374151;
+    color:#e0e6ed;
+}
+
+body.dark-theme .input-group input:focus,
+body.dark-theme .input-group textarea:focus,
+body.dark-theme .input-group select:focus{
+    border-color:#34d399;
+    background:#1a2e23;
+}
+
+body.dark-theme .input-group input::placeholder,
+body.dark-theme .input-group textarea::placeholder{
+    color:#6b7280;
+}
+
+body.dark-theme .method-btns button{
+    background:#1e2433;
+    border:1px solid #374151;
+    color:#9ca3af;
+}
+
+body.dark-theme .method-btns button.active{
+    background:#1a7f4e;
+    border-color:#1a7f4e;
+    color:#fff;
+}
+
+body.dark-theme .save-btn{
+    background:#1a7f4e;
+}
+
+body.dark-theme .save-btn:hover{
+    background:#16a34a;
+}
+
+body.dark-theme .delete-btn{
+    background:#991b1b;
+}
+
+body.dark-theme .delete-btn:hover{
+    background:#7f1d1d;
+}
+
+body.dark-theme .info-text{
+    color:#9ca3af;
+}
+
+body.dark-theme .map-placeholder{
+    background:#1e2433;
+    border:2px dashed #374151;
+    color:#9ca3af;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     TOP BAR
+========================================= -->
+
+<div class="topbar">
+
+    <div class="topbar-inner">
+
+        <button
+    type="button"
+    class="back-btn"
+    onclick="window.history.back()"
+    aria-label="Back to Customer"
+    title="Back to Customer"
+>
+    <span aria-hidden="true">←</span>
+</button>
+
+        <h1 class="topbar-title" data-i18n="myProfile">
+            My Profile
+        </h1>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<div class="container">
+
+
+    <!-- PROFILE HEADER -->
+
+    <div class="profile-header">
+
+        <div
+            class="profile-avatar"
+            id="profileAvatar"
+        >
+            👤
+        </div>
+
+        <div class="profile-info">
+
+            <div
+                class="profile-name"
+                id="profileName"
+            >
+                Guest User
+            </div>
+
+            <div
+                class="profile-phone"
+                id="profilePhone"
+            >
+                Setup your profile
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BASIC INFORMATION -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <div class="section-icon">
+                👤
+            </div>
+
+            <span data-i18n="basicInfo">Basic Information</span>
+
+        </div>
+
+
+        <div class="form-grid">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label>
+                    <span data-i18n="fullName">Full Name</span>
+                    <span class="optional">*</span>
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">
+                        👤
+                    </span>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                        data-i18n-placeholder="enterName"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="form-group">
+
+                <label>
+                    <span data-i18n="phoneNumber">Phone Number</span>
+                    <span class="optional">*</span>
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">
+                        📱
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="10-digit number"
+                        data-i18n-placeholder="phoneDigit"
+                        maxlength="10"
+                        inputmode="numeric"
+                        autocomplete="tel"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <div class="form-group">
+
+                <label>
+                    <span data-i18n="whatsappNumber">WhatsApp</span>
+                    <span class="optional" data-i18n="optional">(Optional)</span>
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">
+                        💬
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="whatsapp"
+                        placeholder="WhatsApp number"
+                        data-i18n-placeholder="whatsappPlaceholder"
+                        maxlength="10"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label>
+                    <span data-i18n="email">Email</span>
+                    <span class="optional" data-i18n="optional">(Optional)</span>
+                </label>
+
+                <div class="input-wrap">
+
+                    <span class="input-icon">
+                        ✉️
+                    </span>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email address"
+                        data-i18n-placeholder="emailPlaceholder"
+                        autocomplete="email"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ADDRESS -->
+
+    <div class="form-section">
+
+        <div class="section-title">
+
+            <div class="section-icon">
+                📍
+            </div>
+
+            <span data-i18n="pickupAddress">Pickup Address</span>
+
+        </div>
+
+
+        <!-- LOCATION METHOD -->
+
+        <div class="form-group">
+
+            <label>
+                <span data-i18n="locationMethod">Location Method</span>
+            </label>
+
+            <div class="location-group">
+
+                <button
+                    type="button"
+                    class="location-btn"
+                    id="currentLocationBtn"
+                    onclick="useCurrentLocation()"
+                >
+                    <span>📍 </span><span data-i18n="currentLocation">Current Location</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="location-btn active"
+                    id="manualLocationBtn"
+                    onclick="useManualLocation()"
+                >
+                    <span>✍️ </span><span data-i18n="enterManually">Enter Manually</span>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ADDRESS -->
+
+        <div class="form-group">
+
+            <label>
+                <span data-i18n="fullAddress">Full Address</span>
+                <span class="optional">*</span>
+            </label>
+
+            <textarea
+                id="address"
+                placeholder="Enter your complete pickup address"
+                data-i18n-placeholder="addressPlaceholder"
+                required
+            ></textarea>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="actions">
+
+        <button
+            type="button"
+            class="save-btn"
+            onclick="saveProfile()"
+        >
+            <span>💾 </span><span data-i18n="saveProfile">Save Profile</span>
+        </button>
+
+        <button
+            type="button"
+            class="delete-btn"
+            onclick="clearProfile()"
+        >
+            <span>🗑️ </span><span data-i18n="clear">Clear</span>
+        </button>
+
+    </div>
+
+
+    <!-- STATUS -->
+
+    <div
+        class="status"
+        id="status"
+    ></div>
+
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   LOAD PROFILE
+===================================================== */
+
+function loadProfile(){
+
+    const profile = localStorage.getItem("userProfile");
+
+    if(!profile){
+        return;
+    }
+
+    try{
+
+        const data = JSON.parse(profile);
+
+        document.getElementById("name").value =
+            data.name || "";
+
+        document.getElementById("phone").value =
+            data.phone || "";
+
+        document.getElementById("whatsapp").value =
+            data.whatsapp || "";
+
+        document.getElementById("email").value =
+            data.email || "";
+
+        document.getElementById("address").value =
+            data.address || "";
+
+        updateProfileHeader(data);
+
+    }catch(error){
+
+        console.error(
+            "Error loading profile:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   UPDATE PROFILE HEADER
+===================================================== */
+
+function updateProfileHeader(data){
+
+    const avatar =
+        document.getElementById("profileAvatar");
+
+    const name =
+        document.getElementById("profileName");
+
+    const phone =
+        document.getElementById("profilePhone");
+
+
+    if(data && data.name){
+
+        const initial =
+            data.name
+                .trim()
+                .charAt(0)
+                .toUpperCase();
+
+        avatar.textContent =
+            initial || "👤";
+
+        name.textContent =
+            data.name;
+
+    }else{
+
+        avatar.textContent =
+            "👤";
+
+        name.textContent =
+            typeof getTranslation === 'function' ? getTranslation('guestUser') : "Guest User";
+
+    }
+
+
+    if(data && data.phone){
+
+        phone.textContent =
+            data.phone;
+
+    }else{
+
+        phone.textContent =
+            typeof getTranslation === 'function' ? getTranslation('setupProfile') : "Setup your profile";
+
+    }
+
+}
+
+
+/* =====================================================
+   CURRENT LOCATION
+===================================================== */
+
+function useCurrentLocation(){
+
+    const currentBtn =
+        document.getElementById(
+            "currentLocationBtn"
+        );
+
+    const manualBtn =
+        document.getElementById(
+            "manualLocationBtn"
+        );
+
+    const addressField =
+        document.getElementById("address");
+
+
+    currentBtn.classList.add("active");
+
+    manualBtn.classList.remove("active");
+
+
+    if(!navigator.geolocation){
+
+        alert(
+            "Geolocation is not supported on this device. Please enter your address manually."
+        );
+
+        useManualLocation();
+
+        return;
+    }
+
+
+    addressField.value =
+        "Getting your current location...";
+
+    addressField.disabled = true;
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position){
+
+            const lat =
+                position.coords.latitude;
+
+            const lon =
+                position.coords.longitude;
+
+
+            fetch(
+                "https://nominatim.openstreetmap.org/reverse" +
+                "?lat=" + encodeURIComponent(lat) +
+                "&lon=" + encodeURIComponent(lon) +
+                "&format=json" +
+                "&addressdetails=1",
+                {
+                    headers:{
+                        "Accept":"application/json"
+                    }
+                }
+            )
+
+            .then(function(response){
+
+                if(!response.ok){
+                    throw new Error(
+                        "Location lookup failed"
+                    );
+                }
+
+                return response.json();
+
+            })
+
+            .then(function(data){
+
+                addressField.value =
+                    data.display_name ||
+                    (
+                        "Latitude: " +
+                        lat.toFixed(6) +
+                        ", Longitude: " +
+                        lon.toFixed(6)
+                    );
+
+                addressField.disabled =
+                    false;
+
+            })
+
+            .catch(function(){
+
+                addressField.value =
+                    "Latitude: " +
+                    lat.toFixed(6) +
+                    ", Longitude: " +
+                    lon.toFixed(6);
+
+                addressField.disabled =
+                    false;
+
+            });
+
+        },
+
+        function(error){
+
+            let message =
+                "Unable to get your location.";
+
+            if(error.code === 1){
+
+                message =
+                    "Location permission was denied. Please allow location access or enter your address manually.";
+
+            }else if(error.code === 2){
+
+                message =
+                    "Your location could not be detected. Please try again or enter manually.";
+
+            }else if(error.code === 3){
+
+                message =
+                    "Location request timed out. Please try again.";
+
+            }
+
+            alert(message);
+
+            useManualLocation();
+
+        },
+
+        {
+            enableHighAccuracy:true,
+            timeout:15000,
+            maximumAge:60000
+        }
+
+    );
+
+}
+
+
+/* =====================================================
+   MANUAL LOCATION
+===================================================== */
+
+function useManualLocation(){
+
+    const currentBtn =
+        document.getElementById(
+            "currentLocationBtn"
+        );
+
+    const manualBtn =
+        document.getElementById(
+            "manualLocationBtn"
+        );
+
+    const addressField =
+        document.getElementById("address");
+
+
+    manualBtn.classList.add("active");
+
+    currentBtn.classList.remove("active");
+
+    addressField.disabled =
+        false;
+
+
+    if(
+        addressField.value ===
+        "Getting your current location..."
+    ){
+
+        addressField.value = "";
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW STATUS
+===================================================== */
+
+function showStatus(message,type){
+
+    const status =
+        document.getElementById("status");
+
+    status.textContent =
+        message;
+
+    status.className =
+        "status " + type;
+
+
+    setTimeout(function(){
+
+        status.className =
+            "status";
+
+    },3000);
+
+}
+
+
+/* =====================================================
+   SAVE PROFILE
+===================================================== */
+
+function saveProfile(){
+
+    const name =
+        document.getElementById("name")
+            .value
+            .trim();
+
+    const phone =
+        document.getElementById("phone")
+            .value
+            .trim();
+
+    const whatsapp =
+        document.getElementById("whatsapp")
+            .value
+            .trim();
+
+    const email =
+        document.getElementById("email")
+            .value
+            .trim();
+
+    const address =
+        document.getElementById("address")
+            .value
+            .trim();
+
+
+    /* NAME */
+
+    if(!name){
+
+        alert(
+            "Please enter your name."
+        );
+
+        document
+            .getElementById("name")
+            .focus();
+
+        return;
+    }
+
+
+    /* PHONE */
+
+    if(
+        !phone ||
+        !/^[0-9]{10}$/.test(phone)
+    ){
+
+        alert(
+            "Please enter a valid 10-digit phone number."
+        );
+
+        document
+            .getElementById("phone")
+            .focus();
+
+        return;
+    }
+
+
+    /* WHATSAPP */
+
+    if(
+        whatsapp &&
+        !/^[0-9]{10}$/.test(whatsapp)
+    ){
+
+        alert(
+            "Please enter a valid 10-digit WhatsApp number."
+        );
+
+        document
+            .getElementById("whatsapp")
+            .focus();
+
+        return;
+    }
+
+
+    /* EMAIL */
+
+    if(email){
+
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if(!emailPattern.test(email)){
+
+            alert(
+                "Please enter a valid email address."
+            );
+
+            document
+                .getElementById("email")
+                .focus();
+
+            return;
+        }
+
+    }
+
+
+    /* ADDRESS */
+
+    if(!address){
+
+        alert(
+            "Please enter your pickup address."
+        );
+
+        document
+            .getElementById("address")
+            .focus();
+
+        return;
+    }
+
+
+    /* PROFILE OBJECT */
+
+    const profile = {
+
+        name:name,
+
+        phone:phone,
+
+        whatsapp:whatsapp,
+
+        email:email,
+
+        address:address,
+
+        updatedAt:
+            new Date().toISOString()
+
+    };
+
+
+    /* SAVE */
+
+    try{
+
+        localStorage.setItem(
+            "userProfile",
+            JSON.stringify(profile)
+        );
+
+    }catch(error){
+
+        alert(
+            "Unable to save profile on this device."
+        );
+
+        console.error(error);
+
+        return;
+    }
+
+
+    /* UPDATE HEADER */
+
+    updateProfileHeader(profile);
+
+
+    /* SUCCESS */
+
+    showStatus(
+        "✓ Profile saved successfully!",
+        "success"
+    );
+
+}
+
+
+/* =====================================================
+   CLEAR PROFILE
+===================================================== */
+
+function clearProfile(){
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to clear your profile?"
+        );
+
+    if(!confirmed){
+        return;
+    }
+
+
+    localStorage.removeItem(
+        "userProfile"
+    );
+
+
+    document.getElementById(
+        "name"
+    ).value = "";
+
+    document.getElementById(
+        "phone"
+    ).value = "";
+
+    document.getElementById(
+        "whatsapp"
+    ).value = "";
+
+    document.getElementById(
+        "email"
+    ).value = "";
+
+    document.getElementById(
+        "address"
+    ).value = "";
+
+
+    updateProfileHeader({});
+
+
+    useManualLocation();
+
+
+    showStatus(
+        "Profile cleared successfully.",
+        "success"
+    );
+
+}
+
+
+/* =====================================================
+   PHONE NUMBER INPUT
+===================================================== */
+
+function allowNumbersOnly(id){
+
+    const input =
+        document.getElementById(id);
+
+    input.addEventListener(
+        "input",
+        function(){
+
+            this.value =
+                this.value
+                    .replace(/\D/g,"")
+                    .slice(0,10);
+
+        }
+    );
+
+}
+
+
+allowNumbersOnly("phone");
+
+allowNumbersOnly("whatsapp");
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+loadProfile();
+
+</script>
+
+<script src="lang-system.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => { initLangTheme(); });
+</script>
+
+<script>
+(function applySavedTheme(){
+    const theme = localStorage.getItem("covaiTheme");
+    if(theme === "dark"){
+        document.body.classList.add("dark-mode");
+    }
+})();
+</script>
+
+</body>
+</html>

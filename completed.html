@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Completed Orders - Covai Scrap Hub</title>
+<meta name="description" content="View your completed scrap pickup orders">
+<link rel="icon" type="image/jpeg" href="logo.jpeg">
+<script src="lang-system.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#10b981;
+    --dark-green:#059669;
+    --light-green:#d1fae5;
+    --gray:#6b7280;
+    --light-gray:#f3f4f6;
+    --border:#e5e7eb;
+}
+
+body{
+    font-family:'Inter','Segoe UI',sans-serif;
+    background:#f9fafb;
+    color:#111827;
+    min-height:100vh;
+}
+
+/* Header */
+.header{
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    padding:16px 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header-content{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.back-btn{
+    background:none;
+    border:none;
+    color:var(--gray);
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 12px;
+    border-radius:8px;
+    transition:0.2s;
+}
+
+.back-btn:hover{
+    background:var(--light-gray);
+    color:#111827;
+}
+
+.header-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.header-icon{
+    font-size:24px;
+}
+
+.header-title h1{
+    font-size:20px;
+    font-weight:700;
+}
+
+.clear-btn{
+    background:none;
+    border:1px solid #ef4444;
+    color:#ef4444;
+    padding:8px 16px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.clear-btn:hover{
+    background:#fef2f2;
+}
+
+/* Container */
+.container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:24px 20px;
+}
+
+/* Stats */
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:16px;
+    margin-bottom:32px;
+}
+
+.stat-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+}
+
+.stat-label{
+    font-size:13px;
+    font-weight:600;
+    color:var(--gray);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin-bottom:8px;
+}
+
+.stat-value{
+    font-size:28px;
+    font-weight:700;
+    color:var(--green);
+}
+
+.stat-sub{
+    font-size:12px;
+    color:var(--gray);
+    margin-top:4px;
+}
+
+/* Orders List */
+.orders-section{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:24px;
+}
+
+.section-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
+}
+
+.section-title{
+    font-size:18px;
+    font-weight:700;
+}
+
+.order-count{
+    background:var(--light-green);
+    color:var(--dark-green);
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.orders-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.order-card{
+    border:2px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+    transition:0.2s;
+    cursor:pointer;
+}
+
+.order-card:hover{
+    border-color:var(--green);
+    box-shadow:0 4px 12px rgba(16,185,129,0.1);
+}
+
+.order-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:16px;
+}
+
+.order-id-section{
+    flex:1;
+}
+
+.order-id-label{
+    font-size:11px;
+    font-weight:600;
+    color:var(--gray);
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin-bottom:4px;
+}
+
+.order-id-value{
+    font-size:16px;
+    font-weight:700;
+    color:#111827;
+}
+
+.completion-badge{
+    background:linear-gradient(135deg,#10b981,#059669);
+    color:#fff;
+    padding:8px 16px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.order-details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:16px;
+    margin-bottom:16px;
+}
+
+.detail-item{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.detail-label{
+    font-size:12px;
+    font-weight:600;
+    color:var(--gray);
+}
+
+.detail-value{
+    font-size:14px;
+    font-weight:600;
+    color:#111827;
+}
+
+.order-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:16px;
+    border-top:1px solid var(--border);
+}
+
+.completed-date{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    color:var(--gray);
+}
+
+.completed-icon{
+    font-size:16px;
+}
+
+.view-btn{
+    background:var(--green);
+    color:#fff;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.view-btn:hover{
+    background:var(--dark-green);
+    transform:translateY(-2px);
+}
+
+/* Empty State */
+.empty-state{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.empty-icon{
+    font-size:64px;
+    margin-bottom:16px;
+}
+
+.empty-title{
+    font-size:20px;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:8px;
+}
+
+.empty-text{
+    font-size:14px;
+    color:var(--gray);
+    margin-bottom:24px;
+}
+
+.empty-btn{
+    background:var(--green);
+    color:#fff;
+    border:none;
+    padding:12px 24px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.empty-btn:hover{
+    background:var(--dark-green);
+    transform:translateY(-2px);
+}
+
+/* Dark Mode */
+body.dark-mode{
+    background:#0f172a;
+    color:#f1f5f9;
+}
+
+body.dark-mode .header{
+    background:#1e293b;
+    border-bottom-color:#334155;
+}
+
+body.dark-mode .back-btn{
+    color:#94a3b8;
+}
+
+body.dark-mode .back-btn:hover{
+    background:#334155;
+    color:#f1f5f9;
+}
+
+body.dark-mode .clear-btn{
+    background:none;
+    border-color:#ef4444;
+}
+
+body.dark-mode .clear-btn:hover{
+    background:#7f1d1d;
+}
+
+body.dark-mode .stat-card,
+body.dark-mode .orders-section{
+    background:#1e293b;
+    border-color:#334155;
+}
+
+body.dark-mode .order-card{
+    border-color:#334155;
+}
+
+body.dark-mode .order-card:hover{
+    border-color:#34d399;
+}
+
+body.dark-mode .order-id-value,
+body.dark-mode .detail-value,
+body.dark-mode .empty-title{
+    color:#f1f5f9;
+}
+
+body.dark-mode .order-footer{
+    border-top-color:#334155;
+}
+
+body.dark-mode .stat-label,
+body.dark-mode .detail-label,
+body.dark-mode .order-id-label,
+body.dark-mode .completed-date,
+body.dark-mode .empty-text{
+    color:#9ca3af;
+}
+
+body.dark-mode .section-title{
+    color:#f1f5f9;
+}
+
+body.dark-mode .stat-value{
+    color:#34d399;
+}
+
+body.dark-mode .stat-sub{
+    color:#9ca3af;
+}
+
+/* Language Toggle */
+.lang-toggle-btn{
+    background:#fff;
+    border:2px solid var(--green);
+    color:var(--green);
+    padding:8px 16px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.2s;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.lang-toggle-btn:hover{
+    background:var(--light-green);
+}
+
+body.dark-mode .lang-toggle-btn{
+    background:#1e293b;
+    border-color:#34d399;
+    color:#34d399;
+}
+
+body.dark-mode .lang-toggle-btn:hover{
+    background:#334155;
+}
+
+/* Responsive */
+@media (max-width:768px){
+    .header-content{
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .header-title{
+        order:2;
+        width:100%;
+        justify-content:center;
+    }
+
+    .header-title h1{
+        font-size:18px;
+    }
+
+    .back-btn{
+        order:1;
+    }
+
+    .clear-btn{
+        order:3;
+        font-size:12px;
+        padding:6px 12px;
+    }
+
+    .lang-toggle-btn{
+        order:4;
+        font-size:12px;
+        padding:6px 12px;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .stat-card{
+        padding:16px;
+    }
+
+    .stat-value{
+        font-size:24px;
+    }
+
+    .orders-section{
+        padding:16px;
+    }
+
+    .section-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .order-card{
+        padding:16px;
+    }
+
+    .order-header{
+        flex-direction:column;
+        gap:12px;
+        align-items:stretch;
+    }
+
+    .completion-badge{
+        align-self:flex-start;
+    }
+
+    .order-details{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .order-footer{
+        flex-direction:column;
+        gap:12px;
+        align-items:stretch;
+    }
+
+    .view-btn{
+        width:100%;
+    }
+}
+
+@media (max-width:480px){
+    .container{
+        padding:16px;
+    }
+
+    .header{
+        padding:12px 16px;
+    }
+
+    .stat-value{
+        font-size:20px;
+    }
+
+    .stat-label{
+        font-size:11px;
+    }
+
+    .order-id-value{
+        font-size:14px;
+    }
+
+    .detail-value{
+        font-size:13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <button class="back-btn" onclick="goBack()">
+            <span data-i18n="back">← Back</span>
+        </button>
+
+        <div class="header-title">
+            <span class="header-icon">✅</span>
+            <h1 data-i18n="completedOrders">Completed Orders</h1>
+        </div>
+
+        <button class="clear-btn" onclick="clearAllCompleted()" id="clearBtn" style="display:none;">
+            <span data-i18n="clearAll">🗑️ Clear All</span>
+        </button>
+
+        <button class="lang-toggle-btn" onclick="toggleLanguage()">
+            <span>🌐</span>
+            <span id="langText">English</span>
+        </button>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="stats-grid" id="statsGrid" style="display:none;">
+        <div class="stat-card">
+            <div class="stat-label" data-i18n="totalCompleted">Total Completed</div>
+            <div class="stat-value" id="totalCount">0</div>
+            <div class="stat-sub" data-i18n="allTimeOrders">All time orders</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label" data-i18n="totalEarnings">Total Earnings</div>
+            <div class="stat-value" id="totalEarnings">₹0</div>
+            <div class="stat-sub" data-i18n="fromCompletedOrders">From completed orders</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label" data-i18n="thisMonth">This Month</div>
+            <div class="stat-value" id="monthCount">0</div>
+            <div class="stat-sub" data-i18n="completedInCurrentMonth">Completed in current month</div>
+        </div>
+    </div>
+
+    <div class="orders-section">
+        <div class="section-header">
+            <h2 class="section-title" data-i18n="orderHistory">Order History</h2>
+            <span class="order-count" id="orderCount"><span id="orderCountNum">0</span> <span data-i18n="orders">orders</span></span>
+        </div>
+
+        <div id="ordersContainer">
+            <!-- Orders will be loaded here -->
+        </div>
+    </div>
+
+</div>
+
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getDatabase,ref,get} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig={
+apiKey:"AIzaSyApJhYmo0pHNqVD0XIyOlQDqDzACztHA",
+authDomain:"covai-scrap-hub.firebaseapp.com",
+databaseURL:"https://covai-scrap-hub-default-rtdb.firebaseio.com",
+projectId:"covai-scrap-hub",
+storageBucket:"covai-scrap-hub.firebasestorage.app",
+messagingSenderId:"853609363138",
+appId:"1:853609363138:web:b30c1ca6b20ff95ae601c3",
+measurementId:"G-9Y8TLQZC5Z"
+};
+
+const app=initializeApp(firebaseConfig);
+const db=getDatabase(app);
+
+// Load completed orders
+function loadCompletedOrders(){
+    const completedOrders=JSON.parse(localStorage.getItem('completedOrders')||'{}');
+    const orderIds=Object.keys(completedOrders);
+
+    if(orderIds.length===0){
+        showEmptyState();
+        return;
+    }
+
+    document.getElementById('statsGrid').style.display='grid';
+    document.getElementById('clearBtn').style.display='block';
+
+    // Calculate stats
+    let totalEarnings=0;
+    let monthCount=0;
+    const currentMonth=new Date().getMonth();
+    const currentYear=new Date().getFullYear();
+
+    orderIds.forEach(id=>{
+        const order=completedOrders[id];
+        totalEarnings+=parseFloat(order.totalAmount||0);
+
+        const completedDate=new Date(order.completedAt);
+        if(completedDate.getMonth()===currentMonth && completedDate.getFullYear()===currentYear){
+            monthCount++;
+        }
+    });
+
+    document.getElementById('totalCount').textContent=orderIds.length;
+    document.getElementById('totalEarnings').textContent='₹'+totalEarnings.toLocaleString('en-IN');
+    document.getElementById('monthCount').textContent=monthCount;
+    document.getElementById('orderCountNum').textContent=orderIds.length;
+
+    // Load Firebase data for each order
+    loadOrdersWithFirebaseData(orderIds,completedOrders);
+}
+
+async function loadOrdersWithFirebaseData(orderIds,completedOrders){
+    const container=document.getElementById('ordersContainer');
+    container.innerHTML='<div style="text-align:center;padding:40px;color:#6b7280;">Loading orders...</div>';
+
+    const ordersData=[];
+
+    for(const orderId of orderIds){
+        try{
+            const orderRef=ref(db,`pickupRequests/${orderId}`);
+            const snapshot=await get(orderRef);
+
+            if(snapshot.exists()){
+                const firebaseData=snapshot.val();
+                ordersData.push({
+                    id:orderId,
+                    ...completedOrders[orderId],
+                    ...firebaseData
+                });
+            }else{
+                ordersData.push({
+                    id:orderId,
+                    ...completedOrders[orderId]
+                });
+            }
+        }catch(error){
+            console.error('Error loading order:',orderId,error);
+            ordersData.push({
+                id:orderId,
+                ...completedOrders[orderId]
+            });
+        }
+    }
+
+    // Sort by completion date (newest first)
+    ordersData.sort((a,b)=>b.completedAt-a.completedAt);
+
+    renderOrders(ordersData);
+}
+
+function renderOrders(orders){
+    const container=document.getElementById('ordersContainer');
+
+    if(orders.length===0){
+        showEmptyState();
+        return;
+    }
+
+    const html=orders.map(order=>{
+        const completedDate=new Date(order.completedAt);
+        const dateStr=completedDate.toLocaleDateString('en-IN',{
+            day:'2-digit',
+            month:'short',
+            year:'numeric'
+        });
+        const timeStr=completedDate.toLocaleTimeString('en-IN',{
+            hour:'2-digit',
+            minute:'2-digit'
+        });
+
+        return `
+        <div class="order-card" onclick="viewOrder('${order.id}')">
+            <div class="order-header">
+                <div class="order-id-section">
+                    <div class="order-id-label" data-i18n="orderId">Order ID</div>
+                    <div class="order-id-value">#${order.id.slice(-8).toUpperCase()}</div>
+                </div>
+                <div class="completion-badge">
+                    <span>🎉</span>
+                    <span data-i18n="completed">Completed</span>
+                </div>
+            </div>
+
+            <div class="order-details">
+                <div class="detail-item">
+                    <div class="detail-label" data-i18n="customerName">Customer Name</div>
+                    <div class="detail-value">${escapeHTML(order.customerName||order.name||'N/A')}</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label" data-i18n="mobile">Mobile</div>
+                    <div class="detail-value">${escapeHTML(order.mobile||order.phone||'N/A')}</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label" data-i18n="totalAmount">Total Amount</div>
+                    <div class="detail-value">₹${parseFloat(order.totalAmount||0).toLocaleString('en-IN')}</div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-label" data-i18n="partner">Partner</div>
+                    <div class="detail-value">${escapeHTML(order.partnerName||getTranslation('notAssigned'))}</div>
+                </div>
+            </div>
+
+            <div class="order-footer">
+                <div class="completed-date">
+                    <span class="completed-icon">📅</span>
+                    <span>${dateStr} <span data-i18n="at">at</span> ${timeStr}</span>
+                </div>
+                <button class="view-btn" onclick="event.stopPropagation();viewOrder('${order.id}')">
+                    <span data-i18n="viewDetails">View Details</span> →
+                </button>
+            </div>
+        </div>
+        `;
+    }).join('');
+
+    container.innerHTML='<div class="orders-list">'+html+'</div>';
+
+    // Update translations after rendering
+    if(typeof updateTranslations==='function'){
+        updateTranslations();
+    }
+}
+
+function getTranslation(key){
+    if(typeof window.getTranslation==='function'){
+        return window.getTranslation(key);
+    }
+    const translations={
+        'notAssigned':'Not Assigned'
+    };
+    return translations[key]||key;
+}
+
+function showEmptyState(){
+    const container=document.getElementById('ordersContainer');
+    container.innerHTML=`
+    <div class="empty-state">
+        <div class="empty-icon">📦</div>
+        <div class="empty-title" data-i18n="noCompletedOrders">No Completed Orders</div>
+        <div class="empty-text" data-i18n="completedOrdersAppearHere">Your completed orders will appear here once you finish your first pickup.</div>
+        <button class="empty-btn" onclick="window.location.href='track.html'">
+            <span data-i18n="trackActiveOrders">Track Active Orders</span>
+        </button>
+    </div>
+    `;
+
+    if(typeof updateTranslations==='function'){
+        updateTranslations();
+    }
+
+    document.getElementById('statsGrid').style.display='none';
+    document.getElementById('clearBtn').style.display='none';
+    document.getElementById('orderCountNum').textContent='0';
+}
+
+function escapeHTML(str){
+    const div=document.createElement('div');
+    div.textContent=str||'';
+    return div.innerHTML;
+}
+
+window.viewOrder=function(orderId){
+    window.location.href=`track.html?id=${orderId}`;
+};
+
+window.clearAllCompleted=function(){
+    if(confirm('⚠️ Are you sure you want to clear all completed orders?\n\nThis action cannot be undone.')){
+        localStorage.removeItem('completedOrders');
+        loadCompletedOrders();
+    }
+};
+
+window.goBack=function(){
+    if(document.referrer){
+        window.history.back();
+    }else{
+        window.location.href='index.html';
+    }
+};
+
+// Language toggle
+window.toggleLanguage=function(){
+    const currentLang=localStorage.getItem('lang')||'en';
+    const newLang=currentLang==='en'?'ta':'en';
+    localStorage.setItem('lang',newLang);
+
+    const langText=document.getElementById('langText');
+    if(langText){
+        langText.textContent=newLang==='en'?'English':'தமிழ்';
+    }
+
+    if(typeof updateTranslations==='function'){
+        updateTranslations();
+    }
+};
+
+// Initialize language
+function initLanguage(){
+    const savedLang=localStorage.getItem('lang')||'en';
+    const langText=document.getElementById('langText');
+    if(langText){
+        langText.textContent=savedLang==='en'?'English':'தமிழ்';
+    }
+
+    if(typeof updateTranslations==='function'){
+        updateTranslations();
+    }
+}
+
+// Load on page load
+loadCompletedOrders();
+initLanguage();
+
+// Check for theme
+const savedTheme=localStorage.getItem('theme');
+if(savedTheme==='dark'){
+    document.body.classList.add('dark-mode');
+}
+</script>
+
+
+
+</body>
+</html>

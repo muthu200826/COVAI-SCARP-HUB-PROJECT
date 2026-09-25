@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Cart - Covai Scrap Hub</title>
+
+<!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<style>
+
+:root{
+    --green:#149447;
+    --dark-green:#0b6e32;
+    --light-green:#eaf8ef;
+    --text:#15231b;
+    --muted:#666;
+    --border:#ddd;
+    --bg:#f5f7fa;
+    --white:#fff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    padding:15px;
+    color:#15231b;
+    transition:background .3s ease,color .3s ease;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    background:linear-gradient(
+        135deg,
+        #149447,
+        #0b6e32
+    );
+
+    color:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.header h2{
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   CART ITEM
+========================= */
+
+.cart-item{
+    background:#fff;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    margin-bottom:12px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+
+    border-left:4px solid #149447;
+}
+
+
+.cart-item h3{
+    color:#149447;
+
+    font-size:18px;
+
+    margin-bottom:6px;
+}
+
+
+.rate{
+    color:#666;
+
+    font-size:14px;
+
+    margin-bottom:12px;
+}
+
+
+/* =========================
+   WEIGHT ROW
+========================= */
+
+.weight-row{
+    display:flex;
+
+    gap:10px;
+
+    align-items:flex-end;
+
+    margin-top:8px;
+}
+
+
+.weight-input{
+    flex:1;
+}
+
+
+.unit-input{
+    width:120px;
+}
+
+
+label{
+    display:block;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:5px;
+}
+
+
+input[type="number"],
+select{
+    width:100%;
+
+    padding:10px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    outline:none;
+
+    background:white;
+
+    font-size:14px;
+}
+
+
+input[type="number"]:focus,
+select:focus{
+    border-color:#149447;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(20,148,71,.08);
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.amount{
+    font-size:16px;
+
+    font-weight:bold;
+
+    color:#149447;
+
+    margin-top:12px;
+}
+
+
+.converted-weight{
+    color:#666;
+
+    font-size:13px;
+
+    margin-top:5px;
+}
+
+
+/* =========================
+   REMOVE
+========================= */
+
+.remove-btn{
+    margin-top:12px;
+
+    background:#e53935;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:13px;
+}
+
+
+.remove-btn:hover{
+    background:#c62828;
+}
+
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary{
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    margin-top:20px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+
+.summary h2{
+    margin-bottom:15px;
+}
+
+
+.summary table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:15px;
+}
+
+
+.summary table th,
+.summary table td{
+    padding:10px;
+
+    border-bottom:1px solid #eee;
+
+    text-align:center;
+
+    font-size:14px;
+}
+
+
+.summary table th{
+    color:#149447;
+
+    background:#eaf8ef;
+}
+
+
+.total-box{
+    margin-top:20px;
+
+    padding:15px;
+
+    background:#eaf8ef;
+
+    border-radius:12px;
+}
+
+
+.total-line{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:8px 0;
+}
+
+
+.total-line span{
+    color:#666;
+}
+
+
+.total-line strong{
+    color:#149447;
+
+    font-size:18px;
+}
+
+
+.grand-total{
+    font-size:25px;
+
+    font-weight:bold;
+
+    color:#149447;
+
+    margin-top:12px;
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-box{
+    margin-bottom:20px;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.photo-box h2{
+    margin-bottom:10px;
+    font-size:18px;
+    color:#149447;
+}
+
+.photo-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+.photo-box p{
+    margin-top:8px;
+    color:#666;
+    font-size:13px;
+}
+
+.photo-btn{
+    flex:1;
+    background:#149447;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition:all .2s;
+}
+
+.photo-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(20,148,71,.3);
+}
+
+.photo-btn:active{
+    transform:translateY(0);
+}
+
+.photo-btn.camera{
+    background:#0891b2;
+}
+
+.photo-btn.camera:hover{
+    box-shadow:0 4px 12px rgba(8,145,178,.3);
+}
+
+@media(max-width:600px){
+    .photo-box{
+        padding:15px;
+    }
+
+    .photo-btn{
+        padding:10px;
+        font-size:13px;
+    }
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+
+.btn{
+    flex:1;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+
+.shop-btn{
+    background:#666;
+
+    color:white;
+}
+
+
+.checkout-btn{
+    background:#149447;
+
+    color:white;
+}
+
+
+.checkout-btn:hover{
+    background:#0b6e32;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:#777;
+
+    background:white;
+
+    border-radius:15px;
+}
+
+
+.empty h2{
+    margin-bottom:8px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width:600px){
+
+    body{
+        padding:7px;
+    }
+
+
+    .header{
+        padding:14px;
+
+        border-radius:11px;
+    }
+
+
+    .header h2{
+        font-size:18px;
+    }
+
+
+    .header p{
+        font-size:12px;
+    }
+
+
+    .cart-item{
+        padding:12px;
+
+        margin-bottom:9px;
+    }
+
+
+    .cart-item h3{
+        font-size:16px;
+    }
+
+
+    .rate{
+        font-size:12px;
+    }
+
+
+    .weight-row{
+        gap:6px;
+    }
+
+
+    .unit-input{
+        width:95px;
+    }
+
+
+    input[type="number"],
+    select{
+        padding:8px;
+
+        font-size:12px;
+    }
+
+
+    .amount{
+        font-size:14px;
+    }
+
+
+    .converted-weight{
+        font-size:11px;
+    }
+
+
+    .remove-btn{
+        padding:8px 10px;
+
+        font-size:11px;
+    }
+
+
+    .summary{
+        padding:12px;
+
+        margin-top:10px;
+    }
+
+
+    .summary h2{
+        font-size:16px;
+    }
+
+
+    .summary table{
+        font-size:10px;
+    }
+
+
+    .summary table th,
+    .summary table td{
+        padding:6px 3px;
+
+        font-size:10px;
+    }
+
+
+    .total-line{
+        font-size:13px;
+    }
+
+
+    .total-line strong{
+        font-size:15px;
+    }
+
+
+    .grand-total{
+        font-size:21px;
+    }
+
+
+    .actions{
+        gap:6px;
+    }
+
+
+    .btn{
+        padding:11px 5px;
+
+        font-size:12px;
+    }
+
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+body.dark-theme{
+    background:#0f1419;
+    color:#e0e6ed;
+}
+
+body.dark-theme .header{
+    background:linear-gradient(
+        135deg,
+        #1a7f4e,
+        #0d5a35
+    );
+}
+
+body.dark-theme .cart-item{
+    background:#1a1f2e;
+    border-left:4px solid #1a7f4e;
+    box-shadow:0 2px 8px rgba(0,0,0,.3);
+}
+
+body.dark-theme .cart-item h3{
+    color:#34d399;
+}
+
+body.dark-theme .rate{
+    color:#9ca3af;
+}
+
+body.dark-theme .weight-row label,
+body.dark-theme .unit-input label{
+    color:#d1d5db;
+}
+
+body.dark-theme .weight-row input,
+body.dark-theme .weight-row select,
+body.dark-theme .unit-input select{
+    background:#1e2433;
+    color:#e0e6ed;
+    border:1px solid #374151;
+}
+
+body.dark-theme .converted-weight{
+    background:#1e2433;
+    color:#9ca3af;
+}
+
+body.dark-theme .amount{
+    color:#34d399;
+    background:#1a2e23;
+}
+
+body.dark-theme .remove-btn{
+    background:#991b1b;
+    color:#fff;
+}
+
+body.dark-theme .remove-btn:hover{
+    background:#7f1d1d;
+}
+
+body.dark-theme .summary{
+    background:#1a1f2e;
+    border:1px solid #374151;
+}
+
+body.dark-theme .photo-box{
+    background:#1e2433;
+    border:2px dashed #374151;
+}
+
+body.dark-theme .photo-box h2{
+    color:#e0e6ed;
+}
+
+body.dark-theme .photo-box p{
+    color:#9ca3af;
+}
+
+body.dark-theme .total-box{
+    background:#1a2e23;
+    border:1px solid #1a7f4e;
+}
+
+body.dark-theme .total-line{
+    color:#d1d5db;
+}
+
+body.dark-theme .grand-total{
+    color:#34d399;
+}
+
+body.dark-theme .empty{
+    background:#1a1f2e;
+    color:#9ca3af;
+}
+
+body.dark-theme .empty h2{
+    color:#e0e6ed;
+}
+
+body.dark-theme .shop-btn{
+    background:#1a1f2e;
+    color:#e0e6ed;
+    border:1px solid #374151;
+}
+
+body.dark-theme .shop-btn:hover{
+    background:#1e2433;
+}
+
+body.dark-theme .checkout-btn{
+    background:#1a7f4e;
+}
+
+body.dark-theme .checkout-btn:hover{
+    background:#16a34a;
+}
+
+body.dark-mode{
+    --green:#34d399;
+    --dark-green:#10b981;
+    --light-green:#1f2937;
+    --text:#f1f5f9;
+    --muted:#9ca3af;
+    --border:#374151;
+    --bg:#111827;
+    --white:#1f2937;
+    background:#111827;
+    color:#f1f5f9;
+}
+
+body.dark-mode .header{
+    background:#1a1f2e;
+    border-bottom:2px solid #374151;
+}
+
+body.dark-mode .header h2{
+    color:#e0e6ed;
+}
+
+body.dark-mode .header p{
+    color:#9ca3af;
+}
+
+body.dark-mode #itemCount{
+    color:#34d399;
+}
+
+body.dark-mode .cart-item{
+    background:#1a1f2e;
+    border:1px solid #374151;
+}
+
+body.dark-mode .cart-item h3{
+    color:#34d399;
+}
+
+body.dark-mode .rate{
+    color:#9ca3af;
+}
+
+body.dark-mode label{
+    color:#d1d5db;
+}
+
+body.dark-mode input[type="number"],
+body.dark-mode select{
+    background:#1e2433;
+    border:1px solid #374151;
+    color:#e0e6ed;
+}
+
+body.dark-mode input[type="number"]:focus,
+body.dark-mode select:focus{
+    border-color:#34d399;
+    box-shadow:0 0 0 3px rgba(52,211,153,.15);
+}
+
+body.dark-mode .item-price{
+    color:#34d399;
+}
+
+body.dark-mode .total-footer{
+    background:#1a1f2e;
+    border-top:2px solid #374151;
+}
+
+body.dark-mode .total-footer h3{
+    color:#e0e6ed;
+}
+
+body.dark-mode .total-amount{
+    color:#34d399;
+}
+
+body.dark-mode .shop-btn{
+    background:#374151;
+    color:#e0e6ed;
+    border:1px solid #4b5563;
+}
+
+body.dark-mode .shop-btn:hover{
+    background:#4b5563;
+}
+
+body.dark-mode .checkout-btn{
+    background:linear-gradient(135deg,#1a7f4e,#16a34a);
+}
+
+body.dark-mode .empty-cart{
+    color:#9ca3af;
+}
+
+body.dark-mode .remove-btn{
+    background:#991b1b;
+    color:#fca5a5;
+}
+
+body.dark-mode .remove-btn:hover{
+    background:#7f1d1d;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="header">
+
+    <h2><span>🛒 </span><span data-i18n="myScrapCart">My Scrap Cart</span></h2>
+
+    <p>
+        <span data-i18n="totalItems">Total Items:</span>
+        <span id="itemCount">0</span>
+    </p>
+
+</div>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div id="cartContainer"></div>
+
+
+<!-- =========================
+     ACTION BUTTONS
+========================= -->
+
+<div class="actions">
+
+    <button
+        class="btn shop-btn"
+        onclick="window.history.back()"
+    >
+
+        <span>← </span><span data-i18n="continueShopping">Continue Shopping</span>
+
+    </button>
+
+
+<button class="btn checkout-btn"
+onclick="goToCustomerDetails()">
+<span data-i18n="continue">continue</span>
+
+</button>
+
+</div>
+
+
+
+<script>
+
+
+/* ==========================================
+   GET CART
+========================================== */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("scrapCart")
+    ) || [];
+
+
+const container =
+    document.getElementById(
+        "cartContainer"
+    );
+
+
+
+/* ==========================================
+   CONVERT WEIGHT TO KG
+========================================== */
+
+function convertToKg(weight, unit){
+
+    weight =
+        Number(weight) || 0;
+
+
+    if(unit === "g"){
+
+        return weight / 1000;
+
+    }
+
+
+    return weight;
+
+}
+
+async function goToCustomerDetails(){
+
+    if(cart.length === 0){
+        alert("🛒 Your cart is empty");
+        return;
+    }
+
+    // Check if photos are uploaded
+    if(selectedPhotos.length > 0){
+
+        // Confirm before proceeding
+        const confirmMsg = `📸 You have ${selectedPhotos.length} photo(s) selected.\n\nContinue to send photos and complete order?`;
+
+        if(!confirm(confirmMsg)){
+            return;
+        }
+
+        // Show sending indicator
+        const continueBtn = document.querySelector(".checkout-btn");
+        const originalText = continueBtn.innerHTML;
+        continueBtn.innerHTML = '<span>📤 Sending photos...</span>';
+        continueBtn.disabled = true;
+
+        // Only attempt email if configured
+        if(isEmailConfigured){
+            try {
+                // Convert selectedPhotos to File objects
+                const files = selectedPhotos.map(photo => photo.file);
+                await sendPhotosToAdmin(files);
+                console.log("✅ Photos sent to admin email");
+            } catch(error) {
+                console.error("Photo send error:", error);
+                // Don't block user - just log error
+            }
+        } else {
+            console.log("EmailJS not configured - photos saved locally only");
+        }
+
+        continueBtn.innerHTML = originalText;
+        continueBtn.disabled = false;
+    }
+
+    window.location.href = "customer-details.html";
+}
+
+/* ==========================================
+   FORMAT TOTAL WEIGHT
+========================================== */
+
+function formatTotalWeight(totalKg){
+
+    const grams =
+        totalKg * 1000;
+
+
+    if(totalKg < 1){
+
+        return (
+            Math.round(grams)
+            + " G"
+        );
+
+    }
+
+
+    return (
+        totalKg.toFixed(2)
+        + " KG"
+        + " / "
+        + Math.round(grams)
+        + " G"
+    );
+
+}
+
+
+
+/* ==========================================
+   LOAD CART
+========================================== */
+
+function loadCart(){
+
+    document.getElementById(
+        "itemCount"
+    ).textContent =
+        cart.length;
+
+
+    if(cart.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h2>🛒 <span data-i18n="cartEmpty">Cart Empty</span></h2>
+
+                <p data-i18n="addMaterials">
+                    Add scrap materials to continue
+                </p>
+
+            </div>
+
+        `;
+
+        if(typeof translatePage === 'function') translatePage();
+
+        return;
+
+    }
+
+
+    let html = "";
+
+
+    cart.forEach(
+        (item,index) => {
+
+
+        /*
+            Default values
+        */
+
+        const weight =
+            Number(item.weight) || 1;
+
+
+        const unit =
+            item.unit || "kg";
+
+
+        const rate =
+            Number(item.rate) || 0;
+
+
+        const weightKg =
+            convertToKg(
+                weight,
+                unit
+            );
+
+
+        const amount =
+            weightKg * rate;
+
+
+        html += `
+
+        <div class="cart-item">
+
+
+            <h3>
+                ${item.material}
+            </h3>
+
+
+            <p class="rate">
+
+                <span data-i18n="todaysRate">Today's Rate:</span>
+                <strong>
+                    ₹${rate}/KG
+                </strong>
+
+            </p>
+
+
+            <!-- WEIGHT -->
+
+            <div class="weight-row">
+
+
+                <div class="weight-input">
+
+                    <label data-i18n="approximateWeight">
+                        Approximate Weight
+                    </label>
+
+                    <input
+
+                        type="number"
+
+                        min="0.01"
+
+                        step="0.01"
+
+                        value="${weight}"
+
+                        oninput="
+                            calculate(
+                                this,
+                                ${index}
+                            )
+                        "
+
+                    >
+
+                </div>
+
+
+                <div class="unit-input">
+
+                    <label data-i18n="unit">
+                        Unit
+                    </label>
+
+                    <select
+
+                        onchange="
+                            changeUnit(
+                                this,
+                                ${index}
+                            )
+                        "
+
+                    >
+
+                        <option
+                            value="kg"
+                            ${unit === "kg" ? "selected" : ""}
+                            data-i18n="kg"
+                        >
+                            KG
+                        </option>
+
+
+                        <option
+                            value="g"
+                            ${unit === "g" ? "selected" : ""}
+                            data-i18n="gram"
+                        >
+                            Gram
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- CONVERTED WEIGHT -->
+
+            <div
+                class="converted-weight"
+                id="converted${index}"
+            >
+
+                <span data-i18n="equivalent">Equivalent:</span>
+                ${weightKg.toFixed(3)}
+                KG
+
+            </div>
+
+
+            <!-- PRICE -->
+
+            <div
+                class="amount"
+                id="amount${index}"
+            >
+
+                <span data-i18n="approximatePrice">Approximate Price:</span>
+                ₹${amount.toFixed(2)}
+
+            </div>
+
+
+            <!-- REMOVE -->
+
+            <button
+
+                class="remove-btn"
+
+                onclick="
+                    removeItem(${index})
+                "
+
+            >
+
+                <span>🗑 </span><span data-i18n="remove">Remove</span>
+
+            </button>
+
+
+        </div>
+
+        `;
+
+    });
+
+
+    /* =========================
+       SUMMARY
+    ========================= */
+
+    html += `
+
+    <div class="summary">
+
+
+        <!-- PHOTO UPLOAD -->
+
+        <div class="photo-box">
+
+            <h2>
+                <span>📸 </span><span data-i18n="uploadPhotos">Upload Scrap Photos</span>
+            </h2>
+
+            <p data-i18n="photoDesc" style="margin-bottom:15px;color:#666;font-size:13px;">
+                Upload photos for quantity verification
+            </p>
+
+            <!-- HIDDEN FILE INPUTS -->
+            <input
+                type="file"
+                id="scrapPhotos"
+                multiple
+                accept="image/*"
+                style="display:none;"
+                onchange="handlePhotoSelect(event)"
+            >
+
+            <input
+                type="file"
+                id="scrapCamera"
+                accept="image/*"
+                capture="environment"
+                style="display:none;"
+                onchange="handlePhotoSelect(event)"
+            >
+
+            <!-- UPLOAD BUTTONS -->
+            <div style="display:flex;gap:10px;margin-bottom:15px;">
+                <button
+                    type="button"
+                    onclick="openFilePicker()"
+                    class="photo-btn"
+                    style="flex:1;background:#149447;color:white;border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;"
+                >
+                    📁 Choose Files
+                </button>
+
+                <button
+                    type="button"
+                    onclick="openCamera()"
+                    class="photo-btn camera"
+                    style="flex:1;background:#0891b2;color:white;border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;"
+                >
+                    📷 Take Photo
+                </button>
+            </div>
+
+            <!-- PHOTO PREVIEW GRID -->
+            <div id="photoPreviewGrid" style="display:none;margin-top:15px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                    <span style="font-size:13px;font-weight:600;color:#149447;">
+                        Selected Photos: <span id="photoCount">0</span>
+                    </span>
+                    <button
+                        type="button"
+                        onclick="clearAllPhotos()"
+                        style="background:#ef4444;color:white;border:none;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;"
+                    >
+                        Clear All
+                    </button>
+                </div>
+
+                <div id="photoPreviewContainer" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;">
+                    <!-- Photos will be added here -->
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- SUMMARY TABLE -->
+
+        <div id="summaryTable"></div>
+
+
+        <!-- TOTALS -->
+
+        <div class="total-box">
+
+
+            <div class="total-line">
+
+                <span>
+                    <span>⚖ </span><span data-i18n="totalWeight">Total Weight</span>
+                </span>
+
+                <strong id="totalWeight">
+                    0 KG
+                </strong>
+
+            </div>
+
+
+            <div class="total-line">
+
+                <span>
+                    <span>📦 </span><span data-i18n="totalItems">Total Items</span>
+                </span>
+
+                <strong id="summaryItems">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="total-line">
+
+                <span>
+                    <span>💰 </span><span data-i18n="grandTotal">Grand Total</span>
+                </span>
+
+                <strong
+                    id="grandTotal"
+                    class="grand-total"
+                >
+                    ₹0.00
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    `;
+
+
+    container.innerHTML =
+        html;
+
+    if(typeof translatePage === 'function') translatePage();
+
+    updateSummary();
+
+}
+
+
+
+/* ==========================================
+   CALCULATE WEIGHT
+========================================== */
+
+function calculate(
+    input,
+    index
+){
+
+    let weight =
+        Number(input.value);
+
+
+    if(
+        !weight ||
+        weight <= 0
+    ){
+
+        weight = 0;
+
+    }
+
+
+    cart[index].weight =
+        weight;
+
+
+    /*
+        Get current unit
+    */
+
+    const unit =
+        cart[index].unit ||
+        "kg";
+
+
+    /*
+        Convert to KG
+    */
+
+    const weightKg =
+        convertToKg(
+            weight,
+            unit
+        );
+
+
+    /*
+        Rate
+    */
+
+    const rate =
+        Number(
+            cart[index].rate
+        ) || 0;
+
+
+    /*
+        Correct calculation
+
+        Example:
+
+        500 G = 0.5 KG
+
+        0.5 × ₹20 = ₹10
+    */
+
+    const amount =
+        weightKg * rate;
+
+
+    /*
+        Save
+    */
+
+    localStorage.setItem(
+        "scrapCart",
+        JSON.stringify(cart)
+    );
+
+
+    /*
+        Update price
+    */
+
+    const amountElement =
+        document.getElementById(
+            "amount" + index
+        );
+
+
+    if(amountElement){
+
+        amountElement.innerHTML =
+
+            "Approximate Price: ₹" +
+            amount.toFixed(2);
+
+    }
+
+
+    /*
+        Update converted weight
+    */
+
+    const convertedElement =
+        document.getElementById(
+            "converted" + index
+        );
+
+
+    if(convertedElement){
+
+        convertedElement.innerHTML =
+
+            "Equivalent: " +
+            weightKg.toFixed(3) +
+            " KG";
+
+    }
+
+
+    updateSummary();
+
+}
+
+
+
+/* ==========================================
+   CHANGE KG / GRAM
+========================================== */
+
+function changeUnit(
+    select,
+    index
+){
+
+    const newUnit =
+        select.value;
+
+
+    cart[index].unit =
+        newUnit;
+
+
+    /*
+        Save new unit
+    */
+
+    localStorage.setItem(
+        "scrapCart",
+        JSON.stringify(cart)
+    );
+
+
+    /*
+        Recalculate item
+    */
+
+    const card =
+        select.closest(
+            ".cart-item"
+        );
+
+
+    const input =
+        card.querySelector(
+            'input[type="number"]'
+        );
+
+
+    calculate(
+        input,
+        index
+    );
+
+}
+
+
+
+/* ==========================================
+   UPDATE SUMMARY
+========================================== */
+
+function updateSummary(){
+
+    let totalWeightKg = 0;
+
+    let totalAmount = 0;
+
+
+    let summary = `
+
+        <table>
+
+            <tr>
+
+                <th>
+                    Product
+                </th>
+
+                <th>
+                    Weight
+                </th>
+
+                <th>
+                    Rate
+                </th>
+
+                <th>
+                    Amount
+                </th>
+
+            </tr>
+
+    `;
+
+
+    cart.forEach(
+        item => {
+
+
+        const weight =
+            Number(item.weight) || 0;
+
+
+        const unit =
+            item.unit || "kg";
+
+
+        const rate =
+            Number(item.rate) || 0;
+
+
+        /*
+            Convert everything
+            into KG.
+        */
+
+        const weightKg =
+            convertToKg(
+                weight,
+                unit
+            );
+
+
+        const amount =
+            weightKg * rate;
+
+
+        totalWeightKg +=
+            weightKg;
+
+
+        totalAmount +=
+            amount;
+
+
+        summary += `
+
+            <tr>
+
+                <td>
+                    ${item.material}
+                </td>
+
+
+                <td>
+
+                    ${weight}
+                    ${unit === "g"
+                        ? " G"
+                        : " KG"}
+
+                </td>
+
+
+                <td>
+                    ₹${rate}/KG
+                </td>
+
+
+                <td>
+                    ₹${amount.toFixed(2)}
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+
+    summary += `
+        </table>
+    `;
+
+
+    document.getElementById(
+        "summaryTable"
+    ).innerHTML =
+        summary;
+
+
+    /*
+        Total weight
+    */
+
+    document.getElementById(
+        "totalWeight"
+    ).innerText =
+
+        formatTotalWeight(
+            totalWeightKg
+        );
+
+
+    /*
+        Total items
+    */
+
+    document.getElementById(
+        "summaryItems"
+    ).innerText =
+        cart.length;
+
+
+    /*
+        Grand total
+    */
+
+    document.getElementById(
+        "grandTotal"
+    ).innerText =
+
+        "₹" +
+        totalAmount.toFixed(2);
+
+}
+
+
+
+/* ==========================================
+   REMOVE ITEM
+========================================== */
+
+function removeItem(index){
+
+    cart.splice(
+        index,
+        1
+    );
+
+
+    localStorage.setItem(
+        "scrapCart",
+        JSON.stringify(cart)
+    );
+
+
+    loadCart();
+
+}
+
+
+
+/* ==========================================
+   CHECKOUT
+========================================== */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert(
+            "🛒 Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    let totalWeightKg = 0;
+
+    let totalAmount = 0;
+
+
+    cart.forEach(
+        item => {
+
+
+        const weight =
+            Number(item.weight) || 0;
+
+
+        const unit =
+            item.unit || "kg";
+
+
+        const rate =
+            Number(item.rate) || 0;
+
+
+        /*
+            Convert grams to KG
+        */
+
+        const weightKg =
+            convertToKg(
+                weight,
+                unit
+            );
+
+
+        totalWeightKg +=
+            weightKg;
+
+
+        totalAmount +=
+            weightKg * rate;
+
+    });
+
+
+    const totalGrams =
+        Math.round(
+            totalWeightKg * 1000
+        );
+
+
+    alert(
+
+        "✅ Pickup Request Submitted Successfully!\n\n" +
+
+        "📦 Items : " +
+        cart.length +
+
+        "\n\n⚖️ Total Weight : " +
+
+        totalWeightKg.toFixed(2) +
+        " KG" +
+
+        " (" +
+        totalGrams +
+        " G)" +
+
+        "\n\n💰 Estimated Amount : ₹" +
+
+        totalAmount.toFixed(2)
+
+    );
+
+}
+
+
+
+/* ==========================================
+   PHOTO MANAGEMENT
+========================================== */
+
+let selectedPhotos = [];
+
+/* ==========================================
+   OPEN FILE PICKER
+========================================== */
+
+function openFilePicker(){
+    const input = document.getElementById('scrapPhotos');
+    if(input){
+        input.click();
+    }
+}
+
+/* ==========================================
+   OPEN CAMERA
+========================================== */
+
+function openCamera(){
+    const input = document.getElementById('scrapCamera');
+    if(input){
+        // Reset input first
+        input.value = '';
+
+        // Trigger click to open camera
+        input.click();
+
+        console.log('Camera opened');
+    }
+}
+
+/* ==========================================
+   HANDLE PHOTO SELECT
+========================================== */
+
+function handlePhotoSelect(event){
+    const files = Array.from(event.target.files);
+
+    console.log('Files selected:', files.length);
+
+    if(files.length === 0) return;
+
+    files.forEach(file => {
+        if(file.type.startsWith('image/')){
+            const reader = new FileReader();
+
+            reader.onload = function(e){
+                selectedPhotos.push({
+                    file: file,
+                    dataUrl: e.target.result,
+                    name: file.name
+                });
+
+                console.log('Photo added:', file.name);
+                updatePhotoPreview();
+            };
+
+            reader.onerror = function(error){
+                console.error('File read error:', error);
+                alert('Could not read photo. Please try again.');
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Reset input
+    event.target.value = '';
+}
+
+function updatePhotoPreview(){
+    const previewGrid = document.getElementById('photoPreviewGrid');
+    const previewContainer = document.getElementById('photoPreviewContainer');
+    const photoCount = document.getElementById('photoCount');
+
+    if(selectedPhotos.length === 0){
+        previewGrid.style.display = 'none';
+        return;
+    }
+
+    previewGrid.style.display = 'block';
+    photoCount.textContent = selectedPhotos.length;
+
+    previewContainer.innerHTML = '';
+
+    selectedPhotos.forEach((photo, index) => {
+        const photoDiv = document.createElement('div');
+        photoDiv.style.cssText = 'position:relative;border-radius:8px;overflow:hidden;border:2px solid #e5e7eb;background:#f9fafb;';
+
+        photoDiv.innerHTML = `
+            <img
+                src="${photo.dataUrl}"
+                alt="${photo.name}"
+                style="width:100%;height:100px;object-fit:cover;display:block;"
+            >
+            <button
+                type="button"
+                onclick="removePhoto(${index})"
+                style="position:absolute;top:4px;right:4px;background:rgba(239,68,68,0.9);color:white;border:none;border-radius:50%;width:24px;height:24px;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:bold;"
+                title="Remove photo"
+            >
+                ×
+            </button>
+            <div style="padding:4px 6px;font-size:10px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                ${photo.name}
+            </div>
+        `;
+
+        previewContainer.appendChild(photoDiv);
+    });
+}
+
+function removePhoto(index){
+    selectedPhotos.splice(index, 1);
+    updatePhotoPreview();
+}
+
+function clearAllPhotos(){
+    if(selectedPhotos.length === 0) return;
+
+    if(confirm('Clear all photos?')){
+        selectedPhotos = [];
+        updatePhotoPreview();
+    }
+}
+
+/* ==========================================
+   START
+========================================== */
+
+loadCart();
+
+
+/* ==========================================
+   EMAILJS INITIALIZATION
+========================================== */
+
+// Initialize EmailJS with your public key
+// Configure these keys from https://www.emailjs.com/
+const EMAILJS_CONFIG = {
+    PUBLIC_KEY: "YOUR_PUBLIC_KEY",    // Get from EmailJS dashboard
+    SERVICE_ID: "YOUR_SERVICE_ID",    // Your email service ID
+    TEMPLATE_ID: "YOUR_TEMPLATE_ID"   // Your template ID
+};
+
+// Check if EmailJS is configured
+const isEmailConfigured =
+    EMAILJS_CONFIG.PUBLIC_KEY !== "YOUR_PUBLIC_KEY" &&
+    EMAILJS_CONFIG.SERVICE_ID !== "YOUR_SERVICE_ID" &&
+    EMAILJS_CONFIG.TEMPLATE_ID !== "YOUR_TEMPLATE_ID";
+
+// Only initialize if configured
+if(isEmailConfigured){
+    (function(){
+        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+    })();
+}
+
+
+/* ==========================================
+   SEND PHOTOS TO ADMIN EMAIL
+========================================== */
+
+async function sendPhotosToAdmin(files){
+
+    if(!files || files.length === 0){
+        return;
+    }
+
+    // Skip if EmailJS not configured
+    if(!isEmailConfigured){
+        console.log("EmailJS not configured - skipping photo email");
+        return;
+    }
+
+    // Convert files to base64
+    const filePromises = Array.from(files).map(file => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve({
+                name: file.name,
+                data: reader.result,
+                type: file.type
+            });
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    });
+
+    const fileData = await Promise.all(filePromises);
+
+    // Prepare cart summary
+    let cartSummary = "Cart Items:\n\n";
+    cart.forEach((item, index) => {
+        cartSummary += `${index + 1}. ${item.material}\n`;
+        cartSummary += `   Weight: ${item.weight} ${item.unit}\n`;
+        cartSummary += `   Rate: ₹${item.rate}/kg\n`;
+        cartSummary += `   Total: ₹${item.total}\n\n`;
+    });
+
+    // Calculate totals
+    let totalWeight = 0;
+    let totalAmount = 0;
+    cart.forEach(item => {
+        const weightInKg = item.unit === "g" ? item.weight / 1000 : item.weight;
+        totalWeight += weightInKg;
+        totalAmount += item.total;
+    });
+
+    cartSummary += `\nTotal Weight: ${totalWeight.toFixed(2)} kg\n`;
+    cartSummary += `Grand Total: ₹${totalAmount.toFixed(2)}`;
+
+    // Prepare email parameters
+    const templateParams = {
+        to_email: "covaiscrabehub@gmail.com", // Admin email
+        from_name: "Covai Scrap Hub Cart System",
+        subject: "New Cart with Photos - Scrap Pickup Request",
+        cart_summary: cartSummary,
+        photo_count: files.length,
+        timestamp: new Date().toLocaleString(),
+        // Attach first 3 photos (EmailJS has size limits)
+        photo1: fileData[0] ? fileData[0].data : "",
+        photo1_name: fileData[0] ? fileData[0].name : "",
+        photo2: fileData[1] ? fileData[1].data : "",
+        photo2_name: fileData[1] ? fileData[1].name : "",
+        photo3: fileData[2] ? fileData[2].data : "",
+        photo3_name: fileData[2] ? fileData[2].name : ""
+    };
+
+    // Send email using EmailJS
+    try {
+        const response = await emailjs.send(
+            EMAILJS_CONFIG.SERVICE_ID,
+            EMAILJS_CONFIG.TEMPLATE_ID,
+            templateParams
+        );
+        console.log("Email sent successfully:", response);
+        return response;
+    } catch(error) {
+        console.error("Email send failed:", error);
+        throw error;
+    }
+}
+
+</script>
+
+<script src="lang-system.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => { initLangTheme(); });
+</script>
+
+<script>
+// Apply saved theme
+function applySavedTheme(){
+    const theme = localStorage.getItem("covaiTheme") || "light";
+    if(theme === "dark"){
+        document.body.classList.add("dark-mode");
+    } else {
+        document.body.classList.remove("dark-mode");
+    }
+}
+
+// Apply theme on load
+if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', applySavedTheme);
+} else {
+    applySavedTheme();
+}
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,7300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Covai Scrap Hub - Sell Scrap</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+
+    --green:#149447;
+    --dark-green:#087536;
+    --light-green:#eaf8ef;
+
+    --text:#15231b;
+    --muted:#748078;
+
+    --border:#e4ebe6;
+    --bg:#f6f9f7;
+
+    --white:#ffffff;
+
+    --card:#ffffff;
+    --header:#ffffff;
+
+}
+
+.dark-theme {
+    --green:#34d399;
+    --dark-green:#10b981;
+    --light-green:#1f2937;
+
+    --text:#f1f5f9;
+    --muted:#9ca3af;
+
+    --border:#374151;
+    --bg:#111827;
+
+    --white:#1f2937;
+
+    --card:#1f2937;
+    --header:#1f2937;
+}
+
+.dark-theme body {
+    background:#111827;
+    color:#f1f5f9;
+}
+
+.dark-theme .menu-overlay {
+    background:rgba(0,0,0,.85);
+}
+
+.dark-theme .profile-popup {
+    background:#1f2937;
+    border-color:#374151;
+}
+
+.dark-theme .popup-title {
+    color:#f1f5f9;
+}
+
+.dark-theme .popup-desc {
+    color:#9ca3af;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+    font-family:'DM Sans',sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+    padding-bottom:90px;
+
+    transition:
+        background .25s ease,
+        color .25s ease;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.topbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    height:72px;
+
+    background:var(--header);
+
+    border-bottom:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    box-shadow:
+        0 4px 20px rgba(20,50,30,.05);
+
+}
+
+
+.brand{
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--text);
+
+}
+
+
+.brand-logo{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid var(--green);
+
+    box-shadow:
+        0 3px 10px rgba(20,148,71,.2);
+
+}
+
+
+.brand h2{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+
+.brand h2 span{
+
+    color:var(--green);
+
+}
+
+
+.brand p{
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    letter-spacing:1.2px;
+
+    margin-top:4px;
+
+}
+
+
+/* =====================================================
+   HEADER ACTIONS
+===================================================== */
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:8px;
+
+}
+
+
+/* =====================================================
+   CART BUTTON
+===================================================== */
+
+.cart-btn{
+
+    border:0;
+
+    background:var(--green);
+
+    color:#fff;
+
+    border-radius:10px;
+
+    padding:10px 13px;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    min-height:40px;
+
+    transition:.18s ease;
+
+}
+
+
+.cart-btn:hover{
+
+    background:var(--dark-green);
+
+    transform:translateY(-1px);
+
+}
+
+
+.cart-count-badge{
+
+    min-width:18px;
+
+    height:18px;
+
+    padding:0 5px;
+
+    background:#fff;
+
+    color:var(--green);
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    line-height:1;
+
+    box-shadow:
+        0 2px 7px rgba(0,0,0,.18);
+
+}
+
+
+/* =====================================================
+   MENU BUTTON
+===================================================== */
+
+.menu-btn{
+
+    width:40px;
+
+    height:40px;
+
+    border:1px solid var(--border);
+
+    background:var(--header);
+
+    color:var(--text);
+
+    border-radius:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.18s ease;
+
+}
+
+
+.menu-btn:hover{
+
+    background:var(--light-green);
+
+    color:var(--green);
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+main{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px 20px 115px;
+
+}
+
+
+/* =====================================================
+   SLIDE MENU OVERLAY
+===================================================== */
+
+.menu-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(3px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:.28s ease;
+
+    z-index:4000;
+
+}
+
+
+.menu-overlay.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+
+/* =====================================================
+   SIDE MENU
+===================================================== */
+
+.side-menu{
+
+    position:fixed;
+
+    top:0;
+
+    right:0;
+
+    width:360px;
+
+    max-width:88%;
+
+    height:100vh;
+
+    background:var(--header);
+
+    z-index:4100;
+
+    transform:translateX(105%);
+
+    transition:
+        transform .32s cubic-bezier(.4,0,.2,1);
+
+    box-shadow:
+        -15px 0 45px rgba(0,0,0,.18);
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+}
+
+
+.side-menu.active{
+
+    transform:translateX(0);
+
+}
+
+
+/* =====================================================
+   MENU HEADER
+===================================================== */
+
+.menu-header{
+
+    min-height:78px;
+
+    padding:16px 18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid var(--border);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--light-green),
+            var(--header)
+        );
+
+}
+
+
+.menu-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+}
+
+
+.menu-user-icon{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    background:var(--light-green);
+
+    color:var(--green);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+}
+
+
+.menu-user h3{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:15px;
+
+    margin-bottom:3px;
+
+}
+
+
+.menu-user p{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+}
+
+
+.menu-close{
+
+    width:38px;
+
+    height:38px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    background:var(--header);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-size:21px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.menu-close:hover{
+
+    background:var(--light-green);
+
+    color:var(--green);
+
+}
+
+
+/* =====================================================
+   MENU BODY
+===================================================== */
+
+.menu-body{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:13px;
+
+}
+
+
+.menu-section-title{
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:1.4px;
+
+    padding:9px 9px 7px;
+
+}
+
+
+.menu-item{
+
+    width:100%;
+
+    min-height:53px;
+
+    border:0;
+
+    background:transparent;
+
+    border-radius:12px;
+
+    padding:8px 10px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-family:'DM Sans',sans-serif;
+
+    text-align:left;
+
+    transition:.18s ease;
+
+    margin-bottom:3px;
+
+}
+
+
+.menu-item:hover{
+
+    background:var(--light-green);
+
+    color:var(--green);
+
+    transform:translateX(-2px);
+
+}
+
+
+.menu-item-icon{
+
+    width:37px;
+
+    height:37px;
+
+    min-width:37px;
+
+    border-radius:10px;
+
+    background:var(--bg);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+}
+
+
+.menu-item:hover .menu-item-icon{
+
+    background:#dff5e7;
+
+}
+
+
+.menu-item-content{
+
+    flex:1;
+
+}
+
+
+.menu-item-title{
+
+    font-size:11px;
+
+    font-weight:800;
+
+    margin-bottom:2px;
+
+}
+
+
+.menu-item-sub{
+
+    color:var(--muted);
+
+    font-size:8px;
+
+}
+
+
+.menu-arrow{
+
+    color:#9aa59f;
+
+    font-size:20px;
+
+}
+
+
+/* =====================================================
+   MENU FOOTER
+===================================================== */
+
+.menu-footer{
+
+    padding:12px 18px;
+
+    border-top:1px solid var(--border);
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+}
+
+
+.menu-footer strong{
+
+    color:var(--green);
+
+}
+
+
+/* =====================================================
+   BANNER
+===================================================== */
+
+.banner-slider{
+
+    width:100%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+    margin-bottom:25px;
+
+    user-select:none;
+
+    touch-action:pan-y;
+
+    box-shadow:
+        0 12px 35px rgba(20,50,30,.10);
+
+}
+
+
+.banner-track{
+
+    display:flex;
+
+    width:100%;
+
+    transform:translateX(0);
+
+    transition:
+        transform .32s cubic-bezier(.4,0,.2,1);
+
+    will-change:transform;
+
+}
+
+
+.banner{
+
+    min-width:100%;
+
+    width:100%;
+
+    height:190px;
+
+    flex-shrink:0;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:28px 42px;
+
+    color:#fff;
+
+}
+
+
+.banner-one{
+
+    background:
+        linear-gradient(
+            120deg,
+            #087536 0%,
+            #149447 55%,
+            #35c875 100%
+        );
+
+}
+
+
+.banner-two{
+
+    background:
+        linear-gradient(
+            120deg,
+            #5b21b6 0%,
+            #9333ea 55%,
+            #ec4899 100%
+        );
+
+}
+
+
+.banner-three{
+
+    background:
+        linear-gradient(
+            120deg,
+            #0369a1 0%,
+            #0891b2 55%,
+            #22c55e 100%
+        );
+
+}
+
+
+.banner-four{
+
+    background:
+        linear-gradient(
+            120deg,
+            #123c27 0%,
+            #087536 55%,
+            #18a957 100%
+        );
+
+}
+
+
+.banner-content{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:700px;
+
+}
+
+
+.banner-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:6px 11px;
+
+    background:
+        rgba(255,255,255,.14);
+
+    border:
+        1px solid rgba(255,255,255,.24);
+
+    border-radius:30px;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:.8px;
+
+    margin-bottom:9px;
+
+}
+
+
+.banner h1{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:29px;
+
+    line-height:1.15;
+
+    margin-bottom:7px;
+
+}
+
+
+.banner p{
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    color:rgba(255,255,255,.91);
+
+    margin-bottom:13px;
+
+    max-width:560px;
+
+}
+
+
+.banner-btn{
+
+    border:0;
+
+    background:#fff;
+
+    color:var(--dark-green);
+
+    padding:9px 15px;
+
+    border-radius:9px;
+
+    font-family:inherit;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.18s ease;
+
+}
+
+
+.banner-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.15);
+
+}
+
+
+.banner-two .banner-btn{
+
+    color:#7c3aed;
+
+}
+
+
+.banner-three .banner-btn{
+
+    color:#0369a1;
+
+}
+
+
+/* =====================================================
+   RATE BANNER
+===================================================== */
+
+.rate-update-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+
+.rate-icon{
+
+    width:70px;
+
+    height:70px;
+
+    min-width:70px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    font-weight:800;
+
+    background:
+        rgba(255,255,255,.14);
+
+    border:
+        1px solid rgba(255,255,255,.28);
+
+}
+
+
+.rate-label{
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    opacity:.8;
+
+    margin-bottom:4px;
+
+}
+
+
+.rate-title{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:27px;
+
+    line-height:1.2;
+
+    margin-bottom:7px;
+
+}
+
+
+.rate-message{
+
+    font-size:11px;
+
+    line-height:1.55;
+
+    color:rgba(255,255,255,.9);
+
+    max-width:570px;
+
+}
+
+
+.rate-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-top:12px;
+
+    padding:7px 11px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.13);
+
+    border:
+        1px solid rgba(255,255,255,.20);
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+
+.rate-status-dot{
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+}
+
+
+/* =====================================================
+   DECORATIONS
+===================================================== */
+
+.banner-decoration{
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.09);
+
+    right:-65px;
+
+    top:-90px;
+
+}
+
+
+.banner-decoration-two{
+
+    position:absolute;
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.06);
+
+    right:150px;
+
+    bottom:-100px;
+
+}
+
+
+/* =====================================================
+   ARROWS
+===================================================== */
+
+.banner-arrow{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:34px;
+
+    height:34px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.18);
+
+    color:#fff;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    backdrop-filter:blur(5px);
+
+}
+
+
+.banner-arrow:hover{
+
+    background:
+        rgba(255,255,255,.32);
+
+}
+
+
+.banner-prev{
+
+    left:10px;
+
+}
+
+
+.banner-next{
+
+    right:10px;
+
+}
+
+
+/* =====================================================
+   DOTS
+===================================================== */
+
+.banner-dots{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:10px;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:6px;
+
+    z-index:30;
+
+}
+
+
+.banner-dot{
+
+    width:7px;
+
+    height:7px;
+
+    padding:0;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.45);
+
+    cursor:pointer;
+
+}
+
+
+.banner-dot.active{
+
+    width:20px;
+
+    border-radius:10px;
+
+    background:#fff;
+
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.heading-area{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:17px;
+
+}
+
+
+.small-title{
+
+    color:var(--green);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+}
+
+
+.heading-area h2{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:27px;
+
+    margin-top:4px;
+
+}
+
+
+.material-count{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-end;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+.material-count b{
+
+    color:var(--green);
+
+    font-size:23px;
+
+    font-family:'Manrope',sans-serif;
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box{
+
+    height:48px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:0 15px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+        0 5px 20px rgba(20,50,30,.03);
+
+}
+
+
+.search-box span{
+
+    font-size:16px;
+
+}
+
+
+.search-box input{
+
+    border:0;
+
+    outline:none;
+
+    width:100%;
+
+    height:100%;
+
+    background:transparent;
+
+    color:var(--text);
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:13px;
+
+}
+
+
+.search-box input::placeholder{
+
+    color:var(--muted);
+
+}
+
+
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.scrap-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+
+.scrap-card{
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 7px 25px rgba(20,50,30,.05);
+
+    transition:.22s ease;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.scrap-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(20,50,30,.10);
+
+}
+
+
+.product-image-box{
+
+    width:100%;
+
+    height:180px;
+
+    background:#f0f5f2;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.product-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+.image-fallback{
+
+    font-size:55px;
+
+    opacity:.5;
+
+}
+
+
+.scrap-content{
+
+    padding:16px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+}
+
+
+.scrap-content h3{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:16px;
+
+    margin-bottom:6px;
+
+}
+
+
+.scrap-description{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    min-height:33px;
+
+    margin-bottom:12px;
+
+}
+
+
+.product-bottom{
+
+    margin-top:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+.price{
+
+    color:var(--green);
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:17px;
+
+    font-weight:800;
+
+}
+
+
+.price small{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    font-family:'DM Sans',sans-serif;
+
+    font-weight:500;
+
+}
+
+
+.rate-loading{
+
+    color:#999;
+
+    font-size:12px;
+
+}
+
+
+.market-price{
+
+    color:#f59e0b;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:0.3px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:4px;
+
+    line-height:1.3;
+
+}
+
+
+.sell-btn{
+
+    border:0;
+
+    background:var(--green);
+
+    color:#fff;
+
+    padding:9px 12px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    transition:.18s ease;
+
+}
+
+
+.sell-btn:hover{
+
+    background:var(--dark-green);
+
+    transform:translateY(-1px);
+
+}
+
+
+.sell-btn:disabled{
+
+    background:#b8c5bd;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =====================================================
+   NO RESULTS
+===================================================== */
+
+.no-results{
+
+    display:none;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:var(--muted);
+
+}
+
+
+.no-results div{
+
+    font-size:35px;
+
+    margin-bottom:12px;
+
+}
+
+
+.no-results h3{
+
+    color:var(--text);
+
+    margin-bottom:5px;
+
+}
+
+
+/* =====================================================
+   CUSTOM PRODUCT BOX
+===================================================== */
+
+.custom-product-box{
+
+    margin-top:25px;
+
+    background:var(--card);
+
+    border:2px dashed var(--border);
+
+    border-radius:14px;
+
+    padding:18px 22px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    box-shadow:
+        0 5px 18px rgba(20,50,30,.04);
+
+    transition:.22s ease;
+
+}
+
+
+.custom-product-box:hover{
+
+    border-color:var(--green);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(20,148,71,.10);
+
+}
+
+
+.custom-product-icon{
+
+    width:50px;
+
+    height:50px;
+
+    min-width:50px;
+
+    border-radius:50%;
+
+    background:var(--light-green);
+
+    color:var(--green);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:24px;
+
+}
+
+
+.custom-product-content{
+
+    flex:1;
+
+}
+
+
+.custom-product-title{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:16px;
+
+    margin-bottom:3px;
+
+}
+
+
+.custom-product-desc{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-bottom:12px;
+
+}
+
+
+.custom-product-input-group{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+
+.custom-product-input{
+
+    flex:1;
+
+    height:40px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    padding:0 14px;
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:12px;
+
+    color:var(--text);
+
+    background:var(--bg);
+
+    transition:.18s ease;
+
+}
+
+
+.custom-product-input:focus{
+
+    outline:none;
+
+    border-color:var(--green);
+
+    background:var(--card);
+
+}
+
+
+.custom-product-input::placeholder{
+
+    color:var(--muted);
+
+}
+
+
+.custom-product-btn{
+
+    border:0;
+
+    background:var(--green);
+
+    color:#fff;
+
+    padding:0 18px;
+
+    border-radius:10px;
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    min-width:110px;
+
+    transition:.18s ease;
+
+}
+
+
+.custom-product-btn:hover{
+
+    background:var(--dark-green);
+
+    transform:translateY(-1px);
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:100px;
+
+    transform:
+        translate(-50%,20px);
+
+    background:#102018;
+
+    color:#fff;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    font-size:11px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.22s ease;
+
+    z-index:5000;
+
+    white-space:nowrap;
+
+}
+
+
+.toast.show{
+
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+
+}
+
+
+/* =====================================================
+   BOTTOM NAVIGATION
+===================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    height:68px;
+
+    background:var(--header);
+
+    border-top:1px solid var(--border);
+
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1.35fr
+        1fr
+        1fr;
+
+    align-items:center;
+
+    z-index:2000;
+
+    box-shadow:
+        0 -7px 25px rgba(20,50,30,.09);
+
+}
+
+
+.bottom-nav-item{
+
+    height:100%;
+
+    border:0;
+
+    background:transparent;
+
+    color:var(--muted);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:3px;
+
+    cursor:pointer;
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:8px;
+
+    font-weight:700;
+
+    transition:.18s ease;
+
+    position:relative;
+
+}
+
+
+.bottom-nav-item:hover{
+
+    color:var(--green);
+
+}
+
+
+.bottom-nav-icon{
+
+    font-size:17px;
+
+    line-height:1;
+
+}
+
+
+.cart-nav-icon{
+
+    position:relative;
+
+    display:inline-flex;
+
+}
+
+
+.bottom-cart-count{
+
+    position:absolute;
+
+    top:-8px;
+
+    right:-11px;
+
+    min-width:17px;
+
+    height:17px;
+
+    padding:0 4px;
+
+    border-radius:20px;
+
+    background:var(--green);
+
+    color:#fff;
+
+    border:2px solid var(--header);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:7px;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+
+.sell-center{
+
+    position:relative;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.sell-center-button{
+
+    position:absolute;
+
+    bottom:24px;
+
+    width:120px;
+
+    height:46px;
+
+    border:4px solid var(--header);
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #149447,
+            #087536
+        );
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    cursor:pointer;
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 8px 22px rgba(8,117,54,.30);
+
+    transition:.2s ease;
+
+    z-index:10;
+
+}
+
+
+.sell-center-button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+.sell-center-icon{
+
+    font-size:16px;
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode{
+
+    --bg:#101713;
+
+    --header:#17201b;
+
+    --card:#17201b;
+
+    --text:#f1f7f3;
+
+    --muted:#9aa9a0;
+
+    --border:#29362f;
+
+    --white:#17201b;
+
+}
+
+
+body.dark-mode .product-image-box{
+
+    background:#202b25;
+
+}
+
+
+body.dark-mode .menu-item-icon{
+
+    background:#202b25;
+
+}
+
+
+body.dark-mode .menu-close{
+
+    background:#17201b;
+
+}
+
+
+body.dark-mode .menu-btn{
+
+    background:#17201b;
+
+}
+
+
+body.dark-mode .cart-btn{
+
+    color:#fff;
+
+}
+
+
+body.dark-mode .custom-product-input{
+
+    background:#202b25;
+
+    border-color:#34463b;
+
+    color:#edf7f0;
+
+}
+
+
+body.dark-mode .custom-product-input:focus{
+
+    background:#17201b;
+
+    border-color:#5ee28d;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:1000px){
+
+    .scrap-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    body{
+
+        padding-bottom:82px;
+
+    }
+
+
+    .topbar{
+
+        height:64px;
+
+        padding:0 12px;
+
+    }
+
+
+    .brand-logo{
+
+        width:36px;
+
+        height:36px;
+
+        border-width:2px;
+
+    }
+
+
+    .brand h2{
+
+        font-size:16px;
+
+    }
+
+
+    .brand p{
+
+        font-size:6px;
+
+    }
+
+
+    .header-actions{
+
+        gap:6px;
+
+    }
+
+
+    .cart-btn{
+
+        padding:8px 9px;
+
+        font-size:9px;
+
+        min-height:36px;
+
+    }
+
+
+    .cart-count-badge{
+
+        min-width:17px;
+
+        height:17px;
+
+        font-size:8px;
+
+    }
+
+
+    .menu-btn{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:18px;
+
+    }
+
+
+    main{
+
+        padding:
+            12px 10px 105px;
+
+    }
+
+
+    .banner{
+
+        height:170px;
+
+        padding:20px;
+
+    }
+
+
+    .banner h1{
+
+        font-size:21px;
+
+    }
+
+
+    .banner p{
+
+        font-size:9px;
+
+        max-width:65%;
+
+    }
+
+
+    .banner-tag{
+
+        font-size:7px;
+
+        padding:5px 8px;
+
+    }
+
+
+    .banner-btn{
+
+        padding:7px 11px;
+
+        font-size:8px;
+
+    }
+
+
+    .banner-arrow{
+
+        display:none;
+
+    }
+
+
+    .rate-update-box{
+
+        gap:12px;
+
+        align-items:flex-start;
+
+    }
+
+
+    .rate-icon{
+
+        width:48px;
+
+        height:48px;
+
+        min-width:48px;
+
+        font-size:21px;
+
+    }
+
+
+    .rate-label{
+
+        font-size:7px;
+
+    }
+
+
+    .rate-title{
+
+        font-size:18px;
+
+    }
+
+
+    .rate-message{
+
+        font-size:8px;
+
+        max-width:245px;
+
+    }
+
+
+    .rate-status{
+
+        font-size:7px;
+
+        padding:6px 9px;
+
+    }
+
+
+    .heading-area h2{
+
+        font-size:21px;
+
+    }
+
+
+    .material-count b{
+
+        font-size:18px;
+
+    }
+
+
+    .scrap-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:10px;
+
+    }
+
+
+    .product-image-box{
+
+        height:125px;
+
+    }
+
+
+    .scrap-content{
+
+        padding:11px;
+
+    }
+
+
+    .scrap-content h3{
+
+        font-size:13px;
+
+    }
+
+
+    .scrap-description{
+
+        font-size:9px;
+
+        min-height:28px;
+
+    }
+
+
+    .price{
+
+        font-size:14px;
+
+    }
+
+
+    .price small{
+
+        font-size:7px;
+
+    }
+
+
+    .sell-btn{
+
+        padding:8px;
+
+        font-size:8px;
+
+    }
+
+
+    .bottom-nav{
+
+        height:66px;
+
+    }
+
+
+    .bottom-nav-item{
+
+        font-size:7px;
+
+    }
+
+
+    .bottom-nav-icon{
+
+        font-size:16px;
+
+    }
+
+
+    .bottom-cart-count{
+
+        min-width:15px;
+
+        height:15px;
+
+        font-size:6px;
+
+        top:-7px;
+
+        right:-10px;
+
+    }
+
+
+    .sell-center-button{
+
+        width:108px;
+
+        height:43px;
+
+        bottom:24px;
+
+        border-width:3px;
+
+        border-radius:13px;
+
+        font-size:9px;
+
+    }
+
+
+    .sell-center-icon{
+
+        font-size:15px;
+
+    }
+
+
+    .side-menu{
+
+        width:320px;
+
+        max-width:86%;
+
+    }
+
+
+    .menu-header{
+
+        min-height:70px;
+
+        padding:13px;
+
+    }
+
+
+    .menu-user-icon{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:19px;
+
+    }
+
+
+    .menu-user h3{
+
+        font-size:13px;
+
+    }
+
+
+    .menu-item{
+
+        min-height:50px;
+
+    }
+
+
+    .custom-product-box{
+
+        padding:20px 18px;
+
+        gap:16px;
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+
+    .custom-product-icon{
+
+        width:55px;
+
+        height:55px;
+
+        min-width:55px;
+
+        font-size:26px;
+
+    }
+
+
+    .custom-product-title{
+
+        font-size:17px;
+
+    }
+
+
+    .custom-product-desc{
+
+        font-size:10px;
+
+    }
+
+
+    .custom-product-input-group{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+
+    .custom-product-input{
+
+        height:42px;
+
+        font-size:12px;
+
+    }
+
+
+    .custom-product-btn{
+
+        height:42px;
+
+        font-size:11px;
+
+    }
+
+}
+
+
+@media(max-width:400px){
+
+    .brand h2{
+
+        font-size:14px;
+
+    }
+
+
+    .brand p{
+
+        display:none;
+
+    }
+
+
+    .cart-btn{
+
+        padding:8px;
+
+    }
+
+
+    .cart-btn-text{
+
+        display:none;
+
+    }
+
+
+    .banner{
+
+        height:160px;
+
+        padding:17px;
+
+    }
+
+
+    .banner h1{
+
+        font-size:19px;
+
+    }
+
+
+    .banner p{
+
+        font-size:8px;
+
+    }
+
+
+    .rate-title{
+
+        font-size:17px;
+
+    }
+
+
+    .rate-message{
+
+        font-size:7.5px;
+
+    }
+
+
+    .scrap-grid{
+
+        gap:8px;
+
+    }
+
+
+    .product-image-box{
+
+        height:110px;
+
+    }
+
+
+    .scrap-content h3{
+
+        font-size:12px;
+
+    }
+
+
+    .price{
+
+        font-size:13px;
+
+    }
+
+
+    .sell-btn{
+
+        padding:7px;
+
+        font-size:7px;
+
+    }
+
+
+    .bottom-nav{
+
+        height:64px;
+
+    }
+
+
+    .bottom-nav-item{
+
+        font-size:6.5px;
+
+    }
+
+
+    .bottom-nav-icon{
+
+        font-size:15px;
+
+    }
+
+
+    .sell-center-button{
+
+        width:100px;
+
+        height:40px;
+
+        bottom:23px;
+
+        font-size:8px;
+
+    }
+
+
+    .side-menu{
+
+        width:300px;
+
+        max-width:88%;
+
+    }
+
+
+    .menu-item-title{
+
+        font-size:10px;
+
+    }
+
+
+    .menu-item-sub{
+
+        font-size:7px;
+
+    }
+
+
+    .custom-product-box{
+
+        padding:18px 15px;
+
+    }
+
+
+    .custom-product-icon{
+
+        width:48px;
+
+        height:48px;
+
+        min-width:48px;
+
+        font-size:22px;
+
+    }
+
+
+    .custom-product-title{
+
+        font-size:15px;
+
+    }
+
+
+    .custom-product-desc{
+
+        font-size:9px;
+
+    }
+
+
+    .custom-product-input{
+
+        height:40px;
+
+        font-size:11px;
+
+    }
+
+
+    .custom-product-btn{
+
+        height:40px;
+
+        font-size:10px;
+
+        min-width:110px;
+
+    }
+
+}
+
+
+/* =====================================================
+   PROFILE POPUP
+===================================================== */
+
+.profile-popup-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.68);
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+    z-index:10000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    touch-action:manipulation;
+}
+
+.profile-popup-overlay.show{display:flex;}
+
+.profile-popup{
+    position:relative;
+    isolation:isolate;
+    background:var(--card,#fff);
+    color:var(--text,#15231b);
+    border:1px solid var(--border,#e4ebe6);
+    border-radius:20px;
+    max-width:500px;
+    width:100%;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.30);
+    animation:popupIn .3s ease;
+}
+
+.profile-popup-close{
+    position:absolute;
+    top:10px;
+    right:10px;
+    z-index:20;
+    width:34px;
+    height:34px;
+    border:0;
+    border-radius:50%;
+    background:#f1f4f2;
+    color:#5d6a62;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+}
+
+.profile-popup-close:active{transform:scale(.94);}
+
+@keyframes popupIn{
+    from{opacity:0;transform:scale(.9) translateY(20px);}
+    to{opacity:1;transform:scale(1) translateY(0);}
+}
+
+.popup-header{text-align:center;margin-bottom:24px;}
+.popup-icon{font-size:64px;margin-bottom:16px;}
+.popup-title{font-size:24px;font-weight:800;margin-bottom:8px;}
+.popup-desc{font-size:14px;color:var(--muted);line-height:1.5;}
+.popup-buttons{display:flex;gap:12px;margin-top:24px;}
+.popup-btn{flex:1;padding:14px;border:0;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;transition:.2s;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+.popup-btn-skip{background:#f3f4f6;color:#6b7280;}
+.popup-btn-skip:hover{background:#e5e7eb;}
+.popup-btn-continue{background:#149447;color:#fff;box-shadow:0 4px 12px rgba(20,148,71,.3);}
+.popup-btn-continue:hover{background:#087536;transform:translateY(-2px);}
+
+/* =====================================================
+   SETTINGS OPTIONS
+===================================================== */
+
+.settings-options{
+    display:none;
+    margin:0 8px 7px 58px;
+    padding:6px;
+    background:var(--bg);
+    border:1px solid var(--border);
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+    animation:settingsDrop .2s ease;
+}
+
+.settings-options.show{
+    display:block;
+}
+
+.settings-options button{
+    width:100%;
+    min-height:42px;
+
+    border:0;
+    background:transparent;
+
+    color:var(--text);
+
+    border-radius:9px;
+
+    padding:8px 11px;
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:11px;
+    font-weight:700;
+
+    text-align:left;
+
+    transition:
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease;
+}
+
+.settings-options button:hover{
+    background:var(--light-green);
+    color:var(--green);
+    transform:translateX(2px);
+}
+
+.settings-option-icon{
+    width:25px;
+    min-width:25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:17px;
+}
+
+@keyframes settingsDrop{
+
+    from{
+        opacity:0;
+        transform:translateY(-5px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* DARK MODE */
+
+body.dark-mode .settings-options{
+    background:#202b25;
+    border-color:#34463b;
+}
+
+body.dark-mode .settings-options button{
+    color:#edf7f0;
+}
+
+body.dark-mode .settings-options button:hover{
+    background:#293b31;
+    color:#5ee28d;
+}
+
+/* =====================================================
+   DOWNLOAD APP POPUP
+===================================================== */
+
+.download-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.download-popup-overlay.show {
+    display: flex;
+}
+
+.download-popup {
+    position: relative;
+    width: 90%;
+    max-width: 340px;
+    background: linear-gradient(145deg, #0a1f12, #0f2e1a);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(16, 185, 129, 0.3);
+    text-align: center;
+    animation: popupSlideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.download-popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.download-popup-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    transform: rotate(90deg);
+}
+
+.download-popup-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    animation: bounce 2s infinite;
+}
+
+.download-popup h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.download-popup p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.download-popup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+.download-popup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(16, 185, 129, 0.5);
+}
+
+.download-popup-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popupSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+    .download-popup {
+        max-width: 280px;
+        width: 85%;
+        padding: 24px 18px;
+    }
+
+    .download-popup-icon {
+        font-size: 42px;
+        margin-bottom: 12px;
+    }
+
+    .download-popup h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .download-popup p {
+        font-size: 12px;
+        margin-bottom: 18px;
+    }
+
+    .download-popup-btn {
+        padding: 11px 20px;
+        font-size: 14px;
+        gap: 8px;
+    }
+
+    .download-popup-close {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* =====================================================
+   POPUP MOBILE / TOUCH FIX
+===================================================== */
+@media (max-width:600px){
+    .profile-popup-overlay,
+    .download-popup-overlay{
+        padding:14px;
+        padding-top:max(14px,env(safe-area-inset-top));
+        padding-right:max(14px,env(safe-area-inset-right));
+        padding-bottom:max(14px,env(safe-area-inset-bottom));
+        padding-left:max(14px,env(safe-area-inset-left));
+        -webkit-tap-highlight-color:transparent;
+        touch-action:manipulation;
+    }
+
+    .profile-popup{
+        width:min(330px,calc(100vw - 28px));
+        padding:24px 17px 18px;
+        border-radius:18px;
+    }
+
+    .profile-popup-close{
+        top:8px;
+        right:8px;
+        width:30px;
+        height:30px;
+        font-size:16px;
+    }
+
+    .popup-header{margin-bottom:16px;}
+    .popup-icon{font-size:42px;margin-bottom:9px;}
+    .popup-title{font-size:18px;line-height:1.2;margin:0 22px 7px;}
+    .popup-desc{font-size:11px;line-height:1.45;padding:0 5px;}
+    .popup-buttons{gap:8px;margin-top:16px;}
+    .popup-btn{padding:10px 8px;border-radius:10px;font-size:11px;min-height:40px;}
+
+    .download-popup{
+        position:relative;
+        isolation:isolate;
+        width:min(300px,calc(100vw - 28px));
+        max-width:300px;
+        padding:24px 18px 19px;
+        border-radius:19px;
+    }
+
+    .download-popup-close{
+        position:absolute;
+        top:8px;
+        right:8px;
+        z-index:20;
+        width:30px;
+        height:30px;
+        font-size:16px;
+        pointer-events:auto;
+        touch-action:manipulation;
+        -webkit-tap-highlight-color:transparent;
+    }
+
+    .download-popup-icon{font-size:40px;margin-bottom:10px;}
+    .download-popup h3{font-size:18px;margin-bottom:7px;}
+    .download-popup p{font-size:11px;line-height:1.45;margin:0 2px 16px;}
+    .download-popup-btn{position:relative;z-index:10;padding:11px 19px;font-size:13px;border-radius:12px;min-height:42px;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+}
+
+@media (max-width:360px){
+    .profile-popup{width:calc(100vw - 24px);padding:22px 14px 16px;}
+    .popup-title{font-size:17px;}
+    .popup-desc{font-size:10.5px;}
+    .popup-btn{font-size:10.5px;padding:9px 6px;}
+    .download-popup{width:calc(100vw - 24px);padding:22px 15px 17px;}
+}
+
+/* =====================================================
+   NOTIFICATION CARD - REMOVED
+===================================================== */
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SLIDE MENU OVERLAY
+===================================================== -->
+
+<div
+    class="menu-overlay"
+    id="menuOverlay"
+    onclick="closeMenu()">
+</div>
+
+
+<!-- =====================================================
+     SLIDE MENU
+===================================================== -->
+
+<aside
+    class="side-menu"
+    id="sideMenu"
+    aria-hidden="true">
+
+
+    <div class="menu-header">
+
+
+        <div class="menu-user">
+
+            <div class="menu-user-icon">
+                👤
+            </div>
+
+            <div>
+
+                <h3 data-i18n="customerTitle">
+                    COVAI SCRAP HUB
+                </h3>
+
+                <p data-i18n="customerMenu">
+                    Customer Menu
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="menu-close"
+            onclick="closeMenu()"
+            aria-label="Close menu">
+
+            ×
+
+        </button>
+
+
+    </div>
+
+
+    <div class="menu-body">
+
+
+        <!-- ACCOUNT -->
+
+        <div class="menu-section-title" data-i18n="account">
+            ACCOUNT
+        </div>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('profile.html')">
+
+            <span class="menu-item-icon">
+                👤
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="profile">
+                    Profile
+                </span>
+
+                <span class="menu-item-sub" data-i18n="manageAccount">
+                    Manage your account
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- SERVICES -->
+
+        <div class="menu-section-title" data-i18n="services">
+            SERVICES
+        </div>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('rates.html')">
+
+            <span class="menu-item-icon">
+                ₹
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="todayRate">
+                    Today Rate
+                </span>
+
+                <span class="menu-item-sub" data-i18n="checkPrices">
+                    Check today's scrap prices
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('features.html')">
+
+            <span class="menu-item-icon">
+                ✨
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="features">
+                    Features
+                </span>
+
+                <span class="menu-item-sub" data-i18n="exploreHub">
+                    Explore Covai Scrap Hub
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('cart.html')">
+
+            <span class="menu-item-icon">
+                🛒
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="sellCart">
+                    Sell Cart
+                </span>
+
+                <span class="menu-item-sub" data-i18n="viewCart">
+                    View your selected scrap
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('track.html')">
+
+            <span class="menu-item-icon">
+                📍
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="trackPickup">
+                    Track Pickup
+                </span>
+
+                <span class="menu-item-sub" data-i18n="trackRequest">
+                    Track your pickup request
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('features.html')">
+
+            <span class="menu-item-icon">
+            
+               📱
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="features.htm">
+                    features
+    
+                </span>
+
+                <span class="menu-item-sub" data-i18n="viewCompleted">
+                    View completed pickups
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- SUPPORT -->
+
+        <div class="menu-section-title" data-i18n="support">
+            SUPPORT
+        </div>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('support.html')">
+
+            <span class="menu-item-icon">
+                🎧
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="customerSupport">
+                    Customer Support
+                </span>
+
+                <span class="menu-item-sub" data-i18n="getHelp">
+                    Get help with your booking
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('contact.html')">
+
+            <span class="menu-item-icon">
+                📞
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="contact">
+                    Contact
+                </span>
+
+                <span class="menu-item-sub" data-i18n="contactHub">
+                    Contact Covai Scrap Hub
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <button
+            class="menu-item"
+            onclick="menuNavigate('about.html')">
+
+            <span class="menu-item-icon">
+                ℹ️
+            </span>
+
+            <span class="menu-item-content">
+
+                <span class="menu-item-title" data-i18n="about">
+                    About
+                </span>
+
+                <span class="menu-item-sub" data-i18n="aboutHubDesc">
+                    About Covai Scrap Hub
+                </span>
+
+            </span>
+
+            <span class="menu-arrow">
+                ›
+            </span>
+
+        </button>
+
+
+        <!-- SETTINGS -->
+
+   <!-- =====================================================
+     SETTINGS
+===================================================== -->
+
+<div class="menu-section-title" data-i18n="settings">
+    SETTINGS
+</div>
+
+
+<!-- ================= THEME ================= -->
+
+<button
+    class="menu-item"
+    type="button"
+    onclick="showThemeOptions()"
+>
+
+    <span class="menu-item-icon">
+        🎨
+    </span>
+
+    <span class="menu-item-content">
+
+        <span class="menu-item-title" data-i18n="theme">
+            Theme
+        </span>
+
+        <span
+            class="menu-item-sub"
+            id="themeText"
+        >
+            Light mode
+        </span>
+
+    </span>
+
+    <span class="menu-arrow">
+        ›
+    </span>
+
+</button>
+
+
+<!-- THEME OPTIONS -->
+
+<div
+    id="themeOptions"
+    class="settings-options"
+>
+
+    <button
+        type="button"
+        onclick="selectTheme('light')"
+    >
+        <span class="settings-option-icon">
+            ☀️
+        </span>
+
+        <span data-i18n="light">
+            Light
+        </span>
+    </button>
+
+
+    <button
+        type="button"
+        onclick="selectTheme('dark')"
+    >
+        <span class="settings-option-icon">
+            🌙
+        </span>
+
+        <span data-i18n="dark">
+            Dark
+        </span>
+    </button>
+
+</div>
+
+
+
+<!-- ================= LANGUAGE ================= -->
+
+<button
+    class="menu-item"
+    type="button"
+    onclick="showLanguages()"
+>
+
+    <span class="menu-item-icon">
+        🌐
+    </span>
+
+    <span class="menu-item-content">
+
+        <span class="menu-item-title" data-i18n="languages">
+            Languages
+        </span>
+
+        <span
+            class="menu-item-sub"
+            id="languageText"
+        >
+            English
+        </span>
+
+    </span>
+
+    <span class="menu-arrow">
+        ›
+    </span>
+
+</button>
+
+
+<!-- LANGUAGE OPTIONS -->
+
+<div
+    id="languageOptions"
+    class="settings-options"
+>
+
+    <button
+        type="button"
+        onclick="selectLanguage('English')"
+    >
+
+        <span class="settings-option-icon">
+            🇬🇧
+        </span>
+
+        <span>
+            English
+        </span>
+
+    </button>
+
+
+    <button
+        type="button"
+        onclick="selectLanguage('Tamil')"
+    >
+
+        <span class="settings-option-icon">
+            🇮🇳
+        </span>
+
+        <span>
+            தமிழ்
+        </span>
+
+    </button>
+
+</div>
+    <div class="menu-footer">
+
+        ♻ <strong>COVAI SCRAP HUB</strong>
+
+        <br>
+
+        <span data-i18n="smartScrapSelling">Smart Scrap Selling</span>
+
+    </div>
+
+
+</aside>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="topbar">
+
+
+    <a
+        class="brand"
+        href="#">
+
+        <img
+            src="logo.jpeg"
+            class="brand-logo"
+            alt="Covai Scrap Hub Logo"
+            onerror="this.src='logo.jpg'"
+        >
+
+
+        <div>
+
+            <h2>
+                Covai <span>Scrap Hub</span>
+            </h2>
+
+            <p>
+                SMART SCRAP SELLING
+            </p>
+
+        </div>
+
+
+    </a>
+
+
+    <div class="header-actions">
+
+
+        <!-- CART -->
+
+        <button
+            class="cart-btn"
+            onclick="window.location.href='cart.html'">
+
+            🛒
+
+            <span class="cart-btn-text" data-i18n="cart">
+                Cart
+            </span>
+
+            <span
+                class="cart-count-badge"
+                id="cartCount">
+
+                0
+
+            </span>
+
+        </button>
+
+
+        <!-- 3 BAR MENU -->
+
+        <button
+            class="menu-btn"
+            onclick="openMenu()"
+            aria-label="Open menu">
+
+            ☰
+
+        </button>
+
+
+    </div>
+
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+    <!-- =================================================
+         BANNER SLIDER
+    ================================================== -->
+
+    <section
+        class="banner-slider"
+        id="bannerSlider">
+
+
+        <div
+            class="banner-track"
+            id="bannerTrack">
+
+
+            <!-- BANNER 1 -->
+
+            <div class="banner banner-one">
+
+                <div class="banner-content">
+
+                    <span class="banner-tag" id="dailyRateBanner">
+
+                    </span>
+
+                    <h1>
+                        <span data-i18n="sellYourScrap">Sell Your Scrap</span><br>
+                        <span data-i18n="getMoreValue">Get More Value</span>
+                    </h1>
+
+                    <p data-i18n="turnOldPaper">
+                        Turn your old paper, plastic, metal
+                        and recyclable waste into money.
+                    </p>
+
+                    <button
+                        class="banner-btn"
+                        onclick="window.location.href='cart.html'"
+                        data-i18n="sellScrapNow">
+
+                        Sell Scrap Now →
+
+                    </button>
+
+                </div>
+
+
+                <div class="banner-decoration"></div>
+
+                <div class="banner-decoration-two"></div>
+
+            </div>
+
+
+            <!-- BANNER 2 -->
+
+            <div class="banner banner-two">
+
+                <div class="banner-content">
+
+                    <span class="banner-tag" data-i18n="businessSupport">
+                        💼 BUSINESS SUPPORT
+                    </span>
+
+                    <h1>
+                        <span data-i18n="haveBusinessEnquiry">Have a Business</span><br>
+                        <span data-i18n="enquiry">Enquiry?</span>
+                    </h1>
+
+                    <p data-i18n="lookingForRegular">
+                        Looking for regular scrap collection,
+                        bulk recycling or business partnerships?
+                    </p>
+
+                    <button
+                        class="banner-btn"
+                        onclick="window.location.href='buiss.html'"
+                        data-i18n="businessEnquiry">
+
+                        Business Enquiry →
+
+                    </button>
+
+                </div>
+
+
+                <div class="banner-decoration"></div>
+
+                <div class="banner-decoration-two"></div>
+
+            </div>
+
+
+            <!-- BANNER 3 -->
+
+            <div class="banner banner-three">
+
+                <div class="banner-content">
+
+                    <span class="banner-tag" data-i18n="covaiScrapHub">
+                        ⭐ COVAI SCRAP HUB
+                    </span>
+
+                    <h1>
+                        <span data-i18n="simpleFast">Simple. Fast.</span><br>
+                        <span data-i18n="reliable">Reliable.</span>
+                    </h1>
+
+                    <p data-i18n="easySelection">
+                        Easy selection, transparent rates,
+                        simple cart and convenient pickup.
+                    </p>
+
+                    <button
+                        class="banner-btn"
+                        onclick="window.location.href='features.html'"
+                        data-i18n="viewFeatures">
+
+                        View Features →
+
+                    </button>
+
+                </div>
+
+
+                <div class="banner-decoration"></div>
+
+                <div class="banner-decoration-two"></div>
+
+            </div>
+
+
+            <!-- BANNER 4 -->
+
+            <div class="banner banner-four">
+
+                <div class="banner-content rate-update-box">
+
+                    <div class="rate-icon">
+                        ₹
+                    </div>
+
+                    <div>
+
+                        <div class="rate-label" data-i18n="rateInformation">
+                            COVAI SCRAP HUB • RATE INFORMATION
+                        </div>
+
+                        <div class="rate-title" data-i18n="dailyScrapRates">
+                            Daily Scrap Rates Updated
+                        </div>
+
+                        <div class="rate-message" data-i18n="todayPrices">
+
+                            Today's scrap prices are updated regularly.
+                            Please check the latest rate shown on each
+                            material before adding it to your sell cart.
+
+                        </div>
+
+                        <div class="rate-status">
+
+                            <span class="rate-status-dot"></span>
+
+                            <span data-i18n="todayRatesAvailable">
+                                Today's rates are available
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="banner-decoration"></div>
+
+                <div class="banner-decoration-two"></div>
+
+            </div>
+
+
+            <!-- BANNER 5 -->
+
+            <div class="banner banner-one">
+
+                <div class="banner-content">
+
+                    <span class="banner-tag" data-i18n="otherScrapBanner">
+                        📦 OTHER SCRAP
+                    </span>
+
+                    <h1>
+                        <span data-i18n="haveOtherScrap">Have Other Scrap</span><br>
+                        <span data-i18n="materials">Materials?</span>
+                    </h1>
+
+                    <p data-i18n="cantFindScrap">
+                        Can't find your scrap type? Add custom
+                        scrap materials to your cart easily.
+                    </p>
+
+                    <button
+                        class="banner-btn"
+                        onclick="document.getElementById('customProductBox').scrollIntoView({behavior:'smooth',block:'center'})"
+                        data-i18n="browseAllProducts">
+
+                        Add Custom Scrap →
+
+                    </button>
+
+                </div>
+
+
+                <div class="banner-decoration"></div>
+
+                <div class="banner-decoration-two"></div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ARROWS -->
+
+        <button
+            class="banner-arrow banner-prev"
+            id="bannerPrev"
+            aria-label="Previous banner">
+
+            ‹
+
+        </button>
+
+
+        <button
+            class="banner-arrow banner-next"
+            id="bannerNext"
+            aria-label="Next banner">
+
+            ›
+
+        </button>
+
+
+        <!-- DOTS -->
+
+        <div class="banner-dots">
+
+            <button
+                class="banner-dot active"
+                data-slide="0">
+            </button>
+
+            <button
+                class="banner-dot"
+                data-slide="1">
+            </button>
+
+            <button
+                class="banner-dot"
+                data-slide="2">
+            </button>
+
+            <button
+                class="banner-dot"
+                data-slide="3">
+            </button>
+
+            <button
+                class="banner-dot"
+                data-slide="4">
+            </button>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         HEADING
+    ================================================== -->
+
+    <section class="heading-area">
+
+
+        <div>
+
+            <span class="small-title" id="productRateBanner">
+
+            </span>
+
+            <h2>
+                <span data-i18n="chooseYourScrap">Choose Your Scrap</span>
+            </h2>
+
+        </div>
+
+
+        <div class="material-count">
+
+            <b id="materialCount">
+                10
+            </b>
+
+            <span data-i18n="materials">
+                Materials
+            </span>
+
+        </div>
+
+
+    </section>
+
+<!-- =====================================================
+     COVAI SCRAP HUB NOTIFICATIONS - REMOVED
+===================================================== -->
+    <!-- =================================================
+         SEARCH
+    ================================================== -->
+
+    <div class="search-box">
+
+        <span>
+            🔍
+        </span>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Iron, Copper, Plastic..."
+            autocomplete="off">
+
+    </div>
+
+
+    <!-- =================================================
+         PRODUCTS
+    ================================================== -->
+
+    <section
+        class="scrap-grid"
+        id="scrapGrid">
+    </section>
+
+
+    <div
+        id="noResults"
+        class="no-results">
+
+        <div>
+            🔍
+        </div>
+
+        <h3 data-i18n="noScrapFound">
+            No scrap found
+        </h3>
+
+        <p data-i18n="tryAnotherMaterial">
+            Try another material name.
+        </p>
+
+    </div>
+
+
+    <!-- =================================================
+         CUSTOM PRODUCT BOX
+    ================================================== -->
+
+    <section
+        class="custom-product-box"
+        id="customProductBox">
+
+        <div class="custom-product-icon">
+            📦
+        </div>
+
+        <div class="custom-product-content">
+
+            <h3 class="custom-product-title" data-i18n="customProductTitle">
+                Other Products
+            </h3>
+
+            <p class="custom-product-desc" data-i18n="customProductDesc">
+                Can't find your product? Enter custom name and add to cart
+            </p>
+
+            <div class="custom-product-input-group">
+
+                <input
+                    type="text"
+                    id="customProductInput"
+                    class="custom-product-input"
+                    data-i18n-placeholder="enterProductName"
+                    placeholder="Enter product name"
+                    maxlength="50"
+                    autocomplete="off"
+                    onkeypress="if(event.key==='Enter') addCustomProduct()">
+
+                <button
+                    class="custom-product-btn"
+                    onclick="addCustomProduct()"
+                    data-i18n="addToSell">
+
+                    Add to Sell
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast">
+
+    Product added to your sell cart
+
+</div>
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+    <!-- PROFILE -->
+
+    <button
+        class="bottom-nav-item"
+        onclick="window.location.href='profile.html'">
+
+        <span class="bottom-nav-icon">
+            👤
+        </span>
+
+        <span data-i18n="profile">
+            Profile
+        </span>
+
+    </button>
+
+
+    <!-- CART -->
+
+    <button
+        class="bottom-nav-item"
+        onclick="window.location.href='cart.html'">
+
+        <span class="bottom-nav-icon cart-nav-icon">
+
+            🛒
+
+            <span
+                class="bottom-cart-count"
+                id="bottomCartCount">
+
+                0
+
+            </span>
+
+        </span>
+
+        <span data-i18n="cart">
+            Cart
+        </span>
+
+    </button>
+
+
+    <!-- SELL SCRAP -->
+
+    <div class="sell-center">
+
+        <button
+            class="sell-center-button"
+            onclick="goToSell()">
+
+            <span class="sell-center-icon">
+                ♻
+            </span>
+
+            <span data-i18n="sellScrap">
+                Sell Scrap
+            </span>
+
+        </button>
+
+    </div>
+
+
+    <!-- TRACK -->
+
+    <button
+        class="bottom-nav-item"
+        onclick="window.location.href='track.html'">
+
+        <span class="bottom-nav-icon">
+            📍
+        </span>
+
+        <span data-i18n="trackOrder">
+            Track
+        </span>
+
+    </button>
+
+
+    <!-- COMPLETED -->
+
+    <button
+        class="bottom-nav-item"
+        onclick="window.location.href='download.html'">
+
+        <span class="bottom-nav-icon">
+           
+            📱
+            
+        </span>
+         
+         <span data-i18n="download.html">
+            APP 
+        </span>
+    </button>
+
+
+</nav>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getFirestore,
+    doc,
+    onSnapshot
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyApJhYmo0pHNqVD0XIyOlQDqDzACztPdHA",
+
+    authDomain:
+        "covai-scrap-hub.firebaseapp.com",
+
+    projectId:
+        "covai-scrap-hub",
+
+    storageBucket:
+        "covai-scrap-hub.firebasestorage.app",
+
+    messagingSenderId:
+        "979133721874",
+
+    appId:
+        "1:979133721874:web:c5829bb8dbf5270c0917cb",
+
+    measurementId:
+        "G-P3PTSBHWMF"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const db =
+    getFirestore(app);
+
+
+window.firebaseDB =
+    db;
+
+window.firebaseDoc =
+    doc;
+
+window.firebaseOnSnapshot =
+    onSnapshot;
+
+
+if(window.startScrapApp){
+
+    window.startScrapApp();
+
+}
+else{
+
+    window.firebaseReady =
+        true;
+
+}
+
+</script>
+
+
+<!-- =====================================================
+     MAIN JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   MATERIALS
+===================================================== */
+
+const materials = [
+
+    {
+        id:"Stainlesssteelsteel",
+        nameKey:"Stainless steel Scrap",
+        descKey:"steelDesc",
+        image:"steel.jpeg"
+    },
+
+    {
+        id:"paper",
+        nameKey:"paperScrap",
+        descKey:"paperDesc",
+        image:"peper.jpeg"
+    },
+
+    {
+        id:"aluminium",
+        nameKey:"aluminiumScrap",
+        descKey:"aluminiumDesc",
+        image:"aluminmum.jpeg"
+    },
+
+    {
+        id:"copper",
+        nameKey:"copperScrap",
+        descKey:"copperDesc",
+        image:"copper.jpeg"
+    },
+
+    {
+        id:"iron",
+        nameKey:"ironScrap",
+        descKey:"ironDesc",
+        image:"erumbu.jpeg"
+    },
+
+    {
+        id:"battery",
+        nameKey:"batteryScrap",
+        descKey:"batteryDesc",
+        image:"battry.jpeg"
+    },
+
+    {
+        id:"plastic",
+        nameKey:"plasticScrap",
+        descKey:"plasticDesc",
+        image:"plastic.jpeg"
+    },
+
+    {
+        id:"vehicle",
+        nameKey:"vehicleScrap",
+        descKey:"vehicleDesc",
+        image:"vehical.jpeg"
+    },
+
+    {
+        id:"tyre",
+        nameKey:"tyreWaste",
+        descKey:"tyreDesc",
+        image:"tyres.jpeg"
+    },
+
+    {
+        id:"ewaste",
+        nameKey:"eWaste",
+        descKey:"eWasteDesc",
+        image:"ewaste.jpeg"
+    },
+
+    {
+        id:"mixed",
+        nameKey:"mixedScrap",
+        descKey:"mixedDesc",
+        image:"mixed.jpg"
+    }
+
+];
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+let products = [];
+
+let firebaseRates = {};
+
+
+/* =====================================================
+   START APP
+===================================================== */
+
+window.startScrapApp = function(){
+
+    products =
+        materials.map(function(item){
+
+            return {
+
+                ...item,
+
+                name:
+                    window.getTranslation ?
+                    window.getTranslation(item.nameKey) :
+                    item.nameKey,
+
+                description:
+                    window.getTranslation ?
+                    window.getTranslation(item.descKey) :
+                    item.descKey,
+
+                rate:0
+
+            };
+
+        });
+
+
+    document.getElementById(
+        "materialCount"
+    ).textContent =
+        materials.length;
+
+
+    renderProducts(products);
+
+    updateCartCount();
+
+    startFirebaseRateListeners();
+
+};
+
+
+/* =====================================================
+   UPDATE TRANSLATIONS
+===================================================== */
+
+window.updateProductTranslations = function(){
+
+    if(!products.length) return;
+
+    products =
+        products.map(function(item){
+
+            const material =
+                materials.find(m => m.id === item.id);
+
+            if(material){
+
+                return {
+                    ...item,
+                    name:
+                        window.getTranslation(material.nameKey),
+                    description:
+                        window.getTranslation(material.descKey)
+                };
+
+            }
+
+            return item;
+
+        });
+
+
+    renderProducts(
+        getFilteredProducts()
+    );
+
+};
+
+
+/* =====================================================
+   FIREBASE RATES
+===================================================== */
+
+function startFirebaseRateListeners(){
+
+    if(
+        !window.firebaseDB ||
+        !window.firebaseDoc ||
+        !window.firebaseOnSnapshot
+    ){
+
+        console.error(
+            "Firebase is not connected."
+        );
+
+        return;
+
+    }
+
+
+    const rateRef =
+        window.firebaseDoc(
+
+            window.firebaseDB,
+
+            "covai hub",
+
+            "f9k5K0JaYiXmE8aZ5vdf"
+
+        );
+
+
+    window.firebaseOnSnapshot(
+
+        rateRef,
+
+        function(snapshot){
+
+            if(!snapshot.exists()){
+
+                console.log(
+                    "Rate document not found"
+                );
+
+                return;
+
+            }
+
+
+            const data =
+                snapshot.data();
+
+
+            materials.forEach(
+                function(material){
+
+                    const rate =
+                        Number(
+                            data[
+                                material.id
+                            ] || 0
+                        );
+
+
+                    firebaseRates[
+                        material.id
+                    ] = rate;
+
+
+                    updateProductRate(
+                        material.id,
+                        rate
+                    );
+
+                }
+            );
+
+        },
+
+        function(error){
+
+            console.error(
+                "Firebase Error:",
+                error
+            );
+
+        }
+
+    );
+
+}
+
+
+/* =====================================================
+   RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(list){
+
+    const grid =
+        document.getElementById(
+            "scrapGrid"
+        );
+
+
+    const noResults =
+        document.getElementById(
+            "noResults"
+        );
+
+
+    if(!list.length){
+
+        grid.innerHTML = "";
+
+        noResults.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    noResults.style.display =
+        "none";
+
+
+    grid.innerHTML =
+        list.map(
+            function(product){
+
+                const rate =
+                    Number(
+                        product.rate || 0
+                    );
+
+                const isMarketPrice =
+                    product.id === 'mixed' ||
+                    product.id === 'ewaste';
+
+                const hasRate =
+                    rate > 0;
+
+
+                return `
+
+                <article class="scrap-card">
+
+                    <div class="product-image-box">
+
+                        <img
+                            class="product-image"
+
+                            src="${escapeHTML(
+                                product.image
+                            )}"
+
+                            alt="${escapeHTML(
+                                product.name
+                            )}"
+
+                            onerror="
+                                this.style.display='none';
+                                this.nextElementSibling.style.display='block';
+                            "
+                        >
+
+                        <div
+                            class="image-fallback"
+                            style="display:none;">
+
+                            ♻
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="scrap-content">
+
+                        <h3>
+                            ${escapeHTML(
+                                product.name
+                            )}
+                        </h3>
+
+
+                        <p class="scrap-description">
+
+                            ${escapeHTML(
+                                product.description
+                            )}
+
+                        </p>
+
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+
+                                ${
+                                    isMarketPrice
+
+                                    ?
+
+                                    `<span class="market-price">
+                                        ${window.getTranslation ? window.getTranslation('teamInspectQuote') : 'Our team will inspect & quote market price'}
+                                    </span>`
+
+                                    :
+
+                                    hasRate
+
+                                    ?
+
+                                    `₹${rate.toLocaleString("en-IN")}
+                                    <small>/ Kg</small>`
+
+                                    :
+
+                                    `<span class="rate-loading">
+                                        Rate updating...
+                                    </span>`
+
+                                }
+
+                            </div>
+
+
+                            <button
+
+                                class="sell-btn"
+
+                                ${
+                                    (!hasRate && !isMarketPrice)
+                                    ? "disabled"
+                                    : ""
+                                }
+
+                                onclick="
+                                    addToSell('${product.id}')
+                                "
+
+                            >
+
+                                ${
+                                    (hasRate || isMarketPrice)
+                                    ? (window.getTranslation ? window.getTranslation("addToSell") : "Add to Sell")
+                                    : (window.getTranslation ? window.getTranslation("wait") : "Wait")
+                                }
+
+                            </button>
+
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+                `;
+
+            }
+        ).join("");
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   ADD TO SELL
+===================================================== */
+
+function addToSell(materialId){
+
+    const product =
+        products.find(
+            function(item){
+
+                return item.id ===
+                    materialId;
+
+            }
+        );
+
+
+    if(!product){
+
+        showToast(
+            "Material not found"
+        );
+
+        return;
+
+    }
+
+
+    const latestRate =
+        Number(
+            firebaseRates[
+                materialId
+            ] || 0
+        );
+
+
+    if(latestRate <= 0){
+
+        showToast(
+            "Rate is not available yet"
+        );
+
+        return;
+
+    }
+
+
+    let cart = [];
+
+
+    try{
+
+        cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "scrapCart"
+                )
+            ) || [];
+
+    }
+
+    catch(error){
+
+        cart = [];
+
+    }
+
+
+    const existingIndex =
+        cart.findIndex(
+            function(item){
+
+                return String(
+                    item.productId
+                ) === String(
+                    materialId
+                );
+
+            }
+        );
+
+
+    if(existingIndex !== -1){
+
+        cart[
+            existingIndex
+        ].quantity =
+
+            Number(
+                cart[
+                    existingIndex
+                ].quantity || 1
+            ) + 1;
+
+
+        cart[
+            existingIndex
+        ].rate =
+
+            latestRate;
+
+    }
+
+    else{
+
+        cart.push({
+
+            productId:
+                materialId,
+
+            name:
+                product.name,
+
+            material:
+                product.name,
+
+            product:
+                product.name,
+
+            description:
+                product.description,
+
+            image:
+                product.image,
+
+            rate:
+                latestRate,
+
+            quantity:
+                1,
+
+            weight:
+                1,
+
+            unit:
+                "kg"
+
+        });
+
+    }
+
+
+    localStorage.setItem(
+
+        "scrapCart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    updateCartCount();
+
+
+    showToast(
+
+        "✓ " +
+        product.name +
+        " added to your sell cart"
+
+    );
+
+}
+
+
+/* =====================================================
+   ADD CUSTOM PRODUCT
+===================================================== */
+
+function addCustomProduct(){
+
+    const input =
+        document.getElementById(
+            "customProductInput"
+        );
+
+
+    const productName =
+        input.value.trim();
+
+
+    if(!productName){
+
+        showToast(
+            "Please enter product name"
+        );
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    if(productName.length < 3){
+
+        showToast(
+            "Product name too short"
+        );
+
+        input.focus();
+
+        return;
+
+    }
+
+
+    let cart = [];
+
+
+    try{
+
+        cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "scrapCart"
+                )
+            ) || [];
+
+    }
+
+    catch(error){
+
+        cart = [];
+
+    }
+
+
+    const customId =
+        "custom_" +
+        Date.now();
+
+
+    cart.push({
+
+        productId:
+            customId,
+
+        name:
+            productName,
+
+        material:
+            productName,
+
+        product:
+            productName,
+
+        description:
+            "Custom scrap material",
+
+        image:
+            "mixed.jpg",
+
+        rate:
+            0,
+
+        quantity:
+            1,
+
+        weight:
+            1,
+
+        unit:
+            "kg",
+
+        isCustom:
+            true
+
+    });
+
+
+    localStorage.setItem(
+
+        "scrapCart",
+
+        JSON.stringify(cart)
+
+    );
+
+
+    updateCartCount();
+
+
+    showToast(
+
+        "✓ " +
+        productName +
+        " added to cart"
+
+    );
+
+
+    input.value = "";
+
+}
+
+
+/* =====================================================
+   CART COUNT
+===================================================== */
+
+function updateCartCount(){
+
+    let count = 0;
+
+
+    try{
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "scrapCart"
+                )
+            ) || [];
+
+
+        cart.forEach(
+            function(item){
+
+                count +=
+                    Number(
+                        item.quantity || 1
+                    );
+
+            }
+        );
+
+    }
+
+    catch(error){
+
+        count = 0;
+
+    }
+
+
+    const topCount =
+        document.getElementById(
+            "cartCount"
+        );
+
+
+    if(topCount){
+
+        topCount.textContent =
+            count;
+
+    }
+
+
+    const bottomCount =
+        document.getElementById(
+            "bottomCartCount"
+        );
+
+
+    if(bottomCount){
+
+        bottomCount.textContent =
+            count;
+
+    }
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+function getFilteredProducts(){
+
+    const search =
+        document.getElementById(
+            "searchInput"
+        )
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    if(!search){
+
+        return products;
+
+    }
+
+
+    return products.filter(
+        function(product){
+
+            return (
+
+                product.name
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                product.description
+                    .toLowerCase()
+                    .includes(search)
+
+            );
+
+        }
+    );
+
+}
+
+
+document
+    .getElementById(
+        "searchInput"
+    )
+    .addEventListener(
+        "input",
+        function(){
+
+            renderProducts(
+                getFilteredProducts()
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   UPDATE RATE
+===================================================== */
+
+function updateProductRate(
+    materialId,
+    rate
+){
+
+    const product =
+        products.find(
+            function(item){
+
+                return item.id ===
+                    materialId;
+
+            }
+        );
+
+
+    if(!product){
+
+        return;
+
+    }
+
+
+    product.rate =
+        Number(rate || 0);
+
+
+    renderProducts(
+        getFilteredProducts()
+    );
+
+}
+
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+function showFeatures(){
+
+    alert(
+
+        "⭐ Covai Scrap Hub\n\n" +
+
+        "♻ Easy Scrap Selling\n" +
+
+        "💰 Live Scrap Rates\n" +
+
+        "🛒 Simple Sell Cart\n" +
+
+        "🚚 Easy Pickup Process\n" +
+
+        "📱 Mobile Friendly\n" +
+
+        "🤝 Trusted Service"
+
+    );
+
+}
+
+
+/* =====================================================
+   SELL SCRAP
+===================================================== */
+
+function goToSell(){
+
+    let cart = [];
+
+
+    try{
+
+        cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "scrapCart"
+                )
+            ) || [];
+
+    }
+
+    catch(error){
+
+        cart = [];
+
+    }
+
+
+    if(cart.length > 0){
+
+        window.location.href =
+            "cart.html";
+
+    }
+
+    else{
+
+        const searchInput =
+            document.getElementById(
+                "searchInput"
+            );
+
+
+        window.scrollTo({
+
+            top:
+                searchInput.offsetTop - 90,
+
+            behavior:
+                "smooth"
+
+        });
+
+
+        searchInput.focus();
+
+
+        showToast(
+            "Choose a scrap material to sell"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SLIDE MENU
+===================================================== */
+
+function openMenu(){
+
+    const menu =
+        document.getElementById(
+            "sideMenu"
+        );
+
+
+    const overlay =
+        document.getElementById(
+            "menuOverlay"
+        );
+
+
+    menu.classList.add(
+        "active"
+    );
+
+
+    overlay.classList.add(
+        "active"
+    );
+
+
+    menu.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function closeMenu(){
+
+    const menu =
+        document.getElementById(
+            "sideMenu"
+        );
+
+
+    const overlay =
+        document.getElementById(
+            "menuOverlay"
+        );
+
+
+    menu.classList.remove(
+        "active"
+    );
+
+
+    overlay.classList.remove(
+        "active"
+    );
+
+
+    menu.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+function menuNavigate(page){
+
+    closeMenu();
+
+    setTimeout(
+        function(){
+            window.location.href = page;
+        },
+        180
+    );
+
+}
+
+
+/* =====================================================
+   ESC TO CLOSE
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeMenu();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   THEME
+===================================================== */
+
+function applySavedTheme(){
+
+    const theme =
+        localStorage.getItem(
+            "covaiTheme"
+        ) || "light";
+
+
+    if(theme === "dark"){
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+
+        const icon =
+            document.getElementById(
+                "themeIcon"
+            );
+
+
+        const text =
+            document.getElementById(
+                "themeText"
+            );
+
+
+        if(icon){
+
+            icon.textContent =
+                "☀️";
+
+        }
+
+
+        if(text){
+
+            text.textContent =
+                "Dark mode";
+
+        }
+
+    }
+
+    else{
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+
+        const icon =
+            document.getElementById(
+                "themeIcon"
+            );
+
+
+        const text =
+            document.getElementById(
+                "themeText"
+            );
+
+
+        if(icon){
+
+            icon.textContent =
+                "🌙";
+
+        }
+
+
+        if(text){
+
+            text.textContent =
+                "Light mode";
+
+        }
+
+    }
+
+}
+
+
+function toggleTheme(){
+
+    const current =
+        localStorage.getItem(
+            "covaiTheme"
+        ) || "light";
+
+
+    const next =
+        current === "light"
+            ? "dark"
+            : "light";
+
+
+    localStorage.setItem(
+        "covaiTheme",
+        next
+    );
+
+
+    applySavedTheme();
+
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+/* =====================================================
+   THEME
+===================================================== */
+
+function applySavedTheme(){
+
+    const theme =
+        localStorage.getItem("covaiTheme") || "light";
+
+
+    if(theme === "dark"){
+
+        document.body.classList.add("dark-mode");
+
+    }else{
+
+        document.body.classList.remove("dark-mode");
+
+    }
+
+
+    const themeText =
+        document.getElementById("themeText");
+
+
+    if(themeText){
+
+        themeText.textContent =
+            theme === "dark"
+                ? "Dark mode"
+                : "Light mode";
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW THEME OPTIONS
+===================================================== */
+
+function showThemeOptions(){
+
+    const themeOptions =
+        document.getElementById("themeOptions");
+
+    const languageOptions =
+        document.getElementById("languageOptions");
+
+
+    /* close language */
+
+    if(languageOptions){
+
+        languageOptions.classList.remove("show");
+
+    }
+
+
+    /* open / close theme */
+
+    if(themeOptions){
+
+        themeOptions.classList.toggle("show");
+
+    }
+
+}
+
+
+/* =====================================================
+   SELECT THEME
+===================================================== */
+
+function selectTheme(theme){
+
+    if(
+        theme !== "light" &&
+        theme !== "dark"
+    ){
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "covaiTheme",
+        theme
+    );
+
+
+    applySavedTheme();
+
+
+    const themeOptions =
+        document.getElementById("themeOptions");
+
+
+    if(themeOptions){
+
+        themeOptions.classList.remove("show");
+
+    }
+
+}
+
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+function loadSavedLanguage(){
+
+    const lang =
+        localStorage.getItem("lang")
+        || "en";
+
+
+    const languageText =
+        document.getElementById("languageText");
+
+
+    if(languageText){
+
+        if(lang === "ta"){
+
+            languageText.textContent =
+                "தமிழ்";
+
+        }else{
+
+            languageText.textContent =
+                "English";
+
+        }
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SHOW LANGUAGE OPTIONS
+===================================================== */
+
+function showLanguages(){
+
+    const languageOptions =
+        document.getElementById("languageOptions");
+
+    const themeOptions =
+        document.getElementById("themeOptions");
+
+
+    /* close theme */
+
+    if(themeOptions){
+
+        themeOptions.classList.remove("show");
+
+    }
+
+
+    /* open / close language */
+
+    if(languageOptions){
+
+        languageOptions.classList.toggle("show");
+
+    }
+
+}
+
+
+
+/* =====================================================
+   SELECT LANGUAGE
+===================================================== */
+
+function selectLanguage(languageName){
+
+    // Convert full name to code
+    const lang = languageName === "Tamil" ? "ta" : "en";
+
+    localStorage.setItem(
+        "lang",
+        lang
+    );
+
+
+    const languageText =
+        document.getElementById("languageText");
+
+
+    if(languageText){
+
+        languageText.textContent =
+            lang === "ta"
+                ? "தமிழ்"
+                : "English";
+
+    }
+
+
+    const languageOptions =
+        document.getElementById("languageOptions");
+
+
+    if(languageOptions){
+
+        languageOptions.classList.remove("show");
+
+    }
+
+    // Apply translation immediately
+    if(typeof translatePage === 'function'){
+        translatePage();
+    }
+
+    // Update product translations
+    if(typeof updateProductTranslations === 'function'){
+        updateProductTranslations();
+    }
+
+}
+
+
+
+/* =====================================================
+   LOAD SETTINGS
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        applySavedTheme();
+
+        loadSavedLanguage();
+
+    }
+);
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            function(){
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2200
+        );
+
+}
+
+
+/* =====================================================
+   STORAGE UPDATE
+===================================================== */
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key ===
+            "scrapCart"
+        ){
+
+            updateCartCount();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   BANNER SLIDER
+===================================================== */
+
+const bannerSlider =
+    document.getElementById(
+        "bannerSlider"
+    );
+
+
+const bannerTrack =
+    document.getElementById(
+        "bannerTrack"
+    );
+
+
+const bannerDots =
+    document.querySelectorAll(
+        ".banner-dot"
+    );
+
+
+const totalBanners =
+    5;
+
+
+let currentBanner =
+    0;
+
+
+let autoSlide =
+    null;
+
+
+let touchStartX =
+    0;
+
+
+let touchStartY =
+    0;
+
+
+/* =====================================================
+   SHOW BANNER
+===================================================== */
+
+function showBanner(index){
+
+    if(index < 0){
+
+        index =
+            totalBanners - 1;
+
+    }
+
+
+    if(index >= totalBanners){
+
+        index =
+            0;
+
+    }
+
+
+    currentBanner =
+        index;
+
+
+    bannerTrack.style.transform =
+
+        "translateX(-" +
+
+        (currentBanner * 100) +
+
+        "%)";
+
+
+    bannerDots.forEach(
+        function(dot,i){
+
+            dot.classList.toggle(
+                "active",
+                i === currentBanner
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextBanner(){
+
+    showBanner(
+        currentBanner + 1
+    );
+
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+function previousBanner(){
+
+    showBanner(
+        currentBanner - 1
+    );
+
+}
+
+
+/* =====================================================
+   DOTS
+===================================================== */
+
+bannerDots.forEach(
+    function(dot){
+
+        dot.addEventListener(
+            "click",
+            function(){
+
+                const index =
+                    Number(
+                        dot.dataset.slide
+                    );
+
+
+                showBanner(index);
+
+                restartAutoSlide();
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ARROWS
+===================================================== */
+
+document
+    .getElementById(
+        "bannerNext"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            nextBanner();
+
+            restartAutoSlide();
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "bannerPrev"
+    )
+    .addEventListener(
+        "click",
+        function(){
+
+            previousBanner();
+
+            restartAutoSlide();
+
+        }
+    );
+
+
+/* =====================================================
+   AUTO SLIDE
+===================================================== */
+
+function startAutoSlide(){
+
+    clearInterval(
+        autoSlide
+    );
+
+
+    autoSlide =
+        setInterval(
+            function(){
+
+                nextBanner();
+
+            },
+            3000
+        );
+
+}
+
+
+function restartAutoSlide(){
+
+    startAutoSlide();
+
+}
+
+
+/* =====================================================
+   MOUSE PAUSE
+===================================================== */
+
+bannerSlider.addEventListener(
+    "mouseenter",
+    function(){
+
+        clearInterval(
+            autoSlide
+        );
+
+    }
+);
+
+
+bannerSlider.addEventListener(
+    "mouseleave",
+    function(){
+
+        startAutoSlide();
+
+    }
+);
+
+
+/* =====================================================
+   TOUCH SWIPE
+===================================================== */
+
+bannerSlider.addEventListener(
+    "touchstart",
+    function(event){
+
+        const touch =
+            event.changedTouches[0];
+
+
+        touchStartX =
+            touch.clientX;
+
+
+        touchStartY =
+            touch.clientY;
+
+
+        clearInterval(
+            autoSlide
+        );
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+bannerSlider.addEventListener(
+    "touchend",
+    function(event){
+
+        const touch =
+            event.changedTouches[0];
+
+
+        const touchEndX =
+            touch.clientX;
+
+
+        const difference =
+            touchStartX -
+            touchEndX;
+
+
+        const verticalDifference =
+            Math.abs(
+                touchStartY -
+                touch.clientY
+            );
+
+
+        if(
+
+            Math.abs(difference) > 40 &&
+
+            Math.abs(difference) >
+            verticalDifference
+
+        ){
+
+            if(difference > 0){
+
+                nextBanner();
+
+            }
+
+            else{
+
+                previousBanner();
+
+            }
+
+        }
+
+
+        startAutoSlide();
+
+    },
+    {
+        passive:true
+    }
+);
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+applySavedTheme();
+
+loadSavedLanguage();
+
+showBanner(0);
+
+startAutoSlide();
+
+updateCartCount();
+
+
+if(window.firebaseReady){
+
+    window.startScrapApp();
+
+}
+
+</script>
+
+
+<!-- PROFILE SETUP POPUP -->
+<div class="profile-popup-overlay" id="profilePopup">
+    <div class="profile-popup">
+        <button type="button" class="profile-popup-close" onclick="closeProfilePopup()" aria-label="Close">✕</button>
+        <div class="popup-header">
+            <div class="popup-icon">👋</div>
+            <h2 class="popup-title" data-i18n="welcomeHub">Welcome to Covai Scrap Hub!</h2>
+            <p class="popup-desc" data-i18n="setupDesc">
+                Setup your profile to auto-fill booking details and make selling scrap easier.
+            </p>
+        </div>
+        <div class="popup-buttons">
+            <button class="popup-btn popup-btn-skip" onclick="skipProfile()" data-i18n="skip">
+                Skip for now
+            </button>
+            <button class="popup-btn popup-btn-continue" onclick="setupProfile()" data-i18n="setupProfile">
+                Setup Profile
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+/* =====================================================
+   PROFILE POPUP
+===================================================== */
+(function(){
+    const PROFILE_SESSION_KEY = 'covaiCustomerProfilePromptShown';
+    const DOWNLOAD_DELAY_AFTER_PROFILE = 7000;
+    let downloadTimer = null;
+
+    function getPopup(id){
+        return document.getElementById(id);
+    }
+
+    function showDownloadPopup(){
+        const popup = getPopup('downloadPopup');
+        if(popup) popup.classList.add('show');
+    }
+
+    function scheduleDownloadPopup(){
+        clearTimeout(downloadTimer);
+        downloadTimer = setTimeout(showDownloadPopup, DOWNLOAD_DELAY_AFTER_PROFILE);
+    }
+
+    function checkProfileSetup(){
+        const hasProfile = localStorage.getItem('userProfile');
+        const hasSkipped = localStorage.getItem('profileSkipped');
+        const alreadyShown = sessionStorage.getItem(PROFILE_SESSION_KEY);
+
+        if(hasProfile || hasSkipped || alreadyShown){
+            // Existing customers do not get the first-entry profile popup.
+            // Keep the app popup flow available and show it after 7 seconds.
+            setTimeout(showDownloadPopup, 7000);
+            return;
+        }
+
+        sessionStorage.setItem(PROFILE_SESSION_KEY,'true');
+
+        // First customer entry: profile popup after exactly 10 seconds.
+        setTimeout(function(){
+            const popup = getPopup('profilePopup');
+            if(!popup) return;
+            popup.classList.add('show');
+
+            // Download popup appears 7 seconds after the profile popup appears.
+            scheduleDownloadPopup();
+        },10000);
+    }
+
+    window.closeProfilePopup = function(){
+        const popup = getPopup('profilePopup');
+        if(popup) popup.classList.remove('show');
+    };
+
+    window.skipProfile = function(){
+        localStorage.setItem('profileSkipped','true');
+        closeProfilePopup();
+    };
+
+    window.setupProfile = function(){
+        closeProfilePopup();
+        window.location.href='profile.html';
+    };
+
+    if(document.readyState==='loading'){
+        document.addEventListener('DOMContentLoaded',checkProfileSetup,{once:true});
+    }else{
+        checkProfileSetup();
+    }
+})();
+
+</script>
+
+<script src="lang-system.js"></script>
+<script>
+// Initialize language and theme
+window.addEventListener('DOMContentLoaded', () => {
+    // Set default language to English if not set
+    if (!localStorage.getItem('lang')) {
+        localStorage.setItem('lang', 'en');
+    }
+    initLangTheme();
+    loadSavedLanguage();
+
+    // Update product translations after page loads
+    setTimeout(() => {
+        if(typeof updateProductTranslations === 'function'){
+            updateProductTranslations();
+        }
+    }, 500);
+
+    // Function to update daily rate banners
+    function updateDailyRateBanners(){
+        const today = new Date();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const year = today.getFullYear();
+        const dateText = `${month}/${day}/${year} Live Rate`;
+
+        const banner = document.getElementById('dailyRateBanner');
+        if(banner){
+            banner.textContent = dateText;
+        }
+
+        const productBanner = document.getElementById('productRateBanner');
+        if(productBanner){
+            productBanner.textContent = dateText;
+        }
+    }
+
+    // Set initial date
+    updateDailyRateBanners();
+
+    // Auto-update at midnight
+    let lastDate = new Date().getDate();
+    setInterval(() => {
+        const currentDate = new Date().getDate();
+        if(currentDate !== lastDate){
+            lastDate = currentDate;
+            updateDailyRateBanners();
+            console.log('✓ Daily rate banner updated automatically');
+        }
+    }, 60000); // Check every minute
+});
+</script>
+
+<script type="module">
+/* =====================================================
+   COVAI SCRAP HUB
+   REAL PUSH NOTIFICATIONS
+===================================================== */
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+    getMessaging,
+    getToken,
+    onMessage
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-messaging.js";
+
+import {
+    getDatabase,
+    ref,
+    set
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const notificationFirebaseConfig = {
+
+    apiKey:
+        "AIzaSyCAVdbE2YfcRUEizM9qhp3HMAdY2fEDUsc",
+
+    authDomain:
+        "covaiscrap.firebaseapp.com",
+
+    databaseURL:
+        "https://covaiscrap-default-rtdb.firebaseio.com",
+
+    projectId:
+        "covaiscrap",
+
+    storageBucket:
+        "covaiscrap.firebasestorage.app",
+
+    messagingSenderId:
+        "1093933670685",
+
+    appId:
+        "1:1093933670685:web:e305d3ed1e4f62e269c1f4",
+
+    measurementId:
+        "G-MCXYBSB57M"
+
+};
+
+
+/* =====================================================
+   VAPID PUBLIC KEY
+===================================================== */
+
+/* =====================================================
+   NOTIFICATION SYSTEM - REMOVED
+===================================================== */
+
+/*
+const VAPID_KEY =
+    "BDovvV7FxFORILMs2f0T7E2XJYi-qAxsXJaQ1YCUiulYUK1esQ24BTdTk_WVrV-8e0p-pl3LtHm3ERwJ5SYKHSQ";
+
+
+const notificationBtn =
+    document.getElementById(
+        "enableNotificationsBtn"
+    );
+
+const notificationStatus =
+    document.getElementById(
+        "notificationStatus"
+    );
+*/
+
+/*
+function notificationMessage(
+    message,
+    error = false
+){
+
+    if(!notificationStatus)
+        return;
+
+    notificationStatus.textContent =
+        message;
+
+    notificationStatus.className =
+        "notification-status show" +
+        (error ? " error" : "");
+
+}
+
+
+/* =====================================================
+   FIREBASE MESSAGING INITIALIZATION
+===================================================== */
+
+let messaging = null;
+
+let notificationDatabase = null;
+
+let notificationApp = null;
+
+
+try{
+
+    // Initialize separate Firebase app for notifications
+    notificationApp =
+        initializeApp(
+            notificationFirebaseConfig,
+            "notification-app"
+        );
+
+    messaging =
+        getMessaging(notificationApp);
+
+    notificationDatabase =
+        getDatabase(notificationApp);
+
+}catch(error){
+
+    console.error(
+        "FCM initialization error:",
+        error
+    );
+
+}
+
+
+/* =====================================================
+   UNREGISTER OLD SERVICE WORKERS
+===================================================== */
+
+async function unregisterOldServiceWorkers(){
+
+    if(!("serviceWorker" in navigator)){
+        return;
+    }
+
+    const registrations =
+        await navigator.serviceWorker.getRegistrations();
+
+    for(const registration of registrations){
+
+        await registration.unregister();
+
+        console.log(
+            "Unregistered old service worker:",
+            registration.scope
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   REGISTER SERVICE WORKER
+===================================================== */
+
+async function registerNotificationWorker(){
+
+    if(
+        !("serviceWorker" in navigator)
+    ){
+
+        throw new Error(
+            "Service Worker is not supported."
+        );
+
+    }
+
+
+    // First, unregister any old workers
+    await unregisterOldServiceWorkers();
+
+
+    // Get current page URL to determine correct path
+    const currentUrl =
+        window.location.pathname;
+
+    console.log("Current URL:", currentUrl);
+
+
+    // Try multiple paths
+    const paths = [
+        "/firebase-messaging-sw.js",
+        "./firebase-messaging-sw.js",
+        "../firebase-messaging-sw.js"
+    ];
+
+
+    let lastError = null;
+
+
+    for(const path of paths){
+
+        try{
+
+            // First check if file exists
+            const testResponse =
+                await fetch(path, {
+                    method: 'HEAD'
+                });
+
+            if(!testResponse.ok){
+                console.warn(
+                    `File not found at ${path}:`,
+                    testResponse.status
+                );
+                continue;
+            }
+
+            console.log(
+                `✓ Service worker file found at: ${path}`
+            );
+
+
+            // Now register
+            const registration =
+                await navigator.serviceWorker.register(
+                    path
+                );
+
+            console.log(
+                "✓ FCM Service Worker registered:",
+                registration.scope
+            );
+
+
+            return registration;
+
+        }
+        catch(error){
+
+            lastError = error;
+
+            console.warn(
+                `✗ Failed to register from ${path}:`,
+                error.message
+            );
+
+        }
+
+    }
+
+
+    // If all paths failed
+    throw new Error(
+        `Service Worker not found at any path. Last error: ${lastError?.message || 'Unknown'}.
+
+SOLUTION: Copy firebase-messaging-sw.js to your web server root directory.
+Current page: ${currentUrl}`
+    );
+
+}
+
+
+/* =====================================================
+   ENABLE NOTIFICATIONS
+===================================================== */
+
+async function enableNotifications(){
+
+    if(!messaging){
+
+        notificationMessage(
+            "Firebase Messaging is not initialized.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    if(
+        !window.isSecureContext
+    ){
+
+        notificationMessage(
+            "Notifications require HTTPS.",
+            true
+        );
+
+        return;
+
+    }
+
+
+    notificationBtn.disabled =
+        true;
+
+    notificationBtn.textContent =
+        "Enabling...";
+
+
+    try{
+
+        /* ---------------------------------------------
+           ASK BROWSER PERMISSION
+        --------------------------------------------- */
+
+        const permission =
+            await Notification.requestPermission();
+
+
+        if(
+            permission !== "granted"
+        ){
+
+            throw new Error(
+                "Notification permission was not granted."
+            );
+
+        }
+
+
+        /* ---------------------------------------------
+           REGISTER SERVICE WORKER
+        --------------------------------------------- */
+
+        const registration =
+            await registerNotificationWorker();
+
+
+        /* ---------------------------------------------
+           GET FCM TOKEN
+        --------------------------------------------- */
+
+        const token =
+            await getToken(
+                messaging,
+                {
+                    vapidKey:
+                        VAPID_KEY,
+
+                    serviceWorkerRegistration:
+                        registration
+                }
+            );
+
+
+        if(!token){
+
+            throw new Error(
+                "FCM token was not generated."
+            );
+
+        }
+
+
+        console.log(
+            "FCM TOKEN:",
+            token
+        );
+
+
+        /* ---------------------------------------------
+           SAVE TOKEN
+        --------------------------------------------- */
+
+        /*
+           We use the token itself as the Firebase
+           database key.
+
+           This allows the admin/backend to later
+           broadcast to all registered devices.
+        */
+
+        const safeToken =
+            encodeURIComponent(
+                token
+            );
+
+
+        await set(
+
+            ref(
+                notificationDatabase,
+                "notificationTokens/" +
+                safeToken
+            ),
+
+            {
+
+                token:
+                    token,
+
+                enabled:
+                    true,
+
+                platform:
+                    "web",
+
+                browser:
+                    navigator.userAgent,
+
+                createdAt:
+                    Date.now(),
+
+                updatedAt:
+                    Date.now()
+
+            }
+
+        );
+
+
+        /* ---------------------------------------------
+           SUCCESS
+        --------------------------------------------- */
+
+        notificationBtn.textContent =
+            "✓ Notifications Enabled";
+
+        notificationBtn.disabled =
+            true;
+
+        notificationMessage(
+            "You're subscribed to COVAI SCRAP HUB updates."
+        );
+
+
+        localStorage.setItem(
+            "csh_notifications_enabled",
+            "true"
+        );
+
+
+        /* ---------------------------------------------
+           SEND TEST NOTIFICATION
+        --------------------------------------------- */
+
+        setTimeout(
+            function(){
+                sendTestNotification();
+            },
+            1000
+        );
+
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Notification setup error:",
+            error
+        );
+
+
+        notificationBtn.disabled =
+            false;
+
+        notificationBtn.textContent =
+            "Enable Notifications";
+
+
+        // Provide specific error messages
+        let errorMsg =
+            "Unable to enable notifications.";
+
+        if(
+            error.message.includes(
+                "permission"
+            )
+        ){
+            errorMsg =
+                "Permission denied. Check browser settings.";
+        }
+        else if(
+            error.message.includes(
+                "Service Worker"
+            )
+        ){
+            errorMsg =
+                "Service Worker error. Refresh page and try again.";
+        }
+        else if(
+            error.message.includes(
+                "token"
+            )
+        ){
+            errorMsg =
+                "Failed to get notification token. Check HTTPS.";
+        }
+        else if(error.message){
+            errorMsg = error.message;
+        }
+
+
+        notificationMessage(
+            errorMsg,
+            true
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   TEST NOTIFICATION
+===================================================== */
+
+function sendTestNotification(){
+
+    if(
+        Notification.permission !==
+        "granted"
+    ){
+        return;
+    }
+
+    const notification =
+        new Notification(
+            "COVAI SCRAP HUB",
+            {
+                body:
+                    "Notifications are working! You'll get updates on scrap rates.",
+                icon:
+                    "/logo.jpeg",
+                badge:
+                    "/logo.jpeg",
+                tag:
+                    "test-notification"
+            }
+        );
+
+    setTimeout(
+        function(){
+            notification.close();
+        },
+        5000
+    );
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+if(notificationBtn){
+
+    notificationBtn.addEventListener(
+        "click",
+        enableNotifications
+    );
+
+}
+
+
+/* =====================================================
+   FOREGROUND MESSAGE
+===================================================== */
+
+if(messaging){
+
+    onMessage(
+        messaging,
+        function(payload){
+
+            console.log(
+                "Foreground notification:",
+                payload
+            );
+
+
+            const title =
+                payload.notification?.title ||
+                "COVAI SCRAP HUB";
+
+
+            const body =
+                payload.notification?.body ||
+                "You have a new update.";
+
+
+            /*
+               When customer is currently viewing
+               customer.html, show a browser notification.
+            */
+
+            if(
+                Notification.permission ===
+                "granted"
+            ){
+
+                new Notification(
+                    title,
+                    {
+
+                        body:
+                            body,
+
+                        icon:
+                            "/logo.jpeg"
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   REMEMBER ENABLED STATE
+===================================================== */
+
+window.addEventListener('DOMContentLoaded', function(){
+
+    if(!notificationBtn){
+        console.error('Notification button not found');
+        return;
+    }
+
+    // Check if already enabled
+    if(
+        localStorage.getItem(
+            "csh_notifications_enabled"
+        ) === "true" &&
+        Notification.permission ===
+        "granted"
+    ){
+
+        notificationBtn.textContent =
+            "✓ Notifications Enabled";
+
+        notificationBtn.disabled =
+            true;
+
+        notificationMessage(
+            "Notifications are active"
+        );
+
+    }
+
+    // Check if permission denied
+    if(Notification.permission === "denied"){
+
+        notificationBtn.textContent =
+            "Permission Denied";
+
+        notificationBtn.disabled =
+            true;
+
+        notificationMessage(
+            "Enable notifications in browser settings",
+            true
+        );
+
+    }
+
+});
+*/
+
+</script>
+
+<!-- Download App Popup -->
+<div class="download-popup-overlay" id="downloadPopup">
+    <div class="download-popup">
+        <button type="button" class="download-popup-close" id="downloadPopupClose" aria-label="Close">✕</button>
+        <div class="download-popup-icon">📱</div>
+        <h3>Download Our App</h3>
+        <p>Get better experience with our mobile app. Fast, easy, and convenient!</p>
+        <a href="https://drive.google.com/file/d/13I_zW9h-Vri8GcV9IoUQuMgKwG8ecFoq/view?usp=drivesdk"
+           target="_blank"
+           rel="noopener"
+           class="download-popup-btn"
+           id="downloadPopupBtn">
+            <span>⬇️</span>
+            <span>Download Now</span>
+        </a>
+    </div>
+</div>
+
+<script>
+// =====================================================
+// DOWNLOAD APP POPUP
+// =====================================================
+(function(){
+    const popup = document.getElementById('downloadPopup');
+    const closeBtn = document.getElementById('downloadPopupClose');
+    const downloadBtn = document.getElementById('downloadPopupBtn');
+
+    window.closeDownloadPopup = function(){
+        if(popup) popup.classList.remove('show');
+    };
+
+    if(closeBtn){
+        closeBtn.addEventListener('click',function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            closeDownloadPopup();
+        });
+        closeBtn.addEventListener('touchend',function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            closeDownloadPopup();
+        },{passive:false});
+    }
+
+    if(downloadBtn){
+        // Do not prevent the link's default action: this keeps it working on mobile.
+        downloadBtn.addEventListener('click',function(){
+            closeDownloadPopup();
+        });
+    }
+
+    if(popup){
+        popup.addEventListener('click',function(event){
+            if(event.target === popup){
+                closeDownloadPopup();
+            }
+        });
+    }
+
+    document.addEventListener('keydown',function(event){
+        if(event.key === 'Escape') closeDownloadPopup();
+    });
+})();
+</script>
+
+</body>
+
+</html>

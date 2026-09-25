@@ -1,0 +1,464 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background:
+    radial-gradient(circle at 50% 40%, #0d6b43 0%, #063a27 35%, #021d13 75%);
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Glow */
+
+.glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glow-1 {
+  width: 350px;
+  height: 350px;
+  background: #16a866;
+  opacity: .18;
+  top: 10%;
+  left: -100px;
+}
+
+.glow-2 {
+  width: 300px;
+  height: 300px;
+  background: #20d17b;
+  opacity: .12;
+  right: -100px;
+  bottom: 5%;
+}
+
+/* Navbar */
+
+.navbar {
+  height: 85px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  background: rgba(2,29,19,.35);
+  backdrop-filter: blur(15px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg,#1ed77b,#079150);
+  border-radius: 14px;
+  font-size: 26px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.2);
+}
+
+.logo-text h2 {
+  font-size: 21px;
+  letter-spacing: -.5px;
+}
+
+.logo-text h2 span {
+  color: #52e99a;
+}
+
+.logo-text p {
+  font-size: 9px;
+  color: #9bb6aa;
+  margin-top: 3px;
+  letter-spacing: .8px;
+}
+
+/* Admin */
+
+.admin-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: white;
+  text-decoration: none;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: .3s;
+  backdrop-filter: blur(10px);
+}
+
+.admin-btn:hover {
+  background: rgba(255,255,255,.15);
+  transform: translateY(-2px);
+}
+
+.admin-btn b {
+  color: #65eca5;
+  font-size: 17px;
+}
+
+/* Hero */
+
+.hero {
+  min-height: calc(100vh - 85px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 40px 20px 130px;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+/* Badge */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 8px 14px;
+  border-radius: 30px;
+  color: #b5d7c8;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  margin-bottom: 28px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #39e889;
+  box-shadow: 0 0 12px #39e889;
+}
+
+/* Recycling Circle */
+
+.recycle-circle {
+  width: 145px;
+  height: 145px;
+  margin: 0 auto 25px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.circle-ring {
+  position: absolute;
+  border: 1px solid rgba(79,236,155,.2);
+  border-radius: 50%;
+}
+
+.ring-1 {
+  width: 145px;
+  height: 145px;
+  animation: rotate 12s linear infinite;
+}
+
+.ring-2 {
+  width: 110px;
+  height: 110px;
+  border-color: rgba(79,236,155,.3);
+  animation: rotateReverse 8s linear infinite;
+}
+
+.recycle-icon {
+  width: 85px;
+  height: 85px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg,#13b968,#087a46);
+  border-radius: 50%;
+  font-size: 54px;
+  box-shadow:
+    0 0 50px rgba(28,220,121,.2),
+    inset 0 0 25px rgba(255,255,255,.08);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0); }
+}
+
+@keyframes float {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Heading */
+
+.hero h1 {
+  font-size: clamp(45px,7vw,78px);
+  line-height: .98;
+  letter-spacing: -4px;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg,#5df0a2,#b0ffd2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  max-width: 590px;
+  margin: auto;
+  color: #a9c1b5;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* SELL BUTTON */
+
+.sell-btn {
+  width: 285px;
+  margin: 32px auto 20px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(135deg,#14b96a,#07834b);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 18px;
+  box-shadow:
+    0 15px 45px rgba(0,0,0,.3),
+    0 0 35px rgba(24,190,108,.15);
+  transition: .3s;
+}
+
+.sell-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.35),
+    0 0 50px rgba(24,190,108,.25);
+}
+
+.sell-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.13);
+  font-size: 25px;
+}
+
+.sell-text {
+  flex: 1;
+  text-align: left;
+}
+
+.sell-text small {
+  display: block;
+  font-size: 8px;
+  color: #b9efd3;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.sell-text strong {
+  font-size: 18px;
+}
+
+.arrow {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+/* Trust */
+
+.trust {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: #87a698;
+  font-size: 10px;
+}
+
+.trust span {
+  color: #4de99a;
+  font-weight: bold;
+  margin-right: 3px;
+}
+
+/* Bottom */
+
+.bottom-info {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+
+.bottom-info div {
+  min-width: 145px;
+  padding: 11px 15px;
+  border-radius: 13px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: 28px auto;
+  column-gap: 7px;
+  text-align: left;
+}
+
+.bottom-info span {
+  grid-row: span 2;
+  font-size: 20px;
+}
+
+.bottom-info strong {
+  font-size: 10px;
+}
+
+.bottom-info small {
+  color: #829b8e;
+  font-size: 8px;
+}
+
+/* Footer */
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  color: #557568;
+  font-size: 8px;
+}
+
+/* Responsive */
+
+@media(max-width:650px) {
+
+  .navbar {
+    height: 72px;
+    padding: 0 20px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+
+  .logo-text h2 {
+    font-size: 17px;
+  }
+
+  .admin-btn {
+    padding: 9px 11px;
+    font-size: 10px;
+  }
+
+  .admin-btn b {
+    display: none;
+  }
+
+  .hero {
+    min-height: calc(100vh - 72px);
+    padding: 30px 15px 170px;
+  }
+
+  .hero h1 {
+    font-size: 49px;
+    letter-spacing: -2.5px;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .recycle-circle {
+    width: 115px;
+    height: 115px;
+  }
+
+  .ring-1 {
+    width: 115px;
+    height: 115px;
+  }
+
+  .ring-2 {
+    width: 88px;
+    height: 88px;
+  }
+
+  .recycle-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 42px;
+  }
+
+  .sell-btn {
+    width: 270px;
+  }
+
+  .trust {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .bottom-info {
+    bottom: 40px;
+    width: 92%;
+    gap: 7px;
+  }
+
+  .bottom-info div {
+    min-width: 0;
+    flex: 1;
+    padding: 9px;
+  }
+
+  .bottom-info small {
+    font-size: 7px;
+  }
+
+  footer {
+    display: none;
+  }
+}

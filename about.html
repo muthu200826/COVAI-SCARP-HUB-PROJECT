@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<title>About Us | COVAI SCRAP HUB</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --green:#10b981;
+    --green-dark:#047857;
+    --green-deep:#065f46;
+    --green-light:#ecfdf5;
+    --bg:#f6faf8;
+    --text:#10231b;
+    --muted:#718078;
+    --border:#dcebe4;
+    --white:#fff;
+    --shadow:0 10px 30px rgba(6,95,70,.08);
+}
+
+body.dark-mode{
+    --green:#34d399;
+    --dark-green:#10b981;
+    --light-green:#1f2937;
+    --text:#f1f5f9;
+    --muted:#9ca3af;
+    --border:#374151;
+    --bg:#111827;
+    --white:#1f2937;
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(26,127,78,.15),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 100% 15%,
+            rgba(13,90,53,.1),
+            transparent 28%
+        ),
+        #0f1419;
+    color:#e0e6ed;
+}
+
+body.dark-mode .header{
+    background:rgba(15,23,42,.95);
+    border-bottom:1px solid #374151;
+}
+
+body.dark-mode .back-btn{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#34d399;
+}
+
+body.dark-mode .page-title{
+    color:#e0e6ed;
+}
+
+body.dark-mode .hero{
+    background:linear-gradient(135deg,#1a7f4e,#0d5a35);
+}
+
+body.dark-mode .stat{
+    background:rgba(26,31,46,.8);
+    border:1px solid #374151;
+}
+
+body.dark-mode .stat-number{
+    color:#34d399;
+}
+
+body.dark-mode .stat-label{
+    color:#9ca3af;
+}
+
+body.dark-mode .section-title{
+    color:#e0e6ed;
+}
+
+body.dark-mode .section-subtitle{
+    color:#9ca3af;
+}
+
+body.dark-mode .mv-card,
+body.dark-mode .value-card,
+body.dark-mode .service-card{
+    background:#1a1f2e;
+    border:1px solid #374151;
+}
+
+body.dark-mode .mv-card:hover,
+body.dark-mode .value-card:hover,
+body.dark-mode .service-card:hover{
+    border-color:#34d399;
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+body.dark-mode .mv-icon,
+body.dark-mode .value-icon{
+    background:rgba(26,127,78,.2);
+    color:#34d399;
+}
+
+body.dark-mode .service-icon{
+    background:linear-gradient(135deg,#1a7f4e,#16a34a);
+    color:#fff;
+}
+
+body.dark-mode .mv-card h3,
+body.dark-mode .value-card h4,
+body.dark-mode .service-card h4{
+    color:#e0e6ed;
+}
+
+body.dark-mode .mv-card p,
+body.dark-mode .value-card p,
+body.dark-mode .service-card p{
+    color:#9ca3af;
+}
+
+body.dark-mode .cta-section{
+    background:linear-gradient(135deg,#065f46,#047857);
+}
+
+body.dark-mode .cta-btn{
+    background:#fff;
+    color:#047857;
+}
+
+body.dark-mode .footer{
+    background:#0a0f14;
+    border-top:1px solid #374151;
+}
+
+body.dark-mode .footer p{
+    color:#6b7280;
+}
+
+body.dark-mode .footer-link{
+    color:#9ca3af;
+}
+
+body.dark-mode .footer-link:hover{
+    color:#34d399;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+    transition:background .3s ease,color .3s ease;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(220,235,228,.8);
+    padding:10px 16px;
+}
+
+.header-inner{
+    max-width:1180px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.back-btn{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    background:#fff;
+    color:var(--text);
+    font-size:20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.25s ease;
+    flex-shrink:0;
+}
+
+.back-btn:active{
+    transform:scale(.94);
+}
+
+.page-title{
+    font-size:18px;
+    font-weight:750;
+    letter-spacing:-.3px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    position:relative;
+    overflow:hidden;
+    color:white;
+    background:
+        radial-gradient(circle at 10% 20%,rgba(255,255,255,.14),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(255,255,255,.10),transparent 30%),
+        linear-gradient(135deg,#10b981,#047857 75%);
+    padding:58px 18px 46px;
+    text-align:center;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.15;
+    background-image:
+        radial-gradient(circle,white 1px,transparent 1px);
+    background-size:28px 28px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:780px;
+    margin:auto;
+}
+
+.hero-icon{
+    width:74px;
+    height:74px;
+    margin:0 auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:22px;
+    font-size:42px;
+    box-shadow:0 12px 30px rgba(0,0,0,.12);
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-7px);
+    }
+}
+
+.hero h1{
+    font-size:clamp(30px,7vw,48px);
+    font-weight:850;
+    line-height:1.12;
+    letter-spacing:-1.2px;
+    margin-bottom:13px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:0 auto;
+    font-size:16px;
+    line-height:1.65;
+    opacity:.94;
+}
+
+/* ================= STATS ================= */
+
+.hero-stats{
+    max-width:600px;
+    margin:30px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.stat{
+    padding:15px 8px;
+    border-radius:15px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+}
+
+.stat-number{
+    display:block;
+    font-size:25px;
+    line-height:1.2;
+    font-weight:850;
+    margin-bottom:4px;
+}
+
+.stat-label{
+    display:block;
+    font-size:10px;
+    line-height:1.3;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    opacity:.88;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    width:100%;
+    max-width:1180px;
+    margin:auto;
+    padding:52px 20px;
+}
+
+.section{
+    margin-bottom:70px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:32px;
+    line-height:1.2;
+    font-weight:850;
+    letter-spacing:-.7px;
+    margin-bottom:10px;
+}
+
+.section-subtitle{
+    max-width:650px;
+    margin:0 auto 32px;
+    text-align:center;
+    color:var(--muted);
+    font-size:16px;
+}
+
+/* ================= MISSION ================= */
+
+.mission-vision{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.mv-card{
+    position:relative;
+    overflow:hidden;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:32px 28px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:.3s ease;
+}
+
+.mv-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,var(--green),var(--green-dark));
+}
+
+.mv-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 40px rgba(6,95,70,.12);
+}
+
+.mv-icon{
+    width:68px;
+    height:68px;
+    margin:0 auto 18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:20px;
+    background:var(--green-light);
+    font-size:36px;
+}
+
+.mv-card h3{
+    font-size:24px;
+    font-weight:800;
+    margin-bottom:11px;
+}
+
+.mv-card p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* ================= VALUES ================= */
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.value-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:25px 18px;
+    text-align:center;
+    transition:.3s ease;
+}
+
+.value-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--green);
+    box-shadow:var(--shadow);
+}
+
+.value-icon{
+    width:58px;
+    height:58px;
+    margin:0 auto 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--green-light);
+    border-radius:17px;
+    font-size:29px;
+}
+
+.value-card h4{
+    font-size:18px;
+    font-weight:750;
+    margin-bottom:7px;
+}
+
+.value-card p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.55;
+}
+
+/* ================= SERVICES ================= */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.service-card{
+    background:linear-gradient(145deg,#fff,#f2fcf7);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:25px 21px;
+    transition:.3s ease;
+}
+
+.service-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--green);
+    box-shadow:var(--shadow);
+}
+
+.service-icon{
+    width:56px;
+    height:56px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:white;
+    font-size:27px;
+    margin-bottom:17px;
+    box-shadow:0 8px 18px rgba(16,185,129,.2);
+}
+
+.service-card h4{
+    font-size:19px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.service-card p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* ================= CTA ================= */
+
+.cta-section{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(255,255,255,.12),transparent 25%),
+        linear-gradient(135deg,var(--green-deep),var(--green-dark));
+    color:white;
+    border-radius:24px;
+    padding:48px 25px;
+    text-align:center;
+    margin:30px 0 10px;
+}
+
+.cta-section h2{
+    font-size:32px;
+    line-height:1.2;
+    font-weight:850;
+    margin-bottom:11px;
+}
+
+.cta-section p{
+    max-width:600px;
+    margin:0 auto 24px;
+    font-size:16px;
+    opacity:.92;
+}
+
+.cta-btn{
+    border:0;
+    background:#fff;
+    color:var(--green-dark);
+    border-radius:13px;
+    padding:14px 28px;
+    font-size:16px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.25s ease;
+}
+
+.cta-btn:hover{
+    transform:translateY(-2px);
+}
+
+.cta-btn:active{
+    transform:scale(.97);
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#0d1d16;
+    color:white;
+    padding:35px 20px;
+    text-align:center;
+}
+
+.footer-content{
+    max-width:900px;
+    margin:auto;
+}
+
+.footer-logo{
+    font-size:21px;
+    font-weight:850;
+    margin-bottom:8px;
+}
+
+.footer p{
+    color:#b6c5bf;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:22px;
+    margin-bottom:18px;
+}
+
+.footer-link{
+    color:#dce8e3;
+    text-decoration:none;
+    font-size:13px;
+    transition:.2s ease;
+}
+
+.footer-link:hover{
+    color:#34d399;
+}
+
+/* ================= TABLET ================= */
+
+@media(max-width:900px){
+
+    .values-grid,
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .header{
+        padding:9px 13px;
+    }
+
+    .back-btn{
+        width:38px;
+        height:38px;
+        border-radius:11px;
+        font-size:18px;
+    }
+
+    .page-title{
+        font-size:17px;
+    }
+
+    .hero{
+        padding:44px 15px 32px;
+    }
+
+    .hero-icon{
+        width:62px;
+        height:62px;
+        border-radius:18px;
+        font-size:34px;
+        margin-bottom:15px;
+    }
+
+    .hero h1{
+        font-size:30px;
+        letter-spacing:-.8px;
+        margin-bottom:10px;
+    }
+
+    .hero p{
+        font-size:14px;
+        line-height:1.55;
+        padding:0 5px;
+    }
+
+    .hero-stats{
+        margin-top:23px;
+        gap:7px;
+    }
+
+    .stat{
+        padding:12px 5px;
+        border-radius:12px;
+    }
+
+    .stat-number{
+        font-size:21px;
+    }
+
+    .stat-label{
+        font-size:8px;
+        letter-spacing:.2px;
+    }
+
+    .content{
+        padding:38px 14px;
+    }
+
+    .section{
+        margin-bottom:50px;
+    }
+
+    .section-title{
+        font-size:25px;
+        letter-spacing:-.5px;
+    }
+
+    .section-subtitle{
+        font-size:14px;
+        line-height:1.55;
+        margin-bottom:23px;
+    }
+
+    .mission-vision{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .mv-card{
+        padding:26px 20px;
+        border-radius:18px;
+    }
+
+    .mv-icon{
+        width:58px;
+        height:58px;
+        border-radius:17px;
+        font-size:31px;
+        margin-bottom:14px;
+    }
+
+    .mv-card h3{
+        font-size:21px;
+        margin-bottom:8px;
+    }
+
+    .mv-card p{
+        font-size:13.5px;
+        line-height:1.65;
+    }
+
+    .values-grid,
+    .services-grid{
+        grid-template-columns:1fr 1fr;
+        gap:11px;
+    }
+
+    .value-card{
+        padding:19px 12px;
+        border-radius:16px;
+    }
+
+    .value-icon{
+        width:48px;
+        height:48px;
+        border-radius:14px;
+        font-size:24px;
+        margin-bottom:10px;
+    }
+
+    .value-card h4{
+        font-size:15px;
+        margin-bottom:5px;
+    }
+
+    .value-card p{
+        font-size:11.5px;
+        line-height:1.45;
+    }
+
+    .service-card{
+        padding:19px 15px;
+        border-radius:16px;
+    }
+
+    .service-icon{
+        width:48px;
+        height:48px;
+        border-radius:14px;
+        font-size:23px;
+        margin-bottom:13px;
+    }
+
+    .service-card h4{
+        font-size:16px;
+        margin-bottom:6px;
+    }
+
+    .service-card p{
+        font-size:12px;
+        line-height:1.5;
+    }
+
+    .cta-section{
+        margin:10px 0 0;
+        padding:35px 18px;
+        border-radius:20px;
+    }
+
+    .cta-section h2{
+        font-size:25px;
+    }
+
+    .cta-section p{
+        font-size:14px;
+        line-height:1.55;
+        margin-bottom:20px;
+    }
+
+    .cta-btn{
+        width:100%;
+        max-width:260px;
+        padding:13px 20px;
+        font-size:15px;
+    }
+
+    .footer{
+        padding:30px 15px;
+    }
+
+    .footer-logo{
+        font-size:18px;
+    }
+
+    .footer p{
+        font-size:12px;
+    }
+
+    .footer-links{
+        gap:16px;
+    }
+
+    .footer-link{
+        font-size:12px;
+    }
+}
+
+/* ================= SMALL PHONES ================= */
+
+@media(max-width:380px){
+
+    .hero{
+        padding:38px 12px 28px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .hero p{
+        font-size:13px;
+    }
+
+    .stat-number{
+        font-size:19px;
+    }
+
+    .stat-label{
+        font-size:7px;
+    }
+
+    .content{
+        padding:32px 11px;
+    }
+
+    .values-grid,
+    .services-grid{
+        gap:9px;
+    }
+
+    .value-card{
+        padding:17px 9px;
+    }
+
+    .service-card{
+        padding:17px 11px;
+    }
+
+    .section-title{
+        font-size:23px;
+    }
+}
+
+/* ================= REDUCED MOTION ================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+        scroll-behavior:auto!important;
+    }
+
+}
+
+/* =========================================
+   DARK THEME
+========================================= */
+
+body.dark-theme{
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(26,127,78,.15),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 100% 15%,
+            rgba(13,90,53,.1),
+            transparent 28%
+        ),
+        #0f1419;
+    color:#e0e6ed;
+}
+
+body.dark-theme .topbar{
+    background:rgba(15,23,42,.95);
+    border-bottom:1px solid #374151;
+}
+
+body.dark-theme .back-btn{
+    background:#1a1f2e;
+    border:1px solid #374151;
+    color:#34d399;
+}
+
+body.dark-theme .page-title{
+    color:#e0e6ed;
+}
+
+body.dark-theme .hero{
+    background:linear-gradient(
+        135deg,
+        #1a7f4e,
+        #0d5a35
+    );
+}
+
+body.dark-theme .stat-card{
+    background:rgba(26,31,46,.8);
+    border:1px solid #374151;
+}
+
+body.dark-theme .stat-num{
+    color:#34d399;
+}
+
+body.dark-theme .stat-label{
+    color:#9ca3af;
+}
+
+body.dark-theme .section-badge{
+    background:rgba(26,127,78,.2);
+    border:1px solid rgba(52,211,153,.3);
+    color:#34d399;
+}
+
+body.dark-theme .section-title{
+    color:#e0e6ed;
+}
+
+body.dark-theme .section-desc{
+    color:#9ca3af;
+}
+
+body.dark-theme .card{
+    background:#1a1f2e;
+    border:1px solid #374151;
+}
+
+body.dark-theme .card:hover{
+    border-color:#34d399;
+    box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+
+body.dark-theme .card-icon{
+    background:rgba(26,127,78,.2);
+    color:#34d399;
+}
+
+body.dark-theme .card-title{
+    color:#e0e6ed;
+}
+
+body.dark-theme .card-text{
+    color:#9ca3af;
+}
+
+body.dark-theme .value-card{
+    background:#1a1f2e;
+    border:1px solid #374151;
+}
+
+body.dark-theme .value-card:hover{
+    border-color:#34d399;
+}
+
+body.dark-theme .value-icon{
+    background:rgba(26,127,78,.2);
+    color:#34d399;
+}
+
+body.dark-theme .value-title{
+    color:#e0e6ed;
+}
+
+body.dark-theme .value-text{
+    color:#9ca3af;
+}
+
+body.dark-theme .cta-section{
+    background:#1a1f2e;
+    border:1px solid #374151;
+}
+
+body.dark-theme .cta-title{
+    color:#e0e6ed;
+}
+
+body.dark-theme .cta-text{
+    color:#9ca3af;
+}
+
+body.dark-theme .cta-btn{
+    background:#1a7f4e;
+}
+
+body.dark-theme .cta-btn:hover{
+    background:#16a34a;
+}
+
+body.dark-theme .footer{
+    background:#0a0f14;
+    border-top:1px solid #374151;
+}
+
+body.dark-theme .footer-text{
+    color:#6b7280;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="header-inner">
+
+        <button
+            class="back-btn"
+            onclick="window.history.back()"
+            aria-label="Go back"
+        >
+            ←
+        </button>
+
+        <div class="page-title" data-i18n="aboutUs">
+            About Us
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-icon">
+            ♻️
+        </div>
+
+        <h1 data-i18n="aboutHeroTitle">
+            COVAI SCRAP HUB
+        </h1>
+
+        <p data-i18n="aboutHeroDesc">
+            Your trusted partner for professional scrap collection and recycling services in Coimbatore
+        </p>
+
+
+        <div class="hero-stats">
+
+            <div class="stat">
+
+                <span class="stat-number">
+                    1000+
+                </span>
+
+                <span
+                    class="stat-label"
+                    data-i18n="happyCustomers"
+                >
+                    Happy Customers
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-number">
+                    10+
+                </span>
+
+                <span
+                    class="stat-label"
+                    data-i18n="scrapTypes"
+                >
+                    Scrap Types
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="stat-number">
+                    24/7
+                </span>
+
+                <span
+                    class="stat-label"
+                    data-i18n="supportAvailable"
+                >
+                    Support Available
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MAIN CONTENT -->
+
+<main class="content">
+
+
+    <!-- MISSION / VISION -->
+
+    <section class="section">
+
+        <div class="mission-vision">
+
+            <div class="mv-card">
+
+                <div class="mv-icon">
+                    🎯
+                </div>
+
+                <h3 data-i18n="ourMission">
+                    Our Mission
+                </h3>
+
+                <p data-i18n="missionDesc">
+                    To make scrap selling simple, transparent, and rewarding for every household and business. We strive to provide the most convenient and professional scrap collection service while promoting environmental sustainability.
+                </p>
+
+            </div>
+
+
+            <div class="mv-card">
+
+                <div class="mv-icon">
+                    🌟
+                </div>
+
+                <h3 data-i18n="ourVision">
+                    Our Vision
+                </h3>
+
+                <p data-i18n="visionDesc">
+                    To become the leading scrap collection platform in India, creating a cleaner environment through responsible recycling and helping people earn fair value for their recyclable materials.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VALUES -->
+
+    <section class="section">
+
+        <h2
+            class="section-title"
+            data-i18n="coreValues"
+        >
+            Our Core Values
+        </h2>
+
+        <p
+            class="section-subtitle"
+            data-i18n="valuesSubtitle"
+        >
+            The principles that guide everything we do
+        </p>
+
+
+        <div class="values-grid">
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    💎
+                </div>
+
+                <h4 data-i18n="transparency">
+                    Transparency
+                </h4>
+
+                <p data-i18n="transparencyDesc">
+                    Clear pricing, no hidden charges, honest dealings
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    ⚡
+                </div>
+
+                <h4 data-i18n="reliability">
+                    Reliability
+                </h4>
+
+                <p data-i18n="reliabilityDesc">
+                    On-time pickups, professional service, guaranteed
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    🌱
+                </div>
+
+                <h4 data-i18n="sustainability">
+                    Sustainability
+                </h4>
+
+                <p data-i18n="sustainabilityDesc">
+                    Eco-friendly recycling, reducing waste impact
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <div class="value-icon">
+                    🤝
+                </div>
+
+                <h4 data-i18n="integrity">
+                    Integrity
+                </h4>
+
+                <p data-i18n="integrityDesc">
+                    Fair rates, ethical practices, customer first
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="section">
+
+        <h2
+            class="section-title"
+            data-i18n="whatWeOffer"
+        >
+            What We Offer
+        </h2>
+
+        <p
+            class="section-subtitle"
+            data-i18n="servicesSubtitle"
+        >
+            Comprehensive scrap collection services for all your needs
+        </p>
+
+
+        <div class="services-grid">
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏠
+                </div>
+
+                <h4 data-i18n="homePickup">
+                    Home Pickup
+                </h4>
+
+                <p data-i18n="homePickupDesc">
+                    Schedule convenient doorstep pickups for your household scrap materials at your preferred time.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏢
+                </div>
+
+                <h4 data-i18n="businessSolution">
+                    Business Solutions
+                </h4>
+
+                <p data-i18n="businessSolutionDesc">
+                    Bulk scrap collection for offices, factories, and commercial establishments with custom pricing.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    📍
+                </div>
+
+                <h4 data-i18n="liveTracking">
+                    Live Tracking
+                </h4>
+
+                <p data-i18n="liveTrackingDesc">
+                    Real-time GPS tracking of your pickup partner from confirmation to completion.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    💰
+                </div>
+
+                <h4 data-i18n="fairPricing">
+                    Fair Pricing
+                </h4>
+
+                <p data-i18n="fairPricingDesc">
+                    Daily updated rates based on market prices. Get the best value for your scrap materials.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+        <h2 data-i18n="readyToStart">
+            Ready to Start Selling?
+        </h2>
+
+        <p data-i18n="ctaDesc">
+            Join thousands of satisfied customers and turn your scrap into cash today
+        </p>
+
+        <button
+            class="cta-btn"
+            onclick="window.location.href='customer.html'"
+        >
+
+            <span data-i18n="startSelling">
+                Start Selling Now
+            </span>
+
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="footer-logo">
+            ♻ COVAI SCRAP HUB
+        </div>
+
+        <p data-i18n="footerTagline">
+            Smart Scrap Selling • Sustainable Future
+        </p>
+
+
+        <div class="footer-links">
+
+            <a
+                href="customer.html"
+                class="footer-link"
+                data-i18n="home"
+            >
+                Home
+            </a>
+
+            <a
+                href="rates.html"
+                class="footer-link"
+                data-i18n="rates"
+            >
+                Rates
+            </a>
+
+            <a
+                href="contact.html"
+                class="footer-link"
+                data-i18n="contact"
+            >
+                Contact
+            </a>
+
+            <a
+                href="support.html"
+                class="footer-link"
+                data-i18n="support"
+            >
+                Support
+            </a>
+
+        </div>
+
+
+        <p data-i18n="copyright">
+            © 2024 Covai Scrap Hub. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="lang-system.js"></script>
+
+<script>
+
+window.addEventListener("DOMContentLoaded",function(){
+
+    if(typeof initLangTheme === "function"){
+        initLangTheme();
+    }
+
+});
+
+</script>
+
+<script>
+(function applySavedTheme(){
+    const theme = localStorage.getItem("covaiTheme");
+    if(theme === "dark"){
+        document.body.classList.add("dark-mode");
+    }
+})();
+</script>
+
+</body>
+</html>
